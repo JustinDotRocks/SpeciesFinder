@@ -1,0 +1,56 @@
+{
+	"species": [
+		{
+			"id": "species1",
+			"name": "Mammals",
+			"animals": [
+				{
+					"id": "animal1",
+					"name": "Red american Squrell",
+					"description": "A brief description of the animal...",
+					"images": ["img1.jpg", "img2.jpg"],
+					"location": {
+						"mapImage": "map1.jpg",
+						"coordinates": { "lat": 47.61638, "lng": -52.75396 }
+					}
+				},
+                {
+					"id": "animal2",
+					"name": "Red american Squrell",
+					"description": "A brief description of the animal...",
+					"images": ["img1.jpg", "img2.jpg"],
+					"location": {
+						"mapImage": "map1.jpg",
+						"coordinates": { "lat": 47.61638, "lng": -52.75396 }
+					}
+				},
+                {
+					"id": "animal3",
+					"name": "Red american Squrell",
+					"description": "A brief description of the animal...",
+					"images": ["img1.jpg", "img2.jpg"],
+					"location": {
+						"mapImage": "map1.jpg",
+						"coordinates": { "lat": 47.61638, "lng": -52.75396 }
+					}
+				}
+			]
+		},
+        {
+			"id": "species2",
+			"name": "",
+			"animals": [
+				{
+					"id": "animal1",
+					"name": "Red american Squrell",
+					"description": "A brief description of the animal...",
+					"images": ["img1.jpg", "img2.jpg"],
+					"location": {
+						"mapImage": "map1.jpg",
+						"coordinates": { "lat": 47.61638, "lng": -52.75396 }
+					}
+				}
+			]
+		}
+	]
+}

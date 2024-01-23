@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/dist/styles.css" rel="stylesheet">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link href="../dist/styles.css" rel="stylesheet">
+    <title>Species Catalogue</title>
 </head>
-<body>
+<body class="bg-gray-100">
+
+    <!-- Navbar Container -->
+    <nav class="bg-gray-800 text-white p-4 md:flex md:justify-between">
+        <div class="flex justify-between">
+            <!-- Logo/Brand on the Left -->
+            <a href="/" class="text-xl font-semibold">Species</a>
+            <!-- Hamburger Menu Button for Mobile -->
+            <button class="md:hidden" id="menuToggle">
+                <!-- Icon for Hamburger Menu (SVG or similar) -->
+                <img src="../images/burger-menu.svg" alt="Menu" class="w-2 h-2 md:w-3 md:h-3">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+        <!-- Middle Navigation Links -->
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="/mammals" class="hover:text-orange-300">Menu</a>
+            <a href="/birds" class="hover:text-orange-300">Map</a>
+        </div>
+        <!-- Right Navigation Links -->
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="/about" class="hover:text-gray-300">About</a>
+        </div>
+    </nav>
+
+    <aside class="bg-white shadow-md w-full md:w-64 absolute md:relative transform translate-x-0">
+        <ul class="p-4 md:p-2 space-y-6 md:space-y-2 text-2xl md:text-base">
+            <li><a href="#mammals" class="block py-5 md:py-6 hover:bg-gray-100">Mammals</a><button id="arrow-button" class="triangle-down"></button>
+            </li>
+            <li><a href="#birds" class="block py-6 md:py-6 hover:bg-gray-100">Birds</a></li>
+            <li><a href="#fish" class="block py-6 md:py-6 hover:bg-gray-100">Fish</a></li>
+            <li><a href="#fish" class="block py-6 md:py-6 hover:bg-gray-100">Insects</a></li>
+            <li><a href="#fish" class="block py-6 md:py-6 hover:bg-gray-100">Trees</a></li>
+            <li><a href="#fish" class="block py-6 md:py-6 hover:bg-gray-100">Plants</a></li>
+            <li><a href="#fish" class="block py-6 md:py-6 hover:bg-gray-100">Fungi</a></li>
+            <li><a href="#fish" class="block py-6 md:py-6 hover:bg-gray-100">Fossils</a></li>
+        </ul>
+    </aside>
     
+    
+
+    <!-- Main Content Area -->
+    <main class="flex-grow p-4 md:block hidden">
+        <h1>Welcome to the Species Map</h1>
+        <p>This area will display the map and related information.</p>
+    </main>
+
+    <script src="./index.js"></script>
 </body>
 </html>
