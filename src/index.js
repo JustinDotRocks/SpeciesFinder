@@ -28,3 +28,9 @@ document.getElementById('menuToggle').addEventListener('click', function() {
 document.getElementById('arrow-button').addEventListener('click', () => {
     console.log('Triangle button clicked!');
 });
+
+
+document.getElementById('hamburger-button').addEventListener('click', () => {
+    // Toggle navigation menu or similar functionality
+});
+

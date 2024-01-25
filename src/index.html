@@ -9,62 +9,71 @@
 </head>
 <body class="bg-gray-100">
 
-    <!-- Navbar Container -->
-    <nav class="bg-gray-800 text-white p-4 md:flex md:justify-between">
-        <div class="flex justify-between">
-            <!-- Logo/Brand on the Left -->
-            <a href="/" class="text-xl font-semibold">Species</a>
-            <!-- Hamburger Menu Button for Mobile -->
-            <button class="md:hidden" id="menuToggle">
-                <!-- Icon for Hamburger Menu (SVG or similar) -->
-                <img src="../images/burger-menu.svg" alt="Menu" class="w-2 h-2 md:w-3 md:h-3">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
+ <!-- Navbar Container -->
+<nav class="fixed top-0 left-0 w-full bg-white shadow-md z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo on the left -->
+            <h1 class="text-lg font-bold text-customBlue">Species</h1>
+            
+            <!-- Menu on the right -->
+            <button id="hamburger-button" class="hamburger-menu border-customBlue">
+                <span class="hamburger-line bg-customBlue"></span>
+                <span class="hamburger-line bg-customBlue"></span>
+                <span class="hamburger-line bg-customBlue"></span>
             </button>
-        </div>
-        <!-- Middle Navigation Links -->
-        <div class="hidden md:flex items-center space-x-4">
-            <a href="/mammals" class="hover:text-orange-300">Menu</a>
-            <a href="/birds" class="hover:text-orange-300">Map</a>
-        </div>
-        <!-- Right Navigation Links -->
-        <div class="hidden md:flex items-center space-x-4">
-            <a href="/about" class="hover:text-gray-300">About</a>
-        </div>
-    </nav>
+            
 
-    <aside class="bg-white shadow-md w-full md:w-64 absolute md:relative transform translate-x-0">
+            <!-- Other nav elements if any... -->
+        </div>
+    </div>
+</nav>
+    
+    <aside class="bg-white shadow-md w-full md:w-64 absolute md:relative transform translate-x-0 mt-8">
         <ul class="p-4 md:p-2 space-y-6 md:space-y-2">
+            <li class="flex flex-col justify-between items-center text-2xl md:text-base">
+                <div class="flex justify-between items-center w-full">
+                    <a href="#mammals" class="py-6 text-customBlue hover:bg-gray-100">Mammals:</a>
+                    <button class="triangle-down"></button>
+                </div>
+                <div class="card bg-white shadow-lg rounded-lg overflow-hidden my-4 w-full">
+                    <h2 class="text-center text-xl font-bold p-4" style="color: #008894;">Moose</h2>
+                    <div class="flex items-center">
+                        <div class="w-1/2">
+                            <img src="path-to-your-mammal-image.jpg" alt="Moose Image" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-1/2 p-4">
+                            <p>Description of moose goes here. This text describes the characteristics of mammals.</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
             <li class="flex justify-between items-center text-2xl md:text-base">
-                <a href="#mammals" class="block py-6 hover:bg-gray-100">Mammals</a>
+                <a href="#birds" class="block py-6 text-customBlue hover:bg-gray-100">Birds:</a>
                 <button class="triangle-down"></button>
             </li>
             <li class="flex justify-between items-center text-2xl md:text-base">
-                <a href="#birds" class="block py-6 hover:bg-gray-100">Birds</a>
+                <a href="#fish" class="block py-6 text-customBlue hover:bg-gray-100">Fish:</a>
                 <button class="triangle-down"></button>
             </li>
             <li class="flex justify-between items-center text-2xl md:text-base">
-                <a href="#fish" class="block py-6 hover:bg-gray-100">Fish</a>
+                <a href="#insects" class="block py-6 text-customBlue hover:bg-gray-100">Insects:</a>
                 <button class="triangle-down"></button>
             </li>
             <li class="flex justify-between items-center text-2xl md:text-base">
-                <a href="#insects" class="block py-6 hover:bg-gray-100">Insects</a>
+                <a href="#trees" class="block py-6 text-customBlue hover:bg-gray-100">Trees:</a>
                 <button class="triangle-down"></button>
             </li>
             <li class="flex justify-between items-center text-2xl md:text-base">
-                <a href="#trees" class="block py-6 hover:bg-gray-100">Trees</a>
+                <a href="#plants" class="block py-6 text-customBlue hover:bg-gray-100">Plants:</a>
                 <button class="triangle-down"></button>
             </li>
             <li class="flex justify-between items-center text-2xl md:text-base">
-                <a href="#plants" class="block py-6 hover:bg-gray-100">Plants</a>
+                <a href="#fungi" class="block py-6 text-customBlue hover:bg-gray-100">Fungi:</a>
                 <button class="triangle-down"></button>
             </li>
             <li class="flex justify-between items-center text-2xl md:text-base">
-                <a href="#fungi" class="block py-6 hover:bg-gray-100">Fungi</a>
-                <button class="triangle-down"></button>
-            </li>
-            <li class="flex justify-between items-center text-2xl md:text-base">
-                <a href="#fossils" class="block py-6 hover:bg-gray-100">Fossils</a>
+                <a href="#fossils" class="block py-6 text-customBlue hover:bg-gray-100">Fossils:</a>
                 <button class="triangle-down"></button>
             </li>
         </ul>

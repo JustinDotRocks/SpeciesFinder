@@ -7,5 +7,15 @@
     @apply relative h-0 w-0;
     border-left: 1rem solid transparent;
     border-right: 1rem solid transparent;
-    border-top: 1.5rem solid black; /* Color of the triangle */
+    border-top: 1.5rem solid #0089aa; /* Color of the triangle */
+}
+
+.hamburger-menu {
+    @apply inline-flex flex-col justify-center items-center w-10 h-10 rounded-full bg-white border-2;
+    border-color: #0089aa;
+}
+
+.hamburger-line {
+    @apply w-6 h-0.5 my-1;
+    background-color: #0089aa;
 }
