@@ -9,22 +9,18 @@
 </head>
 <body class="bg-gray-100">
 
- <!-- Navbar Container -->
+<!-- Navbar Container -->
 <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
             <!-- Logo on the left -->
             <h1 class="text-lg font-bold text-customBlue">Species</h1>
-            
             <!-- Menu on the right -->
             <button id="hamburger-button" class="hamburger-menu border-customBlue">
                 <span class="hamburger-line bg-customBlue"></span>
                 <span class="hamburger-line bg-customBlue"></span>
                 <span class="hamburger-line bg-customBlue"></span>
             </button>
-            
-
-            <!-- Other nav elements if any... -->
         </div>
     </div>
 </nav>
@@ -34,55 +30,63 @@
             <li class="flex flex-col justify-between items-center text-2xl md:text-base">
                 <div class="flex justify-between items-center w-full">
                     <a href="#mammals" class="py-6 text-customBlue hover:bg-gray-100">Mammals:</a>
-                    <button class="triangle-down"></button>
+                    <button class="triangle-down arrow-button" data-target="mammalsCard"></button>
                 </div>
-                <div class="card bg-white shadow-lg rounded-lg overflow-hidden my-4 w-full">
+                <div class="card bg-white border-2 border-customBlue shadow-lg rounded-lg overflow-hidden hidden my-4 w-4/5" data-card="mammalsCard">
                     <h2 class="text-center text-xl font-bold p-4" style="color: #008894;">Moose</h2>
                     <div class="flex items-center">
                         <div class="w-1/2">
                             <img src="path-to-your-mammal-image.jpg" alt="Moose Image" class="w-full h-full object-cover">
                         </div>
-                        <div class="w-1/2 p-4">
+                        <div class="w-1/2 p-4 text-base">
                             <p>Description of moose goes here. This text describes the characteristics of mammals.</p>
                         </div>
                     </div>
                 </div>
+                <div class="card bg-white border-2 border-customBlue shadow-lg rounded-lg overflow-hidden hidden my-4 w-4/5" data-card="mammalsCard">
+                    <h2 class="text-center text-xl font-bold p-4" style="color: #008894;">Snowshoe Hare</h2>
+                    <div class="flex items-center">
+                        <div class="w-1/2">
+                            <img src="path-to-your-mammal-image.jpg" alt="Snowshoe Hare Image" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-1/2 p-4 text-base">
+                            <p>Description of Snowshoe Hare goes here. This text describes the characteristics of mammals.</p>
+                        </div>
+                    </div>
+                </div>
             </li>
-            <li class="flex justify-between items-center text-2xl md:text-base">
-                <a href="#birds" class="block py-6 text-customBlue hover:bg-gray-100">Birds:</a>
-                <button class="triangle-down"></button>
+            <li class="flex flex-col justify-between items-center text-2xl md:text-base">
+                <div class="flex justify-between items-center w-full">
+                    <a href="#mammals" class="py-6 text-customBlue hover:bg-gray-100">Birds:</a>
+                    <button class="triangle-down arrow-button" data-target="birdsCard"></button>
+                </div>
+                <div class="card bg-white border-2 border-customBlue shadow-lg rounded-lg overflow-hidden hidden my-4 w-4/5" data-card="birdsCard">
+                    <h2 class="text-center text-xl font-bold p-4" style="color: #008894;">Kingfisher</h2>
+                    <div class="flex items-center">
+                        <div class="w-1/2">
+                            <img src="path-to-your-mammal-image.jpg" alt="Kingfisher Image" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-1/2 p-4 text-base">
+                            <p>Description of Kingfisher goes here. This text describes the characteristics of mammals.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-white border-2 border-customBlue shadow-lg rounded-lg overflow-hidden hidden my-4 w-4/5" data-card="birdsCard">
+                    <h2 class="text-center text-xl font-bold p-4" style="color: #008894;">Duck</h2>
+                    <div class="flex items-center">
+                        <div class="w-1/2">
+                            <img src="path-to-your-mammal-image.jpg" alt="Duck Image" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-1/2 p-4 text-base">
+                            <p>Description of Duck goes here. This text describes the characteristics of mammals.</p>
+                        </div>
+                    </div>
+                </div>
             </li>
-            <li class="flex justify-between items-center text-2xl md:text-base">
-                <a href="#fish" class="block py-6 text-customBlue hover:bg-gray-100">Fish:</a>
-                <button class="triangle-down"></button>
-            </li>
-            <li class="flex justify-between items-center text-2xl md:text-base">
-                <a href="#insects" class="block py-6 text-customBlue hover:bg-gray-100">Insects:</a>
-                <button class="triangle-down"></button>
-            </li>
-            <li class="flex justify-between items-center text-2xl md:text-base">
-                <a href="#trees" class="block py-6 text-customBlue hover:bg-gray-100">Trees:</a>
-                <button class="triangle-down"></button>
-            </li>
-            <li class="flex justify-between items-center text-2xl md:text-base">
-                <a href="#plants" class="block py-6 text-customBlue hover:bg-gray-100">Plants:</a>
-                <button class="triangle-down"></button>
-            </li>
-            <li class="flex justify-between items-center text-2xl md:text-base">
-                <a href="#fungi" class="block py-6 text-customBlue hover:bg-gray-100">Fungi:</a>
-                <button class="triangle-down"></button>
-            </li>
-            <li class="flex justify-between items-center text-2xl md:text-base">
-                <a href="#fossils" class="block py-6 text-customBlue hover:bg-gray-100">Fossils:</a>
-                <button class="triangle-down"></button>
-            </li>
+            
         </ul>
     </aside>
-    
-    
-    
 
-    <!-- Main Content Area -->
     <main class="flex-grow p-4 md:block hidden">
         <h1>Welcome to the Species Map</h1>
         <p>This area will display the map and related information.</p>
