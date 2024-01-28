@@ -1,5 +1,26 @@
 // Single Event Listener for the Triangle Button
+// document.addEventListener('DOMContentLoaded', () => {
+//     document.querySelectorAll('.triangle-button').forEach(button => {
+//         button.addEventListener('click', function() {
+//             // Toggle the triangle direction classes
+//             this.classList.toggle('triangle-up');
+//             this.classList.toggle('triangle-down');
+
+//             // Get the target card ID from the data-target attribute
+//             const targetCardId = this.getAttribute('data-target');
+
+//             // Find and toggle visibility of all corresponding cards
+//             document.querySelectorAll(`.card[data-card="${targetCardId}"]`).forEach(card => {
+//                 card.classList.toggle('hidden');
+//             });
+//         });
+//     });
+// });
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Toggling cards functionality
     document.querySelectorAll('.triangle-button').forEach(button => {
         button.addEventListener('click', function() {
             // Toggle the triangle direction classes
@@ -15,9 +36,34 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // New functionality for opening and closing the modal
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', function() {
+            // Extract and set the title
+            const title = this.querySelector('h2').textContent;
+            document.getElementById('modalTitle').textContent = title;
+    
+            // Extract and set the image source
+            const imageSrc = this.querySelector('img').src;
+            document.getElementById('modalImage').src = imageSrc;
+    
+            // Extract and set the description
+            const description = this.querySelector('p').textContent;
+            document.getElementById('modalDescription').textContent = description;
+    
+            // Show the modal
+            document.getElementById('modal').classList.remove('hidden');
+        });
+    });
+    
+    
+
+    // Closing the modal
+    document.getElementById('closeModal').addEventListener('click', () => {
+        document.getElementById('modal').classList.add('hidden');
+    });
 });
-
-
 
 
 

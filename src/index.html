@@ -14,7 +14,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
             <!-- Logo on the left -->
-            <h1 class="text-lg font-bold text-customBlue">Species</h1>
+            <h1 class="text-2xl font-bold text-customBlue">Species</h1>
             <!-- Menu on the right -->
             <button id="hamburger-button" class="hamburger-menu border-customBlue">
                 <span class="hamburger-line bg-customBlue"></span>
@@ -25,11 +25,11 @@
     </div>
 </nav>
     
-    <aside class="bg-white shadow-md w-full md:w-64 absolute md:relative transform translate-x-0 mt-8">
+    <aside class="bg-white shadow-md w-full md:w-64 absolute md:relative transform translate-x-0 mt-16">
         <ul class="p-4 md:p-2 space-y-6 md:space-y-2">
             <li class="flex flex-col justify-between items-center text-2xl md:text-base">
                 <div class="flex justify-between items-center w-full">
-                    <a href="#mammals" class="py-6 text-customBlue hover:bg-gray-100">Mammals:</a>
+                    <div class="py-6 text-customBlue hover:bg-gray-100">Mammals:</div>
                     <button class="triangle-down triangle-button" data-target="mammalsCard"></button>
                 </div>
                 <div class="card bg-white border-2 border-customBlue shadow-lg rounded-lg overflow-hidden hidden my-4 w-4/5" data-card="mammalsCard">
@@ -57,7 +57,7 @@
             </li>
             <li class="flex flex-col justify-between items-center text-2xl md:text-base">
                 <div class="flex justify-between items-center w-full">
-                    <a href="#mammals" class="py-6 text-customBlue hover:bg-gray-100">Birds:</a>
+                    <div class="py-6 text-customBlue hover:bg-gray-100">Birds:</div>
                     <button class="triangle-down triangle-button" data-target="birdsCard"></button>
 
                 </div>
@@ -86,7 +86,37 @@
             </li>
             
         </ul>
+        
     </aside>
+
+    <div id="modal" class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center">
+        <div class="bg-white rounded-lg overflow-auto max-h-full w-3/4 relative">
+            <button id="closeModal" class="absolute top-0 right-0 m-2 text-2xl">&times;</button>
+            
+            <!-- Modal Title -->
+            <div class="p-4">
+                <h2 id="modalTitle" class="text-center text-xl font-bold mb-4"></h2>
+            </div>
+    
+            <!-- Image Container -->
+            <div class="flex justify-center px-4 pb-4">
+                <img id="modalImage" src="" alt="Modal Image" class="max-w-full h-auto object-cover">
+            </div>
+    
+            <!-- Container for Map and Description -->
+            <div class="flex flex-row md:flex-row px-4 pb-4">
+                <!-- Map Container -->
+                <div id="mapContainer" class="flex-1 bg-gray-200 h-48 md:h-auto mr-4">
+                    Map Placeholder
+                </div>
+    
+                <!-- Description Container -->
+                <div class="flex-1">
+                    <p id="modalDescription"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main class="flex-grow p-4 md:block hidden">
         <h1>Welcome to the Species Map</h1>
