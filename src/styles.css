@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 
+.arrow-down {
+  border: solid white;
+  border-width: 0 20px 20px 0; /* Increased border width */
+  display: inline-block;
+  padding: 40px; /* Increased padding */
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+
 .triangle-button {
     @apply relative h-0 w-0;
   }
@@ -29,3 +39,4 @@
     @apply w-6 h-0.5 my-1;
     background-color: #0089aa;
 }
+

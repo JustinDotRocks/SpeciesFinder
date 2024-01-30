@@ -174,7 +174,7 @@
 		],
 		"fish": [
             {
-                "id": "F001",
+                "id": "FI001",
                 "common_name": "Brown Trout",
                 "scientific_name": "Salmo trutta",
                 "description": "Introduced to St. John's, Newfoundland from Scotland in 1884, the Brown Trout's stocking continued until the late 1930s. In their habitat, adult Brown Trouts mainly live in stream pools, while the younger ones occupy both pools and riffles. They are nocturnal feeders, preying on aquatic and terrestrial insects, small rodents, and other smaller fish.",
@@ -182,7 +182,7 @@
                 "map_image": "URL_or_path_to_brown_trout_distribution_map"
             },
             {
-                "id": "F002",
+                "id": "FI002",
                 "common_name": "Brook Trout",
                 "scientific_name": "Salvelinus fontinalis",
                 "description": "Brook Trout, a freshwater salmonid species, are native to Newfoundland and Labrador and found throughout Canada. They prefer river banks and in-stream cover in streams, and in lakes, they seek cold, clear waters. Thriving in water with a pH between 6.5 and 8.0, they congregate for spawning from mid-September to mid-October.",
@@ -190,7 +190,7 @@
                 "map_image": "URL_or_path_to_brook_trout_distribution_map"
             },
             {
-                "id": "F003",
+                "id": "FI003",
                 "common_name": "American Eel",
                 "scientific_name": "Anguilla rostrata",
                 "description": "The American Eel is a catadromous fish, migrating from freshwater to the ocean for spawning upon reaching maturity. Born sexually undifferentiated, their sex is determined during the yellow eel stage, influenced by environmental factors. High densities and poor conditions often yield more males, while larger rivers and lower densities typically produce more females.",
@@ -198,7 +198,7 @@
                 "map_image": "URL_or_path_to_american_eel_distribution_map"
             },
             {
-                "id": "F004",
+                "id": "FI004",
                 "common_name": "Atlantic Salmon",
                 "scientific_name": "Salmo salar",
                 "description": "Atlantic Salmon may spend up to 4 years in the ocean before returning to freshwater for spawning. They often spawn once or twice, but some may breed multiple times. Newly hatched salmon depend on their yolk sac nutrients and start migrating from freshwater to the ocean during the smolt stage, which can take 1-8 years. In our river, they are mainly found downstream below the falls.",
@@ -206,7 +206,7 @@
                 "map_image": "URL_or_path_to_atlantic_salmon_distribution_map"
             },
             {
-                "id": "F005",
+                "id": "FI005",
                 "common_name": "Thorny Skate",
                 "scientific_name": "Amblyraja radiata",
                 "description": "The lifespan of Thorny Skate found in Newfoundland is estimated to be between 16-20 years. They feed on a wide variety of prey, including invertebrates and small fish, and inhabit depths of 18-1200m. Females lay egg cases, known as 'mermaid/devil purses,' on the sea floor, which are fertilized in the womb. These fish are sometimes found in the estuary.",
@@ -214,7 +214,7 @@
                 "map_image": "URL_or_path_to_thorny_skate_distribution_map"
             },
             {
-                "id": "F006",
+                "id": "FI006",
                 "common_name": "Three-Spined Stickleback",
                 "scientific_name": "Gasterosteus aculeatus",
                 "description": "Also known as 'pricklies' or 'Benny sickles' in parts of Newfoundland, Three-Spined Sticklebacks are native to the province and found in nearly every water body, including our river. They are omnivorous, consuming worms, drowned insects, fish eggs, and crustaceans.",
