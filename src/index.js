@@ -71,6 +71,31 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.classList.add('hidden');
     });
 
+    // About Page Toggling
 
+    document.getElementById('aboutLink').addEventListener('click', () => {
+        document.getElementById('menu-modal').classList.add('hidden');
+        document.getElementById('overlay').classList.add('hidden');
+    });
+    
 });
+
+document.addEventListener('DOMContentLoaded', handleRouteChange, false);
+window.addEventListener('hashchange', handleRouteChange, false);
+
+function handleRouteChange() {
+  const hash = window.location.hash;
+
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.add('hidden');
+  });
+
+  // Show the page based on the hash
+  if (hash === '#about') {
+    document.getElementById('aboutPage').classList.remove('hidden');
+  } else {
+    document.getElementById('mainContent').classList.remove('hidden');
+  }
+}
 

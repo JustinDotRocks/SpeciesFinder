@@ -26,14 +26,14 @@
 </nav>
 
 <!-- Hamburger Menu Modal -->
-<div id="menu-modal" class="fixed top-16 right-0 hidden h-full w-1/2 bg-white shadow-md z-40">
+<div id="menu-modal" class="mainContent fixed top-16 right-0 hidden h-full w-1/2 bg-white shadow-md z-40">
     <div class="flex flex-col h-full justify-between">
         <!-- Links Section -->
         <div class="flex flex-col items-center justify-center flex-grow">
             <a href="#" id="homeLink" class="my-2">Home</a>
             <a href="#" class="my-2">Species Selector</a>
             <a href="#" class="my-2">Map</a>
-            <a href="#" class="my-2">About</a>
+            <a href="#about" id="aboutLink">About</a>
         </div>
         <!-- Footer Section -->
         <div class="bg-gray-200 h-1/3 w-full flex flex-col items-center justify-center space-y-2 p-4">
@@ -50,7 +50,7 @@
 <!-- Hamburger Menu Overlay -->
 <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-30"></div>
 
-
+<div id="mainContent" class="page">
 <!-- Landing Page -->
 <div class="landing-page bg-cover bg-center h-screen flex flex-col justify-between overflow-hidden z-0" style="background-image: url('path_to_your_background_image.jpg');">
     <!-- Opacity Overlay -->
@@ -167,6 +167,14 @@
     <h1>Welcome to the Species Map</h1>
     <p>This area will display the map and related information.</p>
 </main>
+</div>
+
+<!-- About Page Content -->
+<div id="aboutPage" class="page hidden pt-16 mt-40">
+    <!-- About content here -->
+    <h1>About Us</h1>
+    <p>This is the about page content.</p>
+</div>
 
 <script src="./index.js"></script>
 </body>
