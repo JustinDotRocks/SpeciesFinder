@@ -1,25 +1,8 @@
-// Single Event Listener for the Triangle Button
-// document.addEventListener('DOMContentLoaded', () => {
-//     document.querySelectorAll('.triangle-button').forEach(button => {
-//         button.addEventListener('click', function() {
-//             // Toggle the triangle direction classes
-//             this.classList.toggle('triangle-up');
-//             this.classList.toggle('triangle-down');
-
-//             // Get the target card ID from the data-target attribute
-//             const targetCardId = this.getAttribute('data-target');
-
-//             // Find and toggle visibility of all corresponding cards
-//             document.querySelectorAll(`.card[data-card="${targetCardId}"]`).forEach(card => {
-//                 card.classList.toggle('hidden');
-//             });
-//         });
-//     });
-// });
-
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM fully loaded and parsed");
+
     // Toggling cards functionality
     document.querySelectorAll('.triangle-button').forEach(button => {
         button.addEventListener('click', function() {
@@ -37,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // New functionality for opening and closing the modal
+    // Functionality for opening and closing the modal
     document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', function() {
             // Extract and set the title
@@ -56,15 +39,29 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('modal').classList.remove('hidden');
         });
     });
-    
-    
 
-    // Closing the modal
+    // Closing the  card modal
     document.getElementById('closeModal').addEventListener('click', () => {
         document.getElementById('modal').classList.add('hidden');
     });
+
+    // Hamburger Menu Functionality
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const menuModal = document.getElementById('menu-modal');
+    const overlay = document.getElementById('overlay');
+
+    hamburgerButton.addEventListener('click', () => {
+        console.log("Hamburger button clicked");
+
+        menuModal.classList.toggle('hidden');
+        overlay.classList.toggle('hidden');
+    });
+
+    // Close  menu modal when clicking on overlay
+    overlay.addEventListener('click', () => {
+        menuModal.classList.add('hidden');
+        overlay.classList.add('hidden');
+    });
+
 });
-
-
-
 
