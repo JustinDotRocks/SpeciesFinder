@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburgerButton = document.getElementById('hamburger-button');
     const menuModal = document.getElementById('menu-modal');
     const overlay = document.getElementById('overlay');
+    const homeLink = document.getElementById('homeLink');
 
     hamburgerButton.addEventListener('click', () => {
         console.log("Hamburger button clicked");
@@ -62,6 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
         menuModal.classList.add('hidden');
         overlay.classList.add('hidden');
     });
+
+    // Closes the menu modal when the Home link in the menu is clicked
+    homeLink.addEventListener('click', function() {
+        // Close the menu modal and overlay
+        menuModal.classList.add('hidden');
+        overlay.classList.add('hidden');
+    });
+
 
 });
 
