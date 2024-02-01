@@ -3,13 +3,22 @@
 @tailwind utilities;
 
 
+@keyframes expandContract {
+  0%, 100% {
+    transform: rotate(45deg) scale(1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1.1);
+  }
+}
+
 .arrow-down {
   border: solid white;
-  border-width: 0 20px 20px 0; /* Increased border width */
+  border-width: 0 20px 20px 0;
   display: inline-block;
-  padding: 40px; /* Increased padding */
+  padding: 40px;
   transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+  animation: expandContract 2s ease-in-out infinite;
 }
 
 
