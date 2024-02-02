@@ -80,22 +80,26 @@ document.addEventListener('DOMContentLoaded', () => {
     
 });
 
-document.addEventListener('DOMContentLoaded', handleRouteChange, false);
 window.addEventListener('hashchange', handleRouteChange, false);
 
 function handleRouteChange() {
-  const hash = window.location.hash;
+    const hash = window.location.hash;
 
-  // Hide all pages
-  document.querySelectorAll('.page').forEach(page => {
-    page.classList.add('hidden');
-  });
+    // Hide both main content and About section initially
+    const mainContent = document.getElementById('mainContent'); 
+    const aboutPage = document.getElementById('aboutPage');
+    mainContent.classList.add('hidden');
+    aboutPage.classList.add('hidden');
 
-  // Show the page based on the hash
-  if (hash === '#about') {
-    document.getElementById('aboutPage').classList.remove('hidden');
-  } else {
-    document.getElementById('mainContent').classList.remove('hidden');
-  }
+    // Conditional rendering based on the hash
+    if (hash === '#about') {
+        // Show About page
+        aboutPage.classList.remove('hidden');
+    } else {
+        // Show main content
+        mainContent.classList.remove('hidden');
+    }
 }
+
+handleRouteChange();
 
