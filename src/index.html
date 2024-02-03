@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.tailwindcss.com" rel="stylesheet">
     <link href="../dist/styles.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/199b8e5f85.js" crossorigin="anonymous"></script>
     <title>Species Catalogue</title>
 </head>
 <body class="bg-gray-100">
@@ -58,9 +59,9 @@
 
     <!-- Text Elements Container -->
     <div class="text-container z-10 flex flex-col items-center justify-center h-3/4 space-y-4">
-        <h1 class="text-white text-4xl">Your Main Heading</h1>
-        <p class="text-white text-xl">Subheading or description</p>
-        <p class="text-white text-lg">Another piece of text or call to action</p>
+        <h1 class="text-white text-5xl">Species Finder</h1>
+        <p class="text-white text-3xl"> at Manuels River</p>
+        <p class="text-white text-2xl">Discover More!</p>
     </div>
 
     <!-- Downward Arrow at the Bottom -->
@@ -70,6 +71,7 @@
 
 </div>
 
+<!-- Species Selection Menu -->
 <aside class="bg-white shadow-md w-full md:w-64 absolute md:relative transform translate-x-0 mt-0">
     <ul class="p-4 md:p-2 space-y-6 md:space-y-2">
         <li class="flex flex-col justify-between items-center text-2xl md:text-base">
@@ -170,28 +172,44 @@
 </div>
 
 <!-- About Page Content -->
-    <div id="aboutPage" class="mt-16 p-4 hidden">
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold mb-4">About Manuels River</h2>
-          <p class="mb-4">Manuels River is a community-driven initiative focused on conserving the natural and cultural heritage of the area. This app aims to enhance the visitor experience, providing interactive and informative insights into the diverse species found along the river and its surroundings.</p>
-          <p class="mb-4">Manuels River Community Inc. is dedicated to preserving the river's ecological integrity and promoting environmental education through various programs and activities.</p>
-          <div class="flex space-x-4">
-            <a href="https://www.facebook.com/ManuelsRiver" target="_blank" class="hover:underline">Facebook</a>
-            <a href="https://www.manuelsriver.ca" target="_blank" class="hover:underline">Website</a>
-          </div>
-        </section>
+    <div id="aboutPage" class="mt-16 hidden h-screen">
+        <div class="bg-cover bg-center h-screen  flex flex-col  overflow-hidden z-0" style="background-image: url('../images/mr-trail-overhead.jpg');">
+            <!-- Opacity Overlay -->
+            <div class="bg-customBlue bg-opacity-55 mt-16 w-screen h-screen absolute top-0 left-0 overflow-hidden z-10"></div>
         
-        <section>
-          <h2 class="text-2xl font-bold mb-4">About the Developer</h2>
-          <p class="mb-4">I'm [Your Name], a passionate developer dedicated to creating impactful solutions. This project represents a synergy of my skills and my commitment to contributing to meaningful causes.</p>
-          <a href="https://www.linkedin.com/in/justinfsmith0/" target="_blank" class="hover:underline flex items-center space-x-2">
-            <span>LinkedIn</span>
-            <img src="path_to_your_linkedin_icon.png" alt="LinkedIn" class="w-5 h-5">
-          </a>
-          <!-- Add any other social media icon if needed -->
-        </section>
-      </div>
-      
+            <section class="mb-2 text-white p-4 z-30">
+            <h2 class="text-3xl font-bold mb-4">About Manuels River</h2>
+            <p class="text-xl mb-4">Manuels River is a community-driven initiative focused on conserving the natural and cultural heritage of the area. This app aims to enhance the visitor experience, providing interactive and informative insights into the diverse species found along the river and its surroundings.</p>
+            <p class="text-xl mb-4">Manuels River Community Inc. is dedicated to preserving the river's ecological integrity and promoting environmental education through various programs and activities.</p>
+            <div class="flex space-x-4">
+                <a href="https://www.facebook.com/ManuelsRiver" target="_blank" class="hover:underline flex flex-col items-center">
+                    <i class="fa-brands fa-facebook-square fa-2x"></i>
+                    <span>Facebook</span>
+                </a>
+            
+                <a href="https://www.manuelsriver.ca" target="_blank" class="hover:underline flex flex-col items-center">
+                    <i class="fas fa-globe fa-2x"></i> <!-- Adjust the icon class as needed -->
+                    <span>Website</span>
+                </a>
+            </div>
+            
+            </section>
+            
+            <section class="text-white p-4 z-30">
+                <h2 class="text-3xl font-bold mb-4">About the Developer</h2>
+                <p class="text-xl mb-4">I'm Justin Smith, a passionate developer dedicated to creating impactful solutions. This project represents a synergy of my skills and my commitment to contributing to meaningful causes.</p>
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/justinfsmith0/" target="_blank" class="hover:underline flex flex-col items-center">
+                        <i class="fa-brands fa-linkedin fa-2x"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                <!-- Add any other social media icon if needed -->
+                </div>
+            </section>
+            
+        </div>
+    </div>
+
 <script src="./index.js"></script>
 </body>
 </html>
