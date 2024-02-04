@@ -1,108 +1,73 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM fully loaded and parsed");
+    // Variables for common elements
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const menuModal = document.getElementById('menu-modal');
+    const overlay = document.getElementById('overlay');
+    const menuLinks = document.querySelectorAll('#menu-modal a');
+    const cardButtons = document.querySelectorAll('.triangle-button');
+    const cardModals = document.querySelectorAll('.card');
+    const closeModalButton = document.getElementById('closeModal');
 
-    // Toggling cards functionality
-    document.querySelectorAll('.triangle-button').forEach(button => {
-        button.addEventListener('click', function() {
-            // Toggle the triangle direction classes
-            this.classList.toggle('triangle-up');
-            this.classList.toggle('triangle-down');
+    // Toggle menu visibility and animation
+    const toggleMenu = () => {
+        const isMenuOpen = menuModal.classList.contains('menu-slide-in');
+        menuModal.classList.toggle('hidden', isMenuOpen);
+        menuModal.classList.toggle('menu-slide-in', !isMenuOpen);
+        menuModal.classList.toggle('menu-slide-out', isMenuOpen);
+        overlay.classList.toggle('hidden');
+        hamburgerButton.classList.toggle('hamburger-x');
+    };
 
-            // Get the target card ID from the data-target attribute
-            const targetCardId = this.getAttribute('data-target');
+    // Close menu and overlay
+    const closeMenu = () => {
+        menuModal.classList.replace('menu-slide-in', 'menu-slide-out');
+        setTimeout(() => menuModal.classList.add('hidden'), 300);
+        overlay.classList.add('hidden');
+        hamburgerButton.classList.remove('hamburger-x');
+    };
 
-            // Find and toggle visibility of all corresponding cards
-            document.querySelectorAll(`.card[data-card="${targetCardId}"]`).forEach(card => {
-                card.classList.toggle('hidden');
-            });
+    // Menu functionality
+    hamburgerButton.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', closeMenu);
+    menuLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+    // Card toggle functionality
+    cardButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-target');
+            const targetCard = document.querySelector(`[data-card="${targetId}"]`);
+            targetCard.classList.toggle('hidden');
         });
     });
 
-    // Functionality for opening and closing the modal
-    document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', function() {
-            // Extract and set the title
-            const title = this.querySelector('h2').textContent;
+    // Modal interactions
+    cardModals.forEach(card => {
+        card.addEventListener('click', (e) => {
+            const title = card.querySelector('h2').textContent;
+            const imageSrc = card.querySelector('img').src;
+            const description = card.querySelector('p').textContent;
             document.getElementById('modalTitle').textContent = title;
-    
-            // Extract and set the image source
-            const imageSrc = this.querySelector('img').src;
             document.getElementById('modalImage').src = imageSrc;
-    
-            // Extract and set the description
-            const description = this.querySelector('p').textContent;
             document.getElementById('modalDescription').textContent = description;
-    
-            // Show the modal
             document.getElementById('modal').classList.remove('hidden');
         });
     });
 
-    // Closing the  card modal
-    document.getElementById('closeModal').addEventListener('click', () => {
+    closeModalButton.addEventListener('click', () => {
         document.getElementById('modal').classList.add('hidden');
     });
 
-    // Hamburger Menu Functionality
-    const hamburgerButton = document.getElementById('hamburger-button');
-    const menuModal = document.getElementById('menu-modal');
-    const overlay = document.getElementById('overlay');
-    const homeLink = document.getElementById('homeLink');
+    // Handle route changes for about page and main content visibility
+    const handleRouteChange = () => {
+        const hash = window.location.hash;
+        const mainContent = document.getElementById('mainContent');
+        const aboutPage = document.getElementById('aboutPage');
 
-    hamburgerButton.addEventListener('click', () => {
-        console.log("Hamburger button clicked");
+        mainContent.classList.toggle('hidden', hash === '#about');
+        aboutPage.classList.toggle('hidden', hash !== '#about');
+        window.scrollTo(0, 0);
+    };
 
-        menuModal.classList.toggle('hidden');
-        overlay.classList.toggle('hidden');
-    });
-
-    // Close  menu modal when clicking on overlay
-    overlay.addEventListener('click', () => {
-        menuModal.classList.add('hidden');
-        overlay.classList.add('hidden');
-    });
-
-    // Closes the menu modal when the Home link in the menu is clicked
-    homeLink.addEventListener('click', function() {
-        // Close the menu modal and overlay
-        menuModal.classList.add('hidden');
-        overlay.classList.add('hidden');
-    });
-
-    // About Page Toggling
-
-    document.getElementById('aboutLink').addEventListener('click', () => {
-        document.getElementById('menu-modal').classList.add('hidden');
-        document.getElementById('overlay').classList.add('hidden');
-    });
-    
+    window.addEventListener('hashchange', handleRouteChange);
+    handleRouteChange(); // Ensure correct section is displayed on initial load
 });
-
-function handleRouteChange() {
-    const hash = window.location.hash;
-
-    // Hide both main content and About section initially
-    const mainContent = document.getElementById('mainContent'); 
-    const aboutPage = document.getElementById('aboutPage');
-    mainContent.classList.add('hidden');
-    aboutPage.classList.add('hidden');
-
-    // Conditional rendering based on the hash
-    if (hash === '#about') {
-        // Show About page
-        aboutPage.classList.remove('hidden');
-    } else {
-        // Show main content
-        mainContent.classList.remove('hidden');
-    }
-    // Scroll to the top of the page
-    window.scrollTo(0, 0);
-}
-
-window.addEventListener('hashchange', handleRouteChange, false);
-
-
-handleRouteChange();
-

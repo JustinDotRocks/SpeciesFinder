@@ -47,5 +47,29 @@
 .hamburger-line {
     @apply w-6 h-0.5 my-1;
     background-color: #0089aa;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Transform hamburger into "X" */
+.hamburger-x .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-x .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-x .hamburger-line:nth-child(3) {
+  transform: translateY(-11px) rotate(-46deg);
+}
+
+.menu-slide-in {
+  transform: translateX(0%);
+  transition: transform 250ms ease-in-out;
+}
+
+.menu-slide-out {
+  transform: translateX(100%);
+  transition: transform 250ms ease-in-out;
 }
 
