@@ -80,8 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
 });
 
-window.addEventListener('hashchange', handleRouteChange, false);
-
 function handleRouteChange() {
     const hash = window.location.hash;
 
@@ -99,7 +97,12 @@ function handleRouteChange() {
         // Show main content
         mainContent.classList.remove('hidden');
     }
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
 }
+
+window.addEventListener('hashchange', handleRouteChange, false);
+
 
 handleRouteChange();
 
