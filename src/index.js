@@ -3,10 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburgerButton = document.getElementById('hamburger-button');
     const menuModal = document.getElementById('menu-modal');
     const overlay = document.getElementById('overlay');
-    const menuLinks = document.querySelectorAll('#menu-modal a');
+    const menuLinks = document.querySelectorAll('#menu-modal');
     const cardButtons = document.querySelectorAll('.triangle-button');
     const cardModals = document.querySelectorAll('.card');
     const closeModalButton = document.getElementById('closeModal');
+    const speciesSelectorLink = document.getElementById('speciesSelectorLink');
+    const speciesHeader = document.getElementById('species-selector');
 
     // Toggle menu visibility and animation
     const toggleMenu = () => {
@@ -35,8 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
     cardButtons.forEach(button => {
         button.addEventListener('click', () => {
             const targetId = button.getAttribute('data-target');
-            const targetCard = document.querySelector(`[data-card="${targetId}"]`);
-            targetCard.classList.toggle('hidden');
+            const targetCards = document.querySelectorAll(`.card[data-card="${targetId}"]`);
+            targetCards.forEach(card => {
+                card.classList.toggle('hidden');
+            });
         });
     });
 
@@ -67,6 +71,29 @@ document.addEventListener('DOMContentLoaded', () => {
         aboutPage.classList.toggle('hidden', hash !== '#about');
         window.scrollTo(0, 0);
     };
+
+
+    speciesSelectorLink.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent the default link behavior
+        
+        // Explicitly show mainContent if hidden
+        const mainContent = document.getElementById('mainContent');
+        if (mainContent.classList.contains('hidden')) {
+            mainContent.classList.remove('hidden');
+        }
+    
+        // Ensure the aboutPage is hidden
+        const aboutPage = document.getElementById('aboutPage');
+        if (!aboutPage.classList.contains('hidden')) {
+            aboutPage.classList.add('hidden');
+        }
+    
+        // Close the menu
+        closeMenu();
+    
+        // Scroll to the speciesHeader or the specific section
+        speciesHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 
     window.addEventListener('hashchange', handleRouteChange);
     handleRouteChange(); // Ensure correct section is displayed on initial load
