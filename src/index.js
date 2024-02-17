@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('modal').classList.remove('hidden');
     };
 
+    // CARDS
     // Function to dynamically display species and setup interactions
     const displaySpecies = async () => {
         try {
@@ -141,13 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         }).join('');
                         // Append the category and its cards to the container
                         container.innerHTML += categoryHtml + cardsHtml + '</div>';
-                        // Fetch and update images for each species
-            speciesList.forEach(species => {
-                fetchImage(species.taxon_id).then(imageUrl => {
-                    const imgElement = container.querySelector(`img[data-taxon-id="${species.taxon_id}"]`);
-                    if (imgElement) imgElement.src = imageUrl;
-                });
-            });
                     });
             attachToggleEventListeners();
             // Asynchronously update images without waiting for all to complete before rendering categories.
@@ -156,14 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error loading the JSON data:', error);
         }
     };
-
-    // Function to fetch image URL from iNaturalist API
-    const fetchImage = async (taxonId) => {
-        const url = `https://api.inaturalist.org/v1/observations?taxon_id=${taxonId}&per_page=1`;
-        const response = await fetch(url);
-        const data = await response.json();
-        return data.results[0].photos[0].url; // Assuming the first observation has a photo
-    }
 
     const attachToggleEventListeners = () => {
         document.querySelectorAll('.toggle-category').forEach(button => {
@@ -182,17 +168,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateSpeciesImages = async () => {
         document.querySelectorAll('.species-image').forEach(async (imgElement) => {
             const taxonId = imgElement.getAttribute('data-taxon-id');
-            const imageUrl = await fetchImageFromAPI(taxonId); // Assuming fetchImageFromAPI is implemented
+            const imageUrl = await fetchImageFromAPI(taxonId);
             imgElement.src = imageUrl;
         });
     };
     
     const fetchImageFromAPI = async (taxonId) => {
-        const url = `https://api.inaturalist.org/v1/observations?taxon_id=${taxonId}&per_page=1`;
+        const url = `https://api.inaturalist.org/v1/observations?taxon_id=${taxonId}&per_page=1?size=medium`;
         try {
             const response = await fetch(url);
             const data = await response.json();
-            return data.results[0]?.photos[0]?.url || 'default_placeholder_image_url'; // Return a default image URL if not found
+            console.log(data.results[0]?.photos[0]?.url)
+            return data.results[0]?.photos[0]?.url || ''; // Return a default image URL if not found
         } catch (error) {
             console.error(`Failed to fetch image for taxon ID ${taxonId}:`, error);
             return 'default_placeholder_image_url'; // Fallback image URL
@@ -202,9 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // loadSpeciesData to call displaySpecies with the entire data object
     const loadSpeciesData = async () => {
         try {
-            const response = await fetch('./data.json'); // Make sure the path is correct
+            const response = await fetch('./data.json'); 
             const data = await response.json();
-            displaySpecies(data.species); // Adjust if your data structure differs
+            displaySpecies(data.species);
         } catch (error) {
             console.error('Error loading the JSON file:', error);
         }
