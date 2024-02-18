@@ -8,7 +8,7 @@
                 "description": "Although the chipmunk is able to climb trees quite well, it makes its home underground in extensive burrows. When digging these burrows, the chipmunk will carry dirt in its cheek pouches to remote locations in order to hide the location of its burrow construction.",
                 "image": "URL_or_path_to_chipmunk_image",
 				"taxon_id": 46217,
-                "map_image": "URL_or_path_to_chipmunk_distribution_map"
+                "map_image": "../images/manuels-river-map.png"
             },
             {
                 "id": "M002",
@@ -17,7 +17,7 @@
                 "description": "One of the noisier animals that are commonly found on the island, the American Red Squirrel frequently makes aggressive chirping sounds at any other creature that happens by its territory. These squirrels hide secret stores of food called caches, which they feed on during the winter months. The caches may consist of pine cones, nuts, seeds, fruit, fungi, and even things such as bird eggs or the meat of other animals. This mammal was introduced to the island in 1963.",
                 "image": "URL_or_path_to_red_squirrel_image",
 				"taxon_id": 46260,
-                "map_image": "URL_or_path_to_red_squirrel_distribution_map"
+                "map_image": "../images/manuels-river-map.png"
             },
 			{
 				"id": "M003",
@@ -26,7 +26,7 @@
 				"description": "Perhaps shockingly, the muskrat is not a true rat and neither is it closely related to the beaver despite sharing several characteristics with it. The incisors of the muskrat protrude beyond its cheeks, and its lips are able to close behind the incisors. These adaptations allow the muskrat to close its mouth behind its front teeth so that it can chew on things while still holding its breath underwater.",
 				"image": "URL_or_path_to_common_muskrat_image",
 				"taxon_id": 45762,
-				"map_image": "URL_or_path_to_common_muskrat_distribution_map"
+                "map_image": "../images/manuels-river-map.png"
 			},
 			{
 				"id": "M004",
@@ -35,7 +35,7 @@
 				"description": "In the winter, the hare's coat turns white to blend in with the snow, while in the summer its coat becomes a dark brown to match the dirt and plants. The hare population is linked with that of its main predator, the Canadian Lynx. When the population of lynx is high, the hare population decreases. Because of the decrease in their main prey, the lynx population begins to shrink, at which point the hare population can grow again.",
 				"image": "URL_or_path_to_snowshoe_hare_image",
 				"taxon_id": 43132,
-				"map_image": "URL_or_path_to_snowshoe_hare_distribution_map"
+                "map_image": "../images/manuels-river-map.png"
 			},
 			{
 				"id": "M005",
@@ -44,7 +44,7 @@
 				"description": "This mammal makes its home along shorelines where it hunts for mammals, fish, crustaceans, and insects. The mink can dive up to 3 m in search of prey. During these dives, it slows the pulse of its heart below its normal rate in order to conserve oxygen. Due to the cold water that it frequents, the mink has a thick, oily coat which helps to insulate it from the cold and to keep the water away from its skin. Mink were introduced to Newfoundland in 1935 for fur farming.",
 				"image": "URL_or_path_to_american_mink_image",
 				"taxon_id": 1264432,
-				"map_image": "URL_or_path_to_american_mink_distribution_map"
+                "map_image": "../images/manuels-river-map.png"
 			},
 			{
 				"id": "M006",
@@ -53,7 +53,7 @@
 				"description": "The largest of the true foxes, red foxes are able to quickly adapt to new habitats due to their high intelligence and the large number of coat colors in the species. When the fox is hunting, it makes a characteristic pouncing action where it jumps into the air and lands on its prey. During the jump, the fox can steer using its tail. Like many other mammals, it has been known to hide the food it does not eat and return to the cache at a later time.",
 				"image": "URL_or_path_to_red_fox_image",
 				"taxon_id": 42069,
-				"map_image": "URL_or_path_to_red_fox_distribution_map"
+                "map_image": "../images/manuels-river-map.png"
 			},
 			{
 				"id": "M007",
@@ -62,7 +62,7 @@
 				"description": "The coyote is an opportunistic omnivore, which is closely related to dogs and wolves. It is smaller in stature than the Grey Wolf but has a larger braincase and ears and carries its tail downwards while running. There is a rare population of coyotes in Newfoundland whose fur is entirely white. This is due to the population being the result of a cross between a coyote and a golden retriever, which gave them the gene for their white fur.",
 				"image": "URL_or_path_to_coyote_image",
 				"taxon_id": 42051,
-				"map_image": "URL_or_path_to_coyote_distribution_map"
+                "map_image": "../images/manuels-river-map.png"
 			},
 			{
 				"id": "M008",
@@ -71,7 +71,7 @@
 				"description": "The Moose is the largest living species of deer in the world, measuring up to 2.1 m tall and weighing up to 600 kg. These animals make their homes near lakes, bogs, and other wet areas. Because of their association with water, moose are strong swimmers and have been known to dive up to 4 m to find aquatic plants. Moose are generally slow-moving animals but when running can reach speeds of up to 56 km/h and can swim as fast as a two-person canoe.",
 				"image": "URL_or_path_to_moose_image",
 				"taxon_id": 522193,
-				"map_image": "URL_or_path_to_moose_distribution_map"
+                "map_image": "../images/manuels-river-map.png"
 			}
         ],
         "birds": [
@@ -82,7 +82,7 @@
                 "description": "These tiny, active birds inhabit tree canopies, often seen upside down, and are known for their excitable call. They are frequent visitors at bird feeders.",
                 "image": "URL_or_path_to_red-breasted_nuthatch_image",
 				"taxon_id": 14823,
-                "map_image": "URL_or_path_to_red-breasted_nuthatch_distribution_map"
+                "map_image": "../images/manuels-river-map.png"
             },
             {
                 "id": "B002",

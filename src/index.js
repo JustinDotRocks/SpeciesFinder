@@ -129,12 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div id="${formattedCategoryName}Cards" class="hidden flex flex-col items-center">
                 `;
                 let cardsHtml = speciesList.map(species => {
-                    const truncatedDescription = species.description.length > 100 ? species.description.substring(0, 100) + '...' : species.description;
+                    const truncatedDescription = species.description.length > 75 ? species.description.substring(0, 75) + '...' : species.description;
                         return `
                             <div class="card max-w-md bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" onclick="openModal('${species.common_name}', '${species.image}', '${species.description}')">
-                                <h3 class="text-lg text-customBlue font-semibold">${species.common_name}</h3>
+                                <h3 class="text-xl text-customBlue font-semibold">${species.common_name}</h3>
                                 <div class="flex -mx-4">
-                                    <img src="${species.image}" alt="${species.common_name}" data-taxon-id="${species.taxon_id}" class="species-image w-1/2 h-auto rounded-md px-4">
+                                    <img src="${species.image}" alt="${species.common_name}" data-taxon-id="${species.taxon_id}" class="species-image w-3/4 h-3/4 rounded-md p-4">
                                     <p class="text-gray-700 mt-2 px-4 w-1/2">${truncatedDescription}</p>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     const fetchImageFromAPI = async (taxonId) => {
-        const url = `https://api.inaturalist.org/v1/observations?taxon_id=${taxonId}&per_page=1?size=medium`;
+        const url = `https://api.inaturalist.org/v1/observations?taxon_id=${taxonId}&per_page=1?size=large`;
         try {
             const response = await fetch(url);
             const data = await response.json();
