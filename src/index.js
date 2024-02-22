@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
     // Variables for common elements
     const hamburgerButton = document.getElementById('hamburger-button');
     const menuModal = document.getElementById('menu-modal');
@@ -6,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuLinks = document.querySelectorAll('#menu-modal a');
     const cardButtons = document.querySelectorAll('.triangle-button');
     const cardModals = document.querySelectorAll('.card');
-    const closeModalButton = document.getElementById('closeModal');
     const speciesSelectorLink = document.getElementById('speciesSelectorLink');
     const speciesHeader = document.getElementById('species-selector');
 
@@ -88,16 +86,22 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('modal').classList.remove('hidden');
         });
     });
-    closeModalButton.addEventListener('click', () => {
-        document.getElementById('modal').classList.add('hidden');
-    });
-    // Close modal when clicking outside of it
-    window.addEventListener('click', (event) => {
-        if (event.target.id === 'modal') {
+
+    const setupCloseModalListeners = () => {
+        const closeModalButton = document.getElementById('closeModal');
+        //Close Modal when close modal button is pressed
+        closeModalButton.addEventListener('click', () => {
             document.getElementById('modal').classList.add('hidden');
-        }
-    });
-    window.openModal = (name, imgSrc, description) => {
+        });
+        // Close modal when clicking outside of it
+        window.addEventListener('click', (event) => {
+            if (event.target.id === 'modal') {
+                document.getElementById('modal').classList.add('hidden');
+            }
+        });
+    }
+    
+    const openModal = (name, imgSrc, description) => {
         // Set the content of the modal elements
         document.getElementById('modalTitle').textContent = name;
         document.getElementById('modalImage').src = imgSrc;
@@ -185,7 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return 'default_placeholder_image_url'; // Fallback image URL
         }
     };
-
     // loadSpeciesData to call displaySpecies with the entire data object
     const loadSpeciesData = async () => {
         try {
@@ -198,8 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.addEventListener('DOMContentLoaded', loadSpeciesData);
-    loadSpeciesData();
 
 
-});
-
+    document.addEventListener('DOMContentLoaded', () => {
+        loadSpeciesData();
+        // Setup modal close listeners
+        setupCloseModalListeners();
+    });
