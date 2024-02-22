@@ -205,7 +205,6 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         loadSpeciesData();
-    
         // Setup modal close listeners
         setupCloseModalListeners();
     });
