@@ -161,44 +161,26 @@
         }
     };
 
-    const updateButtonIcon = (button, isVisible) => {
-        button.innerHTML = isVisible ?
-            `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>` : // Icon for "collapse"
-            `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>`; // Icon for "expand"
-    }
-    
-
-    const attachToggleEventListeners = (data) => {
+    const attachToggleEventListeners = () => {
         document.querySelectorAll('.toggle-category').forEach(button => {
             button.addEventListener('click', async () => {
                 const targetId = button.getAttribute('data-target');
-                const targetContainer = document.getElementById(targetId.replace('Cards', '') + 'Cards');
-                const isVisible = targetContainer.classList.toggle('hidden');
-    
-                // Update button icon based on visibility
-                updateButtonIcon(button, isVisible);
-    
-                if (!isVisible) {
-                    return; // If we are hiding the container, no need to fetch images
-                }
-    
-                // Extract categoryName from targetId
-                const categoryName = targetId.replace('Cards', '');
-                if (!data.species[categoryName]) return; // Safety check
-    
-                // Fetch and update images only if they haven't been loaded yet
-                const imagesToUpdate = targetContainer.querySelectorAll('img[src=""]');
-                if (imagesToUpdate.length > 0) {
-                    for (let img of imagesToUpdate) {
-                        const taxonId = img.getAttribute('data-taxon-id');
-                        const imageUrl = await fetchImageFromAPI(taxonId);
-                        if (imageUrl) img.src = imageUrl;
-                    }
+                const targetContainer = document.getElementById(targetId);
+                const isHidden = targetContainer.classList.toggle('hidden');
+        
+                // Update the button's icon
+                button.innerHTML = isHidden ? 
+                    `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>` : 
+                    `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>`;
+        
+                // If expanding the category, fetch and set images
+                if (!isHidden) {
+                    await updateSpeciesImages(targetContainer);
                 }
             });
         });
     };
-
+    
     const updateSpeciesImages = async () => {
         document.querySelectorAll('.species-image').forEach(async (imgElement) => {
             const taxonId = imgElement.getAttribute('data-taxon-id');
@@ -208,14 +190,14 @@
     };
     
     const fetchImageFromAPI = async (taxonId) => {
-        const url = `https://api.inaturalist.org/v1/observations?taxon_id=${taxonId}&per_page=1&size=large`;
+        const url = `https://api.inaturalist.org/v1/observations?taxon_id=${taxonId}&per_page=1`;
         try {
             const response = await fetch(url);
             const data = await response.json();
-            return data.results[0]?.photos[0]?.url || ''; // Provide a fallback URL or leave empty
+            return data?.results[0]?.photos[0]?.url || 'https://fakeimg.pl/200x200'; // Fallback URL
         } catch (error) {
             console.error(`Failed to fetch image for taxon ID ${taxonId}:`, error);
-            return ''; // Fallback if error
+            return 'https://fakeimg.pl/200x200'; // Fallback URL
         }
     };
     
@@ -240,6 +222,6 @@
         loadSpeciesData();
         // Setup modal close listeners
         setupCloseModalListeners();
-        cardButtonsListener();
+        // cardButtonsListener();
         modalElements();
     });
