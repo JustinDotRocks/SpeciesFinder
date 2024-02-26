@@ -32,7 +32,7 @@
 				"id": "M004",
 				"common_name": "Snowshoe Hare",
 				"scientific_name": "Lepus americanus",
-				"description": "In the winter, the hare's coat turns white to blend in with the snow, while in the summer its coat becomes a dark brown to match the dirt and plants. The hare population is linked with that of its main predator, the Canadian Lynx. When the population of lynx is high, the hare population decreases. Because of the decrease in their main prey, the lynx population begins to shrink, at which point the hare population can grow again.",
+				"description": "In the winter, the hares coat turns white to blend in with the snow, while in the summer its coat becomes a dark brown to match the dirt and plants. The hare population is linked with that of its main predator, the Canadian Lynx. When the population of lynx is high, the hare population decreases. Because of the decrease in their main prey, the lynx population begins to shrink, at which point the hare population can grow again.",
 				"image": "URL_or_path_to_snowshoe_hare_image",
 				"taxon_id": 43132,
                 "map_image": "../images/manuels-river-map.png"
