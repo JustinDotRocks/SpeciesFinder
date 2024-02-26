@@ -161,6 +161,7 @@
         }
     };
 
+    // Function to attach event listeners to category toggle buttons
     const attachToggleEventListeners = () => {
         document.querySelectorAll('.toggle-category').forEach(button => {
             button.addEventListener('click', async () => {
@@ -176,10 +177,25 @@
                 // If expanding the category, fetch and set images
                 if (!isHidden) {
                     await updateSpeciesImages(targetContainer);
+                    const images = targetContainer.querySelectorAll('img.species-image');
+                    // Check if any image already has a src set, indicating they've been fetched
+                    const alreadyFetched = Array.from(images).some(img => img.src);
+                    if (alreadyFetched) {
+                        return; // Skip fetching if images have already been fetched
+                    }
+
+                    for (const img of images) {
+                        const taxonId = img.getAttribute('data-taxon-id');
+                        if (taxonId && !img.src) { // Fetch image if src is not set
+                            const imageUrl = await fetchImageFromAPI(taxonId);
+                            img.src = imageUrl || 'default_placeholder_image_url'; // Set a default image if fetch fails or returns no URL
+                        }
+                    }
                 }
             });
         });
     };
+
     
     const updateSpeciesImages = async () => {
         document.querySelectorAll('.species-image').forEach(async (imgElement) => {
@@ -188,16 +204,17 @@
             imgElement.src = imageUrl;
         });
     };
+
     
     const fetchImageFromAPI = async (taxonId) => {
         const url = `https://api.inaturalist.org/v1/observations?taxon_id=${taxonId}&per_page=1`;
         try {
             const response = await fetch(url);
             const data = await response.json();
-            return data?.results[0]?.photos[0]?.url || 'https://fakeimg.pl/200x200'; // Fallback URL
+            return data?.results[0]?.photos[0]?.url || 'https://fakeimg.pl/150x150'; // Fallback URL
         } catch (error) {
             console.error(`Failed to fetch image for taxon ID ${taxonId}:`, error);
-            return 'https://fakeimg.pl/200x200'; // Fallback URL
+            return 'https://fakeimg.pl/150x150'; // Fallback URL
         }
     };
     
