@@ -198,7 +198,7 @@
                 "id": "FI001",
                 "common_name": "Brown Trout",
                 "scientific_name": "Salmo trutta",
-                "description": "Introduced to St. John's, Newfoundland from Scotland in 1884, the Brown Trout's stocking continued until the late 1930s. In their habitat, adult Brown Trouts mainly live in stream pools, while the younger ones occupy both pools and riffles. They are nocturnal feeders, preying on aquatic and terrestrial insects, small rodents, and other smaller fish.",
+                "description": "Introduced to St. Johns, Newfoundland from Scotland in 1884, the Brown Trouts stocking continued until the late 1930s. In their habitat, adult Brown Trouts mainly live in stream pools, while the younger ones occupy both pools and riffles. They are nocturnal feeders, preying on aquatic and terrestrial insects, small rodents, and other smaller fish.",
                 "image": "URL_or_path_to_brown_trout_image",
 				"taxon_id": 47518,
                 "map_image": "URL_or_path_to_brown_trout_distribution_map"
@@ -234,7 +234,7 @@
                 "id": "FI005",
                 "common_name": "Thorny Skate",
                 "scientific_name": "Amblyraja radiata",
-                "description": "The lifespan of Thorny Skate found in Newfoundland is estimated to be between 16-20 years. They feed on a wide variety of prey, including invertebrates and small fish, and inhabit depths of 18-1200m. Females lay egg cases, known as 'mermaid/devil purses,' on the sea floor, which are fertilized in the womb. These fish are sometimes found in the estuary.",
+                "description": "The lifespan of Thorny Skate found in Newfoundland is estimated to be between 16-20 years. They feed on a wide variety of prey, including invertebrates and small fish, and inhabit depths of 18-1200m. Females lay egg cases, known as mermaid/devil purses, on the sea floor, which are fertilized in the womb. These fish are sometimes found in the estuary.",
                 "image": "URL_or_path_to_thorny_skate_image",
 				"taxon_id": 48402,
                 "map_image": "URL_or_path_to_thorny_skate_distribution_map"
@@ -243,7 +243,7 @@
                 "id": "FI006",
                 "common_name": "Three-Spined Stickleback",
                 "scientific_name": "Gasterosteus aculeatus",
-                "description": "Also known as 'pricklies' or 'Benny sickles' in parts of Newfoundland, Three-Spined Sticklebacks are native to the province and found in nearly every water body, including our river. They are omnivorous, consuming worms, drowned insects, fish eggs, and crustaceans.",
+                "description": "Also known as pricklies or Benny sickles in parts of Newfoundland, Three-Spined Sticklebacks are native to the province and found in nearly every water body, including our river. They are omnivorous, consuming worms, drowned insects, fish eggs, and crustaceans.",
                 "image": "URL_or_path_to_three-spined_stickleback_image",
 				"taxon_id": 48403,
                 "map_image": "URL_or_path_to_three-spined_stickleback_distribution_map"
@@ -270,9 +270,9 @@
             },
             {
                 "id": "I003",
-                "common_name": "Milbert's Tortoiseshell",
+                "common_name": "Milberts Tortoiseshell",
                 "scientific_name": "Aglais milberti",
-                "description": "Found across Canada, south of the tundra, young caterpillars of the Milbert's Tortoiseshell feed together in a web but become solitary feeders as they mature. During winter, the adults hibernate together in small groups.",
+                "description": "Found across Canada, south of the tundra, young caterpillars of the Milberts Tortoiseshell feed together in a web but become solitary feeders as they mature. During winter, the adults hibernate together in small groups.",
                 "image": "URL_or_path_to_milberts_tortoiseshell_image",
 				"taxon_id": 68269,
                 "map_image": "URL_or_path_to_milberts_tortoiseshell_distribution_map"
@@ -409,7 +409,7 @@
 				"id": "T010",
 				"common_name": "Common Apple",
 				"scientific_name": "Malus pumila",
-				"description": "Did you know there are more than 75,000 different cultivars of apples? During the 19th and early 20th centuries, apples were a major cash crop for farmers and settlers. The apple trees found upstream are from the Hiscock family's farm in the 1900s.",
+				"description": "Did you know there are more than 75,000 different cultivars of apples? During the 19th and early 20th centuries, apples were a major cash crop for farmers and settlers. The apple trees found upstream are from the Hiscock familys farm in the 1900s.",
 				"image": "URL_or_path_to_common_apple_image",
 				"taxon_id": 469472,
 				"map_image": "URL_or_path_to_common_apple_distribution_map"
@@ -438,7 +438,7 @@
 				"id": "P003",
 				"common_name": "Pin Cherry",
 				"scientific_name": "Prunus pensylvanica",
-				"description": "Visible near Morgan's Field along the trail, Pin Cherry is an early successional species and often the first to appear after a disturbance. It is frequently affected by black knot fungus, which causes black, rotten-like appearances on its branches.",
+				"description": "Visible near Morganss Field along the trail, Pin Cherry is an early successional species and often the first to appear after a disturbance. It is frequently affected by black knot fungus, which causes black, rotten-like appearances on its branches.",
 				"image": "URL_or_path_to_pin_cherry_image",
 				"taxon_id": 54833,
 				"map_image": "URL_or_path_to_pin_cherry_distribution_map"
@@ -456,7 +456,7 @@
 				"id": "P005",
 				"common_name": "Blue Flag Iris",
 				"scientific_name": "Iris versicolor",
-				"description": "Native to North America and known as the Purple Iris in Ireland and Britain, the Blue Flag Iris grows in wetland habitats near rushes and sedges. The term 'flag' in its name derives from the Middle English word 'flagge,' meaning rush or reed. Consumption of its rhizomes is poisonous to humans.",
+				"description": "Native to North America and known as the Purple Iris in Ireland and Britain, the Blue Flag Iris grows in wetland habitats near rushes and sedges. The term flag in its name derives from the Middle English word flagge, meaning rush or reed. Consumption of its rhizomes is poisonous to humans.",
 				"image": "URL_or_path_to_blue_flag_iris_image",
 				"taxon_id": 48726,
 				"map_image": "URL_or_path_to_blue_flag_iris_distribution_map"
@@ -567,7 +567,7 @@
 			{
 				"id": "FO001",
 				"common_name": "Paradoxides davidis",
-				"description": "Trilobites are a group of extinct marine arthropods which lived from 520 - 250 million years ago; those on Manuels River are 500 million years old. Trilobites possessed a head (cephalon), trunk (thorax) and tail (pygidium). The name trilobite means 'three lobes', and is derived from the presence of a middle lobe and two sides lobes on the thorax. More than a dozen species of trilobites are known on Manuels River, the best known being Paradoxides davidis. Most trilobite fossils represent moulted shells (exoskeletons) and are thus incomplete. A complete Paradoxides davidis specimen, showing head (cephalon, C), segmented thorax (T), and tail (pygidium, P); the thorax is made up of a median lobe (m) and side lobes (l). Adult P. davidis specimens could exceed 70 cm in length!",
+				"description": "Trilobites are a group of extinct marine arthropods which lived from 520 - 250 million years ago; those on Manuels River are 500 million years old. Trilobites possessed a head (cephalon), trunk (thorax) and tail (pygidium). The name trilobite means three lobes, and is derived from the presence of a middle lobe and two sides lobes on the thorax. More than a dozen species of trilobites are known on Manuels River, the best known being Paradoxides davidis. Most trilobite fossils represent moulted shells (exoskeletons) and are thus incomplete. A complete Paradoxides davidis specimen, showing head (cephalon, C), segmented thorax (T), and tail (pygidium, P); the thorax is made up of a median lobe (m) and side lobes (l). Adult P. davidis specimens could exceed 70 cm in length!",
 				"image": "URL_or_path_to_paradoxides_davidis_image",
 				"map_image": "URL_or_path_to_paradoxides_davidis_distribution_map"
 			},
@@ -602,7 +602,7 @@
 			{
 				"id": "FO006",
 				"common_name": "Brachiopods (Vandalotreta djagoran)",
-				"description": "Brachiopods are marine invertebrates with top-to-bottom aligned bivalve shells (mollusks possess side-to-side valves). They attach to the seafloor via a stalk-like pedicle. Brachiopods arose 520 million years ago (MYA) and are found worldwide in today's oceans.",
+				"description": "Brachiopods are marine invertebrates with top-to-bottom aligned bivalve shells (mollusks possess side-to-side valves). They attach to the seafloor via a stalk-like pedicle. Brachiopods arose 520 million years ago (MYA) and are found worldwide in todays oceans.",
 				"image": "URL_or_path_to_brachiopods_vandalotreta_djagoran_image",
 				"map_image": "URL_or_path_to_brachiopods_vandalotreta_djagoran_distribution_map"
 			},
