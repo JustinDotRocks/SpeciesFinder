@@ -162,48 +162,83 @@
     };
 
     // Function to attach event listeners to category toggle buttons
+    // const attachToggleEventListeners = () => {
+    //     document.querySelectorAll('.toggle-category').forEach(button => {
+    //         button.addEventListener('click', async () => {
+    //             const targetId = button.getAttribute('data-target');
+    //             const targetContainer = document.getElementById(targetId);
+    //             const isHidden = targetContainer.classList.toggle('hidden');
+        
+    //             // Update the button's icon
+    //             button.innerHTML = isHidden ? 
+    //                 `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>` : 
+    //                 `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>`;
+        
+    //             // If expanding the category, fetch and set images
+    //             if (!isHidden) {
+    //                 await updateSpeciesImages(targetContainer);
+    //                 const images = targetContainer.querySelectorAll('img.species-image');
+    //                 // Check if any image already has a src set, indicating they've been fetched
+    //                 const alreadyFetched = Array.from(images).some(img => img.src);
+    //                 if (alreadyFetched) {
+    //                     return; // Skip fetching if images have already been fetched
+    //                 }
+
+    //                 for (const img of images) {
+    //                     const taxonId = img.getAttribute('data-taxon-id');
+    //                     if (taxonId && !img.src) { // Fetch image if src is not set
+    //                         const imageUrl = await fetchImageFromAPI(taxonId);
+    //                         img.src = imageUrl || 'default_placeholder_image_url'; // Set a default image if fetch fails or returns no URL
+    //                     }
+    //                 }
+    //             }
+    //         });
+    //     });
+    // };
     const attachToggleEventListeners = () => {
         document.querySelectorAll('.toggle-category').forEach(button => {
             button.addEventListener('click', async () => {
                 const targetId = button.getAttribute('data-target');
                 const targetContainer = document.getElementById(targetId);
-                const isHidden = targetContainer.classList.toggle('hidden');
-        
-                // Update the button's icon
-                button.innerHTML = isHidden ? 
-                    `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>` : 
-                    `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>`;
-        
-                // If expanding the category, fetch and set images
-                if (!isHidden) {
-                    await updateSpeciesImages(targetContainer);
-                    const images = targetContainer.querySelectorAll('img.species-image');
-                    // Check if any image already has a src set, indicating they've been fetched
-                    const alreadyFetched = Array.from(images).some(img => img.src);
-                    if (alreadyFetched) {
-                        return; // Skip fetching if images have already been fetched
-                    }
+                const isHidden = targetContainer.classList.contains('hidden');
 
-                    for (const img of images) {
-                        const taxonId = img.getAttribute('data-taxon-id');
-                        if (taxonId && !img.src) { // Fetch image if src is not set
-                            const imageUrl = await fetchImageFromAPI(taxonId);
-                            img.src = imageUrl || 'default_placeholder_image_url'; // Set a default image if fetch fails or returns no URL
-                        }
-                    }
+                // Toggle visibility
+                targetContainer.classList.toggle('hidden', !isHidden);
+
+        
+                // Update the button's icon based on the category's visibility
+                button.innerHTML = isHidden ? 
+                    `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>` :  // Icon for "collapse"
+                    `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>`;  // Icon for "expand"
+    
+                // Fetch and update images if the category is being expanded
+                if (isHidden) {
+                    await updateSpeciesImages(targetContainer);
                 }
             });
         });
     };
+    
 
     
-    const updateSpeciesImages = async () => {
-        document.querySelectorAll('.species-image').forEach(async (imgElement) => {
-            const taxonId = imgElement.getAttribute('data-taxon-id');
-            const imageUrl = await fetchImageFromAPI(taxonId);
-            imgElement.src = imageUrl;
-        });
+    // const updateSpeciesImages = async () => {
+    //     document.querySelectorAll('.species-image').forEach(async (imgElement) => {
+    //         const taxonId = imgElement.getAttribute('data-taxon-id');
+    //         const imageUrl = await fetchImageFromAPI(taxonId);
+    //         imgElement.src = imageUrl;
+    //     });
+    // };
+    const updateSpeciesImages = async (container) => {
+        const images = container.querySelectorAll('img.species-image');
+        for (const img of images) {
+            const taxonId = img.getAttribute('data-taxon-id');
+            if (img.src) { // Check if the image src is not already set
+                const imageUrl = await fetchImageFromAPI(taxonId);
+                img.src = imageUrl;
+            }
+        }
     };
+    
 
     
     const fetchImageFromAPI = async (taxonId) => {
@@ -211,10 +246,10 @@
         try {
             const response = await fetch(url);
             const data = await response.json();
-            return data?.results[0]?.photos[0]?.url || 'https://fakeimg.pl/150x150'; // Fallback URL
+            return data?.results[0]?.photos[0]?.url || ''; // Fallback URL
         } catch (error) {
             console.error(`Failed to fetch image for taxon ID ${taxonId}:`, error);
-            return 'https://fakeimg.pl/150x150'; // Fallback URL
+            return ''; // Fallback URL
         }
     };
     
