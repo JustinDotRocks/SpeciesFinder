@@ -60,23 +60,23 @@
         });
     };
     
-    const cardButtonsListener = () => {
-        const cardButtons = document.querySelectorAll('.triangle-button');
-        // Card toggle functionality
-        cardButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const targetId = button.getAttribute('data-target');
-                const targetCards = document.querySelectorAll(`.card[data-card="${targetId}"]`);
-                // Toggle visibility of target cards
-                targetCards.forEach(card => {
-                    card.classList.toggle('hidden');
-                });
-                // Toggle the arrow direction on the button
-                button.classList.toggle('triangle-up');
-                button.classList.toggle('triangle-down');
-            });
-        });
-    };
+    // const cardButtonsListener = () => {
+    //     const cardButtons = document.querySelectorAll('.triangle-button');
+    //     // Card toggle functionality
+    //     cardButtons.forEach(button => {
+    //         button.addEventListener('click', () => {
+    //             const targetId = button.getAttribute('data-target');
+    //             const targetCards = document.querySelectorAll(`.card[data-card="${targetId}"]`);
+    //             // Toggle visibility of target cards
+    //             targetCards.forEach(card => {
+    //                 card.classList.toggle('hidden');
+    //             });
+    //             // Toggle the arrow direction on the button
+    //             button.classList.toggle('triangle-up');
+    //             button.classList.toggle('triangle-down');
+    //         });
+    //     });
+    // };
     
     // Modal interactions
     const modalElements = () => {
