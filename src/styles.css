@@ -73,3 +73,6 @@
   transition: transform 250ms ease-in-out;
 }
 
+.card {
+  height: 50vh;
+}
