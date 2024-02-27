@@ -145,7 +145,7 @@
                         <div class="card max-w-md bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" onclick="openModal('${species.common_name}', '', '${species.description}')">
                             <h3 class="text-xl text-customBlue font-semibold">${species.common_name}</h3>
                             <div class="flex -mx-4">
-                                <img src="" alt="${species.common_name}" data-taxon-id="${species.taxon_id}" class="species-image w-3/4 h-3/4 rounded-md p-4">
+                                <img src="" alt="${species.common_name}" data-taxon-id="${species.taxon_id}" class="species-image w-1/2 h-1/2 max-h-3/4 rounded-md p-4">
                                 <p class="text-gray-700 mt-2 px-4 w-1/2">${truncatedDescription}</p>
                             </div>
                         </div>
@@ -239,14 +239,17 @@
         }
     };
     
-
+    // const fetchDataFromAPI = async (taxonid) => {}
     
     const fetchImageFromAPI = async (taxonId) => {
         const url = `https://api.inaturalist.org/v1/observations?taxon_id=${taxonId}&per_page=1`;
         try {
             const response = await fetch(url);
             const data = await response.json();
-            return data?.results[0]?.photos[0]?.url || ''; // Fallback URL
+            console.log(data?.results)
+            return (
+                data?.results?.[0]?.taxon?.default_photo?.medium_url || data?.results[0]?.photos[0]?.url || "" // Fallback URL
+            )
         } catch (error) {
             console.error(`Failed to fetch image for taxon ID ${taxonId}:`, error);
             return ''; // Fallback URL
