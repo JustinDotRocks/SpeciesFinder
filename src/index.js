@@ -118,7 +118,6 @@
         document.getElementById('modal').classList.remove('hidden');
     };
 
-    // CARDS
     // Function to dynamically display species and setup interactions
     const displaySpecies = async () => {
         try {
@@ -142,11 +141,18 @@
                 let cardsHtml = speciesList.map(species => {
                     const truncatedDescription = species.description.length > 75 ? `${species.description.substring(0, 75)}...` : species.description;
                     return `
-                        <div class="card max-w-md bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" onclick="openModal('${species.common_name}', '', '${species.description}')">
+                        <div class="card  bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" onclick="openModal('${species.common_name}', '', '${species.description}')">
                             <h3 class="text-xl text-customBlue font-semibold">${species.common_name}</h3>
                             <div class="flex -mx-4">
-                                <img src="" alt="${species.common_name}" data-taxon-id="${species.taxon_id}" class="species-image w-1/2 h-1/2 max-h-3/4 rounded-md p-4">
+                                <div class="w-4/5 h-4/5">
+                                    <img src="" alt="${species.common_name}" data-taxon-id="${species.taxon_id}" class="species-image rounded-md p-4">
+                                </div>
                                 <p class="text-gray-700 mt-2 px-4 w-1/2">${truncatedDescription}</p>
+                            </div>
+                            <div>
+                                <div class="species-scientific-name" data-taxon-id="${species.taxon_id}"></div>
+                                <div class="species-threatened-status" data-taxon-id="${species.taxon_id}"></div>
+                                <p>Paragraph 1</p>
                             </div>
                         </div>
                     `;
@@ -162,39 +168,6 @@
     };
 
     // Function to attach event listeners to category toggle buttons
-    // const attachToggleEventListeners = () => {
-    //     document.querySelectorAll('.toggle-category').forEach(button => {
-    //         button.addEventListener('click', async () => {
-    //             const targetId = button.getAttribute('data-target');
-    //             const targetContainer = document.getElementById(targetId);
-    //             const isHidden = targetContainer.classList.toggle('hidden');
-        
-    //             // Update the button's icon
-    //             button.innerHTML = isHidden ? 
-    //                 `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>` : 
-    //                 `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>`;
-        
-    //             // If expanding the category, fetch and set images
-    //             if (!isHidden) {
-    //                 await updateSpeciesImages(targetContainer);
-    //                 const images = targetContainer.querySelectorAll('img.species-image');
-    //                 // Check if any image already has a src set, indicating they've been fetched
-    //                 const alreadyFetched = Array.from(images).some(img => img.src);
-    //                 if (alreadyFetched) {
-    //                     return; // Skip fetching if images have already been fetched
-    //                 }
-
-    //                 for (const img of images) {
-    //                     const taxonId = img.getAttribute('data-taxon-id');
-    //                     if (taxonId && !img.src) { // Fetch image if src is not set
-    //                         const imageUrl = await fetchImageFromAPI(taxonId);
-    //                         img.src = imageUrl || 'default_placeholder_image_url'; // Set a default image if fetch fails or returns no URL
-    //                     }
-    //                 }
-    //             }
-    //         });
-    //     });
-    // };
     const attachToggleEventListeners = () => {
         document.querySelectorAll('.toggle-category').forEach(button => {
             button.addEventListener('click', async () => {
@@ -213,21 +186,13 @@
     
                 // Fetch and update images if the category is being expanded
                 if (isHidden) {
+                    await updateSpeciesData(targetContainer);
                     await updateSpeciesImages(targetContainer);
                 }
             });
         });
     };
     
-
-    
-    // const updateSpeciesImages = async () => {
-    //     document.querySelectorAll('.species-image').forEach(async (imgElement) => {
-    //         const taxonId = imgElement.getAttribute('data-taxon-id');
-    //         const imageUrl = await fetchImageFromAPI(taxonId);
-    //         imgElement.src = imageUrl;
-    //     });
-    // };
     const updateSpeciesImages = async (container) => {
         const images = container.querySelectorAll('img.species-image');
         for (const img of images) {
@@ -238,8 +203,42 @@
             }
         }
     };
+
+    const updateSpeciesData = async (container) => {
+        const elements = container.querySelectorAll('.species-scientific-name');
+        for (const element of elements) {
+            const taxonId = element.getAttribute('data-taxon-id');
+            if (!element.textContent) { // Check if the content is not already set
+                const { scientificName, threatened } = await fetchDataFromAPI(taxonId); // Destructure to get both values
+                element.textContent = scientificName; // Set the scientific name
+                // Find the corresponding element for threatened status within the same container/card
+                const threatenedElement = element.closest('.card').querySelector('.species-threatened-status');
+                if (threatenedElement) {
+                    threatenedElement.textContent = threatened ? "Threatened" : "Not Threatened"; // Update based on the boolean value
+                }
+            }
+        }
+    };
     
-    // const fetchDataFromAPI = async (taxonid) => {}
+
+    const fetchDataFromAPI = async (taxonId) => {
+        const url = `https://api.inaturalist.org/v1/observations?taxon_id=${taxonId}&per_page=1`;
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            console.log(data?.results); 
+            const scientificName = data?.results?.[0]?.taxon?.name || "";
+            const threatened = data?.results?.[0]?.taxon?.threatened || false; 
+            return {
+                scientificName,
+                threatened
+            };
+        } catch (error) {
+            console.error(`Failed to fetch data for taxon ID ${taxonId}:`, error);
+            return { scientificName: '', threatened: false };
+        }
+    };
+    
     
     const fetchImageFromAPI = async (taxonId) => {
         const url = `https://api.inaturalist.org/v1/observations?taxon_id=${taxonId}&per_page=1`;
