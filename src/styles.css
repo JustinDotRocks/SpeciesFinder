@@ -75,4 +75,13 @@
 
 .card {
   height: 50vh;
+  width: 90vw;
+}
+
+.cardImageContainer {
+  height: 75%;
+}
+
+.modal-container {
+  height: 90vh;
 }

@@ -60,38 +60,40 @@
         });
     };
     
-    // const cardButtonsListener = () => {
-    //     const cardButtons = document.querySelectorAll('.triangle-button');
-    //     // Card toggle functionality
-    //     cardButtons.forEach(button => {
-    //         button.addEventListener('click', () => {
-    //             const targetId = button.getAttribute('data-target');
-    //             const targetCards = document.querySelectorAll(`.card[data-card="${targetId}"]`);
-    //             // Toggle visibility of target cards
-    //             targetCards.forEach(card => {
-    //                 card.classList.toggle('hidden');
-    //             });
-    //             // Toggle the arrow direction on the button
-    //             button.classList.toggle('triangle-up');
-    //             button.classList.toggle('triangle-down');
-    //         });
-    //     });
-    // };
-    
-    // Modal interactions
-    const modalElements = () => {
+    // // Modal interactions
+    const modalElements = (data) => {
         const cardModals = document.querySelectorAll('.card');
         cardModals.forEach(card => {
-            card.addEventListener('click', (e) => {
-                const title = card.querySelector('h2').textContent;
-                const imageSrc = card.querySelector('img').src;
-                const description = card.querySelector('p').textContent;
-                document.getElementById('modalTitle').textContent = title;
-                document.getElementById('modalImage').src = imageSrc;
-                document.getElementById('modalDescription').textContent = description;
-                document.getElementById('modal').classList.remove('hidden');
+            card.addEventListener('click', async () => {
+                const taxonId = card.getAttribute('data-taxon-id');
+                const description = card.getAttribute('data-description') || "Description Not Found";
+                const title = card.querySelector('h3')?.textContent || "Title Not Found";
+                const imageSrc = card.querySelector('img')?.src || "Image Not Found";
+                // const description = data.species.description
+                // const description = card.querySelector('p')?.textContent || "Description Not Found";
+                // const taxonId = card.getAttribute('data-taxon-id');
+                // const title = card.dataset.title; // Make sure these attributes are correctly set on the cards
+                // const imageSrc = card.dataset.imgSrc;
+                // const description = card.dataset.description;
+                // const taxonId = card.dataset.taxonId; // Ensure this is correctly set
+                
+                // Open the modal with the Wikipedia URL
+                openModal(title, imageSrc, description);
+                // Then fetch and update the Wikipedia link
+                console.log("Preparing to update modal with Wikipedia data..."); // Log before calling displaySpeciesModalData
+                try {
+                    await displaySpeciesModalData(taxonId);
+                } catch (error) {
+                    console.error("Error updating modal with Wikipedia data:", error);
+                }
+    
+
             });
         });
+    };
+
+    const toggleScrollLock = (isLocked) => {
+        document.body.style.overflow = isLocked ? 'hidden' : '';
     }
     
     const setupCloseModalListeners = () => {
@@ -99,24 +101,54 @@
         //Close Modal when close modal button is pressed
         closeModalButton.addEventListener('click', () => {
             document.getElementById('modal').classList.add('hidden');
+            // Enable scrolling again
+            toggleScrollLock(false);
         });
         // Close modal when clicking outside of it
         window.addEventListener('click', (event) => {
             if (event.target.id === 'modal') {
                 document.getElementById('modal').classList.add('hidden');
+                // Enable scrolling again
+                toggleScrollLock(false);
             }
         });
     }
-    
-    const openModal = (name, imgSrc, description) => {
+
+    const openModal  = (name, imgSrc, description) => {
         // Set the content of the modal elements
         document.getElementById('modalTitle').textContent = name;
         document.getElementById('modalImage').src = imgSrc;
         document.getElementById('modalImage').alt = name; // Set alt attribute for accessibility
         document.getElementById('modalDescription').textContent = description;
         // Show the modal
-        document.getElementById('modal').classList.remove('hidden');
+        document.getElementById('modal').classList.remove('hidden');       
+        // Disable scrolling
+        toggleScrollLock(true);
     };
+
+    const displaySpeciesModalData = async (taxonId) => {
+        const { wikipedia_url } = await fetchDataFromAPI(taxonId);
+        console.log("Attempting to update with Wikipedia URL:", wikipedia_url); // Log the URL to be set
+        // Find and update the Wikipedia URL element
+        // const wikipediaElement = element.closest('.card').querySelector('.species-wikipedia-url-class');
+        const wikipediaElement = document.getElementById("species-wikipedia-url");
+        console.log("Wikipedia Element selected:", wikipediaElement); // Verify element selection
+        if (wikipedia_url) {
+            wikipediaElement.href = wikipedia_url;
+            // wikipediaElement.setAttribute('href', wikipedia_url); // Set the href attribute
+            wikipediaElement.textContent = "View on Wikipedia";
+            wikipediaElement.setAttribute('data-taxon-id', taxonId);
+            wikipediaElement.style.display = 'inline'; // Make sure it's visible
+            console.log("Wikipedia link updated."); // Confirm the update
+        } else if (wikipediaElement) {
+            wikipediaElement.style.display = 'none';
+            wikipediaElement.textContent = "No Wiki URL Found";
+            console.log("Wikipedia link hidden due to no URL."); // Log hiding
+            // wikipediaElement.removeAttribute('href'); // Remove href attribute if no URL is available
+
+        }
+    }
+    
 
     // Function to dynamically display species and setup interactions
     const displaySpecies = async () => {
@@ -129,7 +161,7 @@
             Object.entries(data.species).forEach(([category, speciesList]) => {
                 const formattedCategoryName = category.replace(/\s+/g, '-'); // Replaces the whitspace with "-".
                 let categoryHtml = `
-                    <div class="flex justify-between items-center bg-white text-customBlue p-4 rounded-t-md">
+                    <div class="flex justify-between items-center bg-customBlue text-white p-4 ">
                         <h2 class="text-xl font-bold">${category.charAt(0).toUpperCase() + category.slice(1)}</h2>
                         <button class="toggle-category focus:outline-none" data-target="${formattedCategoryName}Cards">
                             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -139,21 +171,22 @@
                 `;
     
                 let cardsHtml = speciesList.map(species => {
-                    const truncatedDescription = species.description.length > 75 ? `${species.description.substring(0, 75)}...` : species.description;
+                    // const truncatedDescription = species.description.length > 75 ? `${species.description.substring(0, 75)}...` : species.description;
+                    // <p class="text-gray-700 mt-2 px-4 w-1/2">${truncatedDescription}</p>
+
                     return `
-                        <div class="card  bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" onclick="openModal('${species.common_name}', '', '${species.description}')">
-                            <h3 class="text-xl text-customBlue font-semibold">${species.common_name}</h3>
-                            <div class="flex -mx-4">
-                                <div class="w-4/5 h-4/5">
-                                    <img src="" alt="${species.common_name}" data-taxon-id="${species.taxon_id}" class="species-image rounded-md p-4">
-                                </div>
-                                <p class="text-gray-700 mt-2 px-4 w-1/2">${truncatedDescription}</p>
+                        <div class="card  bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" data-description="${species.description}" data-taxon-id="${species.taxon_id}" onclick="openModal('${species.common_name}', '', '${species.description}')">
+                            <h3 class="text-xl ml-4 text-customBlue font-semibold">${species.common_name}</h3>
+                            <div class="species-scientific-name text-xl ml-4 italic text-customBlue" data-taxon-id="${species.taxon_id}"></div>
+                            <div class="cardImageContainer flex justify-center ">
+                                    <img src="" alt="Loading, Please Wait" data-taxon-id="${species.taxon_id}" class="species-image rounded-md p-4">
                             </div>
-                            <div>
-                                <div class="species-scientific-name" data-taxon-id="${species.taxon_id}"></div>
-                                <div class="species-threatened-status" data-taxon-id="${species.taxon_id}"></div>
-                                <p>Paragraph 1</p>
+                            <div class="flex justify-between items-center p-2 m-2">
+                                <div class="species-threatened-status italic text-lg" data-taxon-id="${species.taxon_id}"></div>
+                                <div class="text-customBlue text-md font-semibold">Click card to read more!</div>
+
                             </div>
+
                         </div>
                     `;
                 }).join('');
@@ -161,7 +194,11 @@
                 // Append the category and its cards to the container
                 container.innerHTML += categoryHtml + cardsHtml + '</div>';
             });
+            // After .card elements are added to the DOM:
+            modalElements(); // Attach event listeners to newly added .card elements
+
             attachToggleEventListeners();
+
         } catch (error) {
             console.error('Error loading the JSON data:', error);
         }
@@ -186,14 +223,14 @@
     
                 // Fetch and update images if the category is being expanded
                 if (isHidden) {
-                    await updateSpeciesData(targetContainer);
-                    await updateSpeciesImages(targetContainer);
+                    await updateSpeciesCardData(targetContainer);
+                    await updateSpeciesCardImages(targetContainer);
                 }
             });
         });
     };
     
-    const updateSpeciesImages = async (container) => {
+    const updateSpeciesCardImages = async (container) => {
         const images = container.querySelectorAll('img.species-image');
         for (const img of images) {
             const taxonId = img.getAttribute('data-taxon-id');
@@ -204,12 +241,13 @@
         }
     };
 
-    const updateSpeciesData = async (container) => {
+    const updateSpeciesCardData = async (container, taxonId) => {
         const elements = container.querySelectorAll('.species-scientific-name');
         for (const element of elements) {
             const taxonId = element.getAttribute('data-taxon-id');
             if (!element.textContent) { // Check if the content is not already set
-                const { scientificName, threatened } = await fetchDataFromAPI(taxonId); // Destructure to get both values
+                const { scientificName, threatened
+                } = await fetchDataFromAPI(taxonId); // Destructure to get both values
                 element.textContent = scientificName; // Set the scientific name
                 // Find the corresponding element for threatened status within the same container/card
                 const threatenedElement = element.closest('.card').querySelector('.species-threatened-status');
@@ -229,14 +267,23 @@
             console.log(data?.results); 
             const scientificName = data?.results?.[0]?.taxon?.name || "";
             const threatened = data?.results?.[0]?.taxon?.threatened || false; 
+            const wikipedia_url
+            = data?.results?.[0]?.taxon?.wikipedia_url
+            || false; 
+            console.log("Wikipedia URL:", wikipedia_url);
+
             return {
                 scientificName,
-                threatened
+                threatened,
+                wikipedia_url
+
             };
         } catch (error) {
             console.error(`Failed to fetch data for taxon ID ${taxonId}:`, error);
-            return { scientificName: '', threatened: false };
+            return { scientificName: '', threatened: false, wikipedia_url
+            : '' };
         }
+        
     };
     
     
@@ -277,5 +324,4 @@
         // Setup modal close listeners
         setupCloseModalListeners();
         // cardButtonsListener();
-        modalElements();
     });

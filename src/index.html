@@ -101,7 +101,8 @@
 </aside>
 
 <div id="modal" class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50 overflow-y-hidden">
-    <div class="bg-white rounded-lg h-3/4 w-11/12 relative">
+    <div class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto">
+
         <button id="closeModal" class="absolute top-0 right-0 m-2 text-2xl">&times;</button>
         
         <!-- Modal Title -->
@@ -114,8 +115,42 @@
             <img id="modalImage" src="" alt="${species.common_name}" data-taxon-id="${species.taxon_id}" class="species-image w-full h-full object-cover">
         </div>
 
+        <!-- <a id="species-wikipedia-url" class="species-wikipedia-url-class" data-taxon-id="${species.taxon_id}" href="#" target="_blank">Wikipedia Link</a> -->
+        <a id="species-wikipedia-url" data-taxon-id="${species.taxon_id}" class="species-wikipedia-url-class inline-block bg-customBlue text-white mx-4 my-2 px-3 py-2 rounded hover:bg-customBlue-600 transition duration-300" href="#" target="_blank">Wikipedia Link</a>
+
         <!-- Container for Map and Description -->
         <div class="flex flex-row md:flex-row px-4 pb-4">
+            <!-- Map Container -->
+            <div id="mapContainer" class="flex-1 bg-gray-200 md:h-auto mr-4 mb-4">
+                <img id="mapImage" src="../images/manuels-river-map.png" class="max-h-72 w-full"/>
+            </div>
+
+            <!-- Description Container -->
+            <div class="flex-1 overflow-y-scroll max-h-72">
+                <p id="modalDescription" class="text-2xl"></p>
+            </div>
+        </div>
+        <div class="flex flex-row md:flex-row px-4 pb-4">
+            <!-- Map Container -->
+            <div id="mapContainer" class="flex-1 bg-gray-200 md:h-auto mr-4 mb-4">
+                <img id="mapImage" src="../images/manuels-river-map.png" class="max-h-72 w-full"/>
+            </div>
+
+            <!-- Description Container -->
+            <div class="flex-1 overflow-y-scroll max-h-72">
+                <p id="modalDescription" class="text-2xl"></p>
+            </div>
+        </div> <div class="flex flex-row md:flex-row px-4 pb-4">
+            <!-- Map Container -->
+            <div id="mapContainer" class="flex-1 bg-gray-200 md:h-auto mr-4 mb-4">
+                <img id="mapImage" src="../images/manuels-river-map.png" class="max-h-72 w-full"/>
+            </div>
+
+            <!-- Description Container -->
+            <div class="flex-1 overflow-y-scroll max-h-72">
+                <p id="modalDescription" class="text-2xl"></p>
+            </div>
+        </div> <div class="flex flex-row md:flex-row px-4 pb-4">
             <!-- Map Container -->
             <div id="mapContainer" class="flex-1 bg-gray-200 md:h-auto mr-4 mb-4">
                 <img id="mapImage" src="../images/manuels-river-map.png" class="max-h-72 w-full"/>
