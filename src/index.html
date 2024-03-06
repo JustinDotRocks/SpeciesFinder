@@ -103,64 +103,37 @@
 <div id="modal" class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50 overflow-y-hidden">
     <div class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto">
 
-        <button id="closeModal" class="absolute top-0 right-0 m-2 text-2xl">&times;</button>
+        <button id="closeModal" class="fixed top-10 right-5 mx-4 my-4 text-customBlue text-4xl">&times;</button>
         
         <!-- Modal Title -->
         <div class="p-4">
-            <h2 id="modalTitle" class="text-center text-3xl text-customBlue font-bold mb-4"></h2>
+            <h2 id="modalTitle" class=" text-3xl text-customBlue  my-4"></h2>
+            <div id="modalScientificName" class="species-scientific-name text-xl ml-4 italic text-customBlue" data-taxon-id="${species.taxon_id}"></div>
         </div>
 
         <!-- Image Container -->
-        <div class="flex justify-center mx-4 mb-10 border-customBlue border-2 w-11/12 h-1/3">
+        <div class="flex justify-center mx-4 mb-6 border-customBlue border-2 w-11/12 h-1/3">
             <img id="modalImage" src="" alt="${species.common_name}" data-taxon-id="${species.taxon_id}" class="species-image w-full h-full object-cover">
         </div>
 
-        <!-- <a id="species-wikipedia-url" class="species-wikipedia-url-class" data-taxon-id="${species.taxon_id}" href="#" target="_blank">Wikipedia Link</a> -->
-        <a id="species-wikipedia-url" data-taxon-id="${species.taxon_id}" class="species-wikipedia-url-class inline-block bg-customBlue text-white mx-4 my-2 px-3 py-2 rounded hover:bg-customBlue-600 transition duration-300" href="#" target="_blank">Wikipedia Link</a>
-
         <!-- Container for Map and Description -->
-        <div class="flex flex-row md:flex-row px-4 pb-4">
-            <!-- Map Container -->
-            <div id="mapContainer" class="flex-1 bg-gray-200 md:h-auto mr-4 mb-4">
-                <img id="mapImage" src="../images/manuels-river-map.png" class="max-h-72 w-full"/>
-            </div>
-
+        <div class="flex flex-col md:flex-row px-4 pb-4">
             <!-- Description Container -->
-            <div class="flex-1 overflow-y-scroll max-h-72">
+            <div class="flex-1 overflow-y-scroll max-h-96 my-2 mx-2">
                 <p id="modalDescription" class="text-2xl"></p>
+            </div>
+            <!-- Map Container -->
+            <div id="mapContainer" class="flex-1 bg-gray-200 md:h-auto mx-2 w-1/2 my-2">
+                <img id="mapImage" src="../images/manuels-river-map.png" class="max-h-72  w-full"/>
             </div>
         </div>
-        <div class="flex flex-row md:flex-row px-4 pb-4">
-            <!-- Map Container -->
-            <div id="mapContainer" class="flex-1 bg-gray-200 md:h-auto mr-4 mb-4">
-                <img id="mapImage" src="../images/manuels-river-map.png" class="max-h-72 w-full"/>
-            </div>
+        
 
-            <!-- Description Container -->
-            <div class="flex-1 overflow-y-scroll max-h-72">
-                <p id="modalDescription" class="text-2xl"></p>
-            </div>
-        </div> <div class="flex flex-row md:flex-row px-4 pb-4">
-            <!-- Map Container -->
-            <div id="mapContainer" class="flex-1 bg-gray-200 md:h-auto mr-4 mb-4">
-                <img id="mapImage" src="../images/manuels-river-map.png" class="max-h-72 w-full"/>
-            </div>
+        <!-- <iframe id="wikiFrame species-wikipedia-url" data-taxon-id="${species.taxon_id}" src="#" class="species-wikipedia-url-class w-full h-full border-none" frameborder="0" ></iframe> -->
+        <iframe id="wikiFrame" class="w-full h-full border-none" frameborder="0"></iframe>
+        <a id="species-wikipedia-url" data-taxon-id="${species.taxon_id}" class="species-wikipedia-url-class bg-customBlue text-white mx-6 my-2 px-3 py-2 rounded hover:bg-customBlue-600 transition duration-300 hidden" href="#" target="_blank">Wikipedia Link</a>
 
-            <!-- Description Container -->
-            <div class="flex-1 overflow-y-scroll max-h-72">
-                <p id="modalDescription" class="text-2xl"></p>
-            </div>
-        </div> <div class="flex flex-row md:flex-row px-4 pb-4">
-            <!-- Map Container -->
-            <div id="mapContainer" class="flex-1 bg-gray-200 md:h-auto mr-4 mb-4">
-                <img id="mapImage" src="../images/manuels-river-map.png" class="max-h-72 w-full"/>
-            </div>
-
-            <!-- Description Container -->
-            <div class="flex-1 overflow-y-scroll max-h-72">
-                <p id="modalDescription" class="text-2xl"></p>
-            </div>
-        </div>
+        
     </div>
 </div>
 

@@ -68,6 +68,7 @@
                 const taxonId = card.getAttribute('data-taxon-id');
                 const description = card.getAttribute('data-description') || "Description Not Found";
                 const title = card.querySelector('h3')?.textContent || "Title Not Found";
+                const scientificName = card.querySelector('.species-scientific-name')?.textContent || "Scientific Name Not Found";
                 const imageSrc = card.querySelector('img')?.src || "Image Not Found";
                 // const description = data.species.description
                 // const description = card.querySelector('p')?.textContent || "Description Not Found";
@@ -78,7 +79,7 @@
                 // const taxonId = card.dataset.taxonId; // Ensure this is correctly set
                 
                 // Open the modal with the Wikipedia URL
-                openModal(title, imageSrc, description);
+                openModal(title, imageSrc, description, scientificName);
                 // Then fetch and update the Wikipedia link
                 console.log("Preparing to update modal with Wikipedia data..."); // Log before calling displaySpeciesModalData
                 try {
@@ -114,11 +115,12 @@
         });
     }
 
-    const openModal  = (name, imgSrc, description) => {
+    const openModal  = (name, imgSrc, description, scientificName) => {
         // Set the content of the modal elements
         document.getElementById('modalTitle').textContent = name;
         document.getElementById('modalImage').src = imgSrc;
         document.getElementById('modalImage').alt = name; // Set alt attribute for accessibility
+        document.getElementById('modalScientificName').textContent = scientificName;
         document.getElementById('modalDescription').textContent = description;
         // Show the modal
         document.getElementById('modal').classList.remove('hidden');       
@@ -138,14 +140,23 @@
             // wikipediaElement.setAttribute('href', wikipedia_url); // Set the href attribute
             wikipediaElement.textContent = "View on Wikipedia";
             wikipediaElement.setAttribute('data-taxon-id', taxonId);
-            wikipediaElement.style.display = 'inline'; // Make sure it's visible
+            // wikipediaElement.style.display = 'inline'; // Make sure it's visible
             console.log("Wikipedia link updated."); // Confirm the update
         } else if (wikipediaElement) {
             wikipediaElement.style.display = 'none';
             wikipediaElement.textContent = "No Wiki URL Found";
             console.log("Wikipedia link hidden due to no URL."); // Log hiding
             // wikipediaElement.removeAttribute('href'); // Remove href attribute if no URL is available
-
+        }
+        // Find the iframe element
+        const wikiFrame = document.getElementById("wikiFrame");
+        if (wikipedia_url) {
+            // Set the Wikipedia URL as the iframe's src attribute
+            wikiFrame.src = wikipedia_url;
+            wikiFrame.classList.remove("hidden"); // Remove "hidden" class to display the iframe
+        } else {
+            // Hide the iframe if there's no valid URL
+            wikiFrame.classList.add("hidden"); // Add "hidden" class to hide the iframe
         }
     }
     
@@ -161,7 +172,7 @@
             Object.entries(data.species).forEach(([category, speciesList]) => {
                 const formattedCategoryName = category.replace(/\s+/g, '-'); // Replaces the whitspace with "-".
                 let categoryHtml = `
-                    <div class="flex justify-between items-center bg-customBlue text-white p-4 ">
+                    <div class="flex justify-between items-center bg-white text-customBlue p-4 ">
                         <h2 class="text-xl font-bold">${category.charAt(0).toUpperCase() + category.slice(1)}</h2>
                         <button class="toggle-category focus:outline-none" data-target="${formattedCategoryName}Cards">
                             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
