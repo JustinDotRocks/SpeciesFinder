@@ -129,7 +129,7 @@
     };
 
     const displaySpeciesModalData = async (taxonId) => {
-        const { wikipedia_url } = await fetchDataFromAPI(taxonId);
+        const { wikipedia_url, observations_count } = await fetchDataFromAPI(taxonId);
         console.log("Attempting to update with Wikipedia URL:", wikipedia_url); // Log the URL to be set
         // Find and update the Wikipedia URL element
         // const wikipediaElement = element.closest('.card').querySelector('.species-wikipedia-url-class');
@@ -158,6 +158,9 @@
             // Hide the iframe if there's no valid URL
             wikiFrame.classList.add("hidden"); // Add "hidden" class to hide the iframe
         }
+        // Display observation_count in the modal
+        const observationsCountElement = document.getElementById('observationsCount');
+        observationsCountElement.textContent = `Observations Count as per INaturalist: ${observations_count}`;
     }
     
 
@@ -282,16 +285,17 @@
             = data?.results?.[0]?.taxon?.wikipedia_url
             || false; 
             console.log("Wikipedia URL:", wikipedia_url);
-
+            const observations_count = data?.results?.[0]?.taxon?.observations_count || "";
             return {
                 scientificName,
                 threatened,
-                wikipedia_url
+                wikipedia_url,
+                observations_count
 
             };
         } catch (error) {
             console.error(`Failed to fetch data for taxon ID ${taxonId}:`, error);
-            return { scientificName: '', threatened: false, wikipedia_url
+            return { scientificName: '', threatened: false, wikipedia_url, observations_count
             : '' };
         }
         
