@@ -85,3 +85,15 @@
 .modal-container {
   height: 90vh;
 }
+
+.close-modal-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  background-color: white;
+  border-width: 1px;
+  border-color: #0089aa;
+}

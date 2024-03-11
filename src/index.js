@@ -1,3 +1,4 @@
+
     const menuModal = document.getElementById('menu-modal');
 
     // MENU
@@ -70,18 +71,10 @@
                 const title = card.querySelector('h3')?.textContent || "Title Not Found";
                 const scientificName = card.querySelector('.species-scientific-name')?.textContent || "Scientific Name Not Found";
                 const imageSrc = card.querySelector('img')?.src || "Image Not Found";
-                // const description = data.species.description
-                // const description = card.querySelector('p')?.textContent || "Description Not Found";
-                // const taxonId = card.getAttribute('data-taxon-id');
-                // const title = card.dataset.title; // Make sure these attributes are correctly set on the cards
-                // const imageSrc = card.dataset.imgSrc;
-                // const description = card.dataset.description;
-                // const taxonId = card.dataset.taxonId; // Ensure this is correctly set
                 
                 // Open the modal with the Wikipedia URL
                 openModal(title, imageSrc, description, scientificName);
                 // Then fetch and update the Wikipedia link
-                console.log("Preparing to update modal with Wikipedia data..."); // Log before calling displaySpeciesModalData
                 try {
                     await displaySpeciesModalData(taxonId);
                 } catch (error) {
@@ -130,23 +123,18 @@
 
     const displaySpeciesModalData = async (taxonId) => {
         const { wikipedia_url, observations_count } = await fetchDataFromAPI(taxonId);
-        console.log("Attempting to update with Wikipedia URL:", wikipedia_url); // Log the URL to be set
         // Find and update the Wikipedia URL element
-        // const wikipediaElement = element.closest('.card').querySelector('.species-wikipedia-url-class');
         const wikipediaElement = document.getElementById("species-wikipedia-url");
-        console.log("Wikipedia Element selected:", wikipediaElement); // Verify element selection
         if (wikipedia_url) {
             wikipediaElement.href = wikipedia_url;
             // wikipediaElement.setAttribute('href', wikipedia_url); // Set the href attribute
             wikipediaElement.textContent = "View on Wikipedia";
             wikipediaElement.setAttribute('data-taxon-id', taxonId);
             // wikipediaElement.style.display = 'inline'; // Make sure it's visible
-            console.log("Wikipedia link updated."); // Confirm the update
         } else if (wikipediaElement) {
             wikipediaElement.style.display = 'none';
             wikipediaElement.textContent = "No Wiki URL Found";
             console.log("Wikipedia link hidden due to no URL."); // Log hiding
-            // wikipediaElement.removeAttribute('href'); // Remove href attribute if no URL is available
         }
         // Find the iframe element
         const wikiFrame = document.getElementById("wikiFrame");
