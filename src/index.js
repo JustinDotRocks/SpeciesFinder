@@ -115,6 +115,14 @@
         document.getElementById('modalImage').alt = name; // Set alt attribute for accessibility
         document.getElementById('modalScientificName').textContent = scientificName;
         document.getElementById('modalDescription').textContent = description;
+        // Ensure the iframe and the "Show Wikipedia" button are reset to their initial state
+        const wikiFrame = document.getElementById("wikiFrame");
+        const modalWikiButtonContainer = document.getElementById("modalWikiButtonContainer");
+        
+        wikiFrame.classList.add('hidden'); // Hide the iframe
+        wikiFrame.src = ""; // Reset the src to ensure it doesn't load the previous content
+        modalWikiButtonContainer.classList.add('hidden'); // Hide the "Show Wikipedia" button until it's verified that a URL exists
+    
         // Show the modal
         document.getElementById('modal').classList.remove('hidden');       
         // Disable scrolling
@@ -123,33 +131,73 @@
 
     const displaySpeciesModalData = async (taxonId) => {
         const { wikipedia_url, observations_count } = await fetchDataFromAPI(taxonId);
-        // Find and update the Wikipedia URL element
-        const wikipediaElement = document.getElementById("species-wikipedia-url");
-        if (wikipedia_url) {
-            wikipediaElement.href = wikipedia_url;
-            // wikipediaElement.setAttribute('href', wikipedia_url); // Set the href attribute
-            wikipediaElement.textContent = "View on Wikipedia";
-            wikipediaElement.setAttribute('data-taxon-id', taxonId);
-            // wikipediaElement.style.display = 'inline'; // Make sure it's visible
-        } else if (wikipediaElement) {
-            wikipediaElement.style.display = 'none';
-            wikipediaElement.textContent = "No Wiki URL Found";
-            console.log("Wikipedia link hidden due to no URL."); // Log hiding
-        }
-        // Find the iframe element
         const wikiFrame = document.getElementById("wikiFrame");
+        const showWikiButton = document.getElementById("showWiki");
+        const modalWikiButtonContainer = document.getElementById("modalWikiButtonContainer");
+        const wikipediaLinkElement = document.getElementById("species-wikipedia-url");
+    
         if (wikipedia_url) {
-            // Set the Wikipedia URL as the iframe's src attribute
-            wikiFrame.src = wikipedia_url;
-            wikiFrame.classList.remove("hidden"); // Remove "hidden" class to display the iframe
+            // Wikipedia URL is available
+            wikipediaLinkElement.href = wikipedia_url; // Set the href for direct link (if needed)
+            wikipediaLinkElement.classList.add("hidden"); // Ensure direct link is hidden when iframe is to be used
+    
+            modalWikiButtonContainer.classList.remove("hidden"); // Show "Show Wikipedia" button
+            showWikiButton.onclick = () => {
+                wikiFrame.classList.toggle("hidden");
+                if (!wikiFrame.classList.contains("hidden")) {
+                    wikiFrame.src = wikipedia_url; // Load iframe source only when showing it
+                }
+            };
         } else {
-            // Hide the iframe if there's no valid URL
-            wikiFrame.classList.add("hidden"); // Add "hidden" class to hide the iframe
+            // No Wikipedia URL available
+            modalWikiButtonContainer.classList.add("hidden"); // Hide "Show Wikipedia" button
+            wikipediaLinkElement.classList.add("hidden"); // Also hide direct link
+            wikiFrame.classList.add("hidden"); // Ensure iframe is hidden
         }
-        // Display observation_count in the modal
+    
+        // Display observation_count in the modal...
         const observationsCountElement = document.getElementById('observationsCount');
-        observationsCountElement.textContent = `Observations Count as per INaturalist: ${observations_count}`;
-    }
+        observationsCountElement.textContent = `Observations Count: ${observations_count}`;
+    };
+    
+    
+    
+
+    // const displaySpeciesModalData = async (taxonId) => {
+    //     const { wikipedia_url, observations_count } = await fetchDataFromAPI(taxonId);
+    //     // Find and update the Wikipedia URL element
+    //     const wikipediaElement = document.getElementById("species-wikipedia-url");
+    //     if (wikipedia_url) {
+    //         wikipediaElement.href = wikipedia_url;
+    //         // wikipediaElement.setAttribute('href', wikipedia_url); // Set the href attribute
+    //         wikipediaElement.textContent = "View on Wikipedia";
+    //         wikipediaElement.setAttribute('data-taxon-id', taxonId);
+    //         // wikipediaElement.style.display = 'inline'; // Make sure it's visible
+    //     } else if (wikipediaElement) {
+    //         wikipediaElement.style.display = 'none';
+    //         wikipediaElement.textContent = "No Wiki URL Found";
+    //         console.log("Wikipedia link hidden due to no URL."); // Log hiding
+    //     }
+    //     // Find the iframe element
+    //     const wikiFrame = document.getElementById("wikiFrame");
+    //     if (wikipedia_url) {
+    //         // Set the Wikipedia URL as the iframe's src attribute
+    //         wikiFrame.src = wikipedia_url;
+    //         wikiFrame.classList.remove("hidden"); // Remove "hidden" class to display the iframe
+    //     } else {
+    //         // Hide the iframe if there's no valid URL
+    //         wikiFrame.classList.add("hidden"); // Add "hidden" class to hide the iframe
+    //     }
+    //     // Display observation_count in the modal
+    //     const observationsCountElement = document.getElementById('observationsCount');
+    //     observationsCountElement.textContent = `Observations Count as per INaturalist: ${observations_count}`;
+    //        // Explicitly hide the iframe on initial load
+    //     wikiFrame.classList.add('hidden'); // Ensure the iframe starts as hidden
+    //     document.getElementById('showWiki').addEventListener('click', function() {
+    //         const wikiFrame = document.getElementById("wikiFrame");
+    //         wikiFrame.classList.toggle('hidden'); // Toggle visibility of the iframe
+    //     });
+    // }
     
 
     // Function to dynamically display species and setup interactions
@@ -327,4 +375,5 @@
         // Setup modal close listeners
         setupCloseModalListeners();
         // cardButtonsListener();
+
     });

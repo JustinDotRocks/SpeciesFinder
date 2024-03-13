@@ -6,8 +6,6 @@
     <link href="https://cdn.tailwindcss.com" rel="stylesheet">
     <link href="../dist/styles.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/199b8e5f85.js" crossorigin="anonymous"></script>
-    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=process.env.GOOGLE_MAPS_API_KEY&callback=initMap"></script> -->
-
     <title>Species Catalogue</title>
 </head>
 <body class="bg-gray-100">
@@ -102,11 +100,12 @@
     <!-- Content here -->
 </aside>
 
+<!-- MODAL -->
 <div id="modal" class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50 overflow-y-hidden">
     <div class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto">
 
         <!-- <button id="closeModal" class="fixed top-10 right-5 mx-4 my-4 text-customBlue text-4xl">&times;</button> -->
-        <div class="close-modal-button fixed top-16 right-8  text-customBlue text-4xl">
+        <div class="close-modal-button fixed top-14 right-8  text-customBlue text-4xl">
             <button id="closeModal">&times;</button>
         </div>
         
@@ -132,14 +131,19 @@
             <div id="observationsCount" data-taxon-id="${species.taxon_id}" class=" text-customBlue m-2 font-bold italic text-xl"></div>
             <!-- Map Container -->
             <div id="mapContainer" class="flex justify-center items-center w-full mb-10 border-customBlue border-2 bg-gray-200 md:h-auto">
-                <img id="mapImage" src="../images/manuels-river-map.png" class="max-auto w-full"/>
+                <img id="mapImage" src="../images/manuels-river-map-edited.png" class="max-auto w-full"/>
                 <!-- <div id="map" class="h-72 w-full my-2"></div> -->
             </div>
         </div>
         
-
+        <!-- Wikipedia Button -->
+        <div id="modalWikiButtonContainer" class="hidden">
+        <button id="showWiki" class="mx-6 my-4 px-3 py-2 bg-customBlue text-white rounded">
+            Show Wikipedia
+        </button>
+        </div>
         <!-- <iframe id="wikiFrame species-wikipedia-url" data-taxon-id="${species.taxon_id}" src="#" class="species-wikipedia-url-class w-full h-full border-none" frameborder="0" ></iframe> -->
-        <iframe id="wikiFrame" class="w-full h-full border-none" frameborder="0"></iframe>
+        <iframe id="wikiFrame" class="w-full h-full border-none hidden" frameborder="0"></iframe>
         <a id="species-wikipedia-url" data-taxon-id="${species.taxon_id}" class="species-wikipedia-url-class bg-customBlue text-white mx-6 my-2 px-3 py-2 rounded hover:bg-customBlue-600 transition duration-300 hidden" href="#" target="_blank">Wikipedia Link</a>
 
         
