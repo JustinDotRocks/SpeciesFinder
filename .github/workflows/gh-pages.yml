@@ -24,7 +24,7 @@ jobs:
         run: npm run build-css  # Ensure this command is defined in your package.json and correctly builds your Tailwind CSS
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.1.5
+        uses: JamesIves/github-pages-deploy-action@v4.1.6
         with:
           branch: gh-pages  # The branch you're deploying to
           folder: .  # The folder you're deploying from. Adjust if your built assets are in a subdirectory.
