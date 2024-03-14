@@ -124,7 +124,9 @@
         modalWikiButtonContainer.classList.add('hidden'); // Hide the "Show Wikipedia" button until it's verified that a URL exists
     
         // Show the modal
-        document.getElementById('modal').classList.remove('hidden');       
+        document.getElementById('modal').classList.remove('hidden');   
+        document.getElementById('modal-container').scrollTop = 0; // This line ensures the modal scrolls to the top
+    
         // Disable scrolling
         toggleScrollLock(true);
     };
@@ -157,7 +159,7 @@
     
         // Display observation_count in the modal...
         const observationsCountElement = document.getElementById('observationsCount');
-        observationsCountElement.textContent = `Observations Count: ${observations_count}`;
+        observationsCountElement.textContent = `Observations Counted World Wide on INaturalist: ${observations_count}`;
     };
     
     

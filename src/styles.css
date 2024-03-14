@@ -98,3 +98,17 @@
   border-width: 1px;
   border-color: #0089aa;
 }
+
+@keyframes expandContractLeft {
+  0%, 100% {
+    transform: scale(1); /* No rotation needed if the arrow points left by default */
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.modal-map-arrow {
+  display: inline-block; /* Ensure the element can be transformed */
+  animation: expandContractLeft 2s ease-in-out infinite;
+}

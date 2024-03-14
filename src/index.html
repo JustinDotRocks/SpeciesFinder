@@ -102,11 +102,11 @@
 
 <!-- MODAL -->
 <div id="modal" class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50 overflow-y-hidden">
-    <div class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto">
+    <div id="modal-container" class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto">
 
         <!-- <button id="closeModal" class="fixed top-10 right-5 mx-4 my-4 text-customBlue text-4xl">&times;</button> -->
-        <div class="close-modal-button fixed top-14 right-8  text-customBlue text-4xl">
-            <button id="closeModal">&times;</button>
+        <div class="close-modal-button fixed top-14 right-8 z-50 text-customBlue text-4xl">
+            <button id="closeModal" class="pb-1">&times;</button>
         </div>
         
         <!-- Modal Title -->
@@ -129,16 +129,27 @@
             </div>
             <!-- Observations Count -->
             <div id="observationsCount" data-taxon-id="${species.taxon_id}" class=" text-customBlue m-2 font-bold italic text-xl"></div>
-            <!-- Map Container -->
-            <div id="mapContainer" class="flex justify-center items-center w-full mb-10 border-customBlue border-2 bg-gray-200 md:h-auto">
-                <img id="mapImage" src="../images/manuels-river-map-edited.png" class="max-auto w-full"/>
-                <!-- <div id="map" class="h-72 w-full my-2"></div> -->
+            
+            <div class="flex">
+                <!-- Map Container -->
+                <div id="mapContainer" class="flex justify-center items-center w-1/3 m-2 border-customBlue border-2 bg-gray-200 md:h-auto">
+                    <img id="mapImage" src="../images/manuels-river-map-edited.png" class="max-auto w-full"/>
+                    <!-- Optional: If you want an interactive map, you can include it here instead of the image -->
+                </div>
+            
+                <!-- Text "Click the Map for More" -->
+                <div class="flex flex-col items-center justify-center ml-6">
+                    <!-- Arrow pointing down to the map -->
+                    <div class="modal-map-arrow text-8xl text-customBlue font-bold">&#x2190;</div> <!-- Adjust size and rotation as needed -->
+                    <p class=" text-customBlue">Click the Map for More</p>
+                </div>
             </div>
+            
         </div>
         
         <!-- Wikipedia Button -->
         <div id="modalWikiButtonContainer" class="hidden">
-        <button id="showWiki" class="mx-6 my-4 px-3 py-2 bg-customBlue text-white rounded">
+        <button id="showWiki" class="mx-6 my-2 px-3 py-2 bg-customBlue text-white rounded">
             Show Wikipedia
         </button>
         </div>
