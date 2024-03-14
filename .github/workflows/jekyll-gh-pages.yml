@@ -35,9 +35,9 @@ jobs:
         with:
           node-version: '14'
       - name: Install Dependencies
-        uses: npm install
+        run: npm install
       - name: Build CSS
-        uses: npm run build-css
+        run: npm run build-css
 
   # Deployment job
   deploy:
