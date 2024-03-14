@@ -12,7 +12,7 @@
     "tailwindcss": "^3.4.1"
   },
   "scripts": {
-    "build-css": "tailwindcss build src/styles.css -o dist/styles.css",
+    "build-css": "tailwindcss build ./styles.css -o dist/styles.css",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
