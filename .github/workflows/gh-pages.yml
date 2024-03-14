@@ -1,0 +1,31 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # Adjust this if your main branch has a different name
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Use whatever Node.js version your project requires
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build CSS
+        run: npm run build-css  # Ensure this command is defined in your package.json and correctly builds your Tailwind CSS
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.1.5
+        with:
+          branch: gh-pages  # The branch you're deploying to
+          folder: .  # The folder you're deploying from. Adjust if your built assets are in a subdirectory.
+          clean: true  # Cleans up removed files from the destination branch
