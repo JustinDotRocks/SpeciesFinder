@@ -108,6 +108,23 @@
         });
     }
 
+    // Function to setup interactions for the map within the modal
+    const setupMapModalInteractions = () => {
+        // Open the map-modal when the map image/container in the original modal is clicked
+        document.getElementById('mapContainer').addEventListener('click', function() {
+            document.getElementById('map-modal').classList.remove('hidden');
+            // Optional: Disable scrolling on the body if not already handled
+            toggleScrollLock(true);
+        });
+
+        // Close the map-modal
+        document.getElementById('closeMapModal').addEventListener('click', function() {
+            document.getElementById('map-modal').classList.add('hidden');
+            // Re-enable scrolling on the body if it was previously disabled
+            toggleScrollLock(false);
+        });
+    };
+
     const openModal  = (name, imgSrc, description, scientificName) => {
         // Set the content of the modal elements
         document.getElementById('modalTitle').textContent = name;
@@ -161,46 +178,6 @@
         const observationsCountElement = document.getElementById('observationsCount');
         observationsCountElement.textContent = `Observations Counted World Wide on INaturalist: ${observations_count}`;
     };
-    
-    
-    
-
-    // const displaySpeciesModalData = async (taxonId) => {
-    //     const { wikipedia_url, observations_count } = await fetchDataFromAPI(taxonId);
-    //     // Find and update the Wikipedia URL element
-    //     const wikipediaElement = document.getElementById("species-wikipedia-url");
-    //     if (wikipedia_url) {
-    //         wikipediaElement.href = wikipedia_url;
-    //         // wikipediaElement.setAttribute('href', wikipedia_url); // Set the href attribute
-    //         wikipediaElement.textContent = "View on Wikipedia";
-    //         wikipediaElement.setAttribute('data-taxon-id', taxonId);
-    //         // wikipediaElement.style.display = 'inline'; // Make sure it's visible
-    //     } else if (wikipediaElement) {
-    //         wikipediaElement.style.display = 'none';
-    //         wikipediaElement.textContent = "No Wiki URL Found";
-    //         console.log("Wikipedia link hidden due to no URL."); // Log hiding
-    //     }
-    //     // Find the iframe element
-    //     const wikiFrame = document.getElementById("wikiFrame");
-    //     if (wikipedia_url) {
-    //         // Set the Wikipedia URL as the iframe's src attribute
-    //         wikiFrame.src = wikipedia_url;
-    //         wikiFrame.classList.remove("hidden"); // Remove "hidden" class to display the iframe
-    //     } else {
-    //         // Hide the iframe if there's no valid URL
-    //         wikiFrame.classList.add("hidden"); // Add "hidden" class to hide the iframe
-    //     }
-    //     // Display observation_count in the modal
-    //     const observationsCountElement = document.getElementById('observationsCount');
-    //     observationsCountElement.textContent = `Observations Count as per INaturalist: ${observations_count}`;
-    //        // Explicitly hide the iframe on initial load
-    //     wikiFrame.classList.add('hidden'); // Ensure the iframe starts as hidden
-    //     document.getElementById('showWiki').addEventListener('click', function() {
-    //         const wikiFrame = document.getElementById("wikiFrame");
-    //         wikiFrame.classList.toggle('hidden'); // Toggle visibility of the iframe
-    //     });
-    // }
-    
 
     // Function to dynamically display species and setup interactions
     const displaySpecies = async () => {
@@ -377,5 +354,7 @@
         // Setup modal close listeners
         setupCloseModalListeners();
         // cardButtonsListener();
+        setupCloseModalListeners();
+        setupMapModalInteractions();
 
     });
