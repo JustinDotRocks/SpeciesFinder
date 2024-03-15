@@ -8,6 +8,10 @@ module.exports = {
       colors: {
         customBlue: '#0089aa',
       },
+      zIndex: {
+        '60': '60',
+        '70': '70', // Add as needed
+      } 
     },
   },
   plugins: [],  
