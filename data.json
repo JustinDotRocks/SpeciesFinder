@@ -26,7 +26,7 @@
 				"description": "Perhaps shockingly, the muskrat is not a true rat and neither is it closely related to the beaver despite sharing several characteristics with it. The incisors of the muskrat protrude beyond its cheeks, and its lips are able to close behind the incisors. These adaptations allow the muskrat to close its mouth behind its front teeth so that it can chew on things while still holding its breath underwater.",
 				"image": "URL_or_path_to_common_muskrat_image",
 				"taxon_id": 45762,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-muskrat.png"
 			},
 			{
 				"id": "M004",
@@ -44,7 +44,7 @@
 				"description": "This mammal makes its home along shorelines where it hunts for mammals, fish, crustaceans, and insects. The mink can dive up to 3 m in search of prey. During these dives, it slows the pulse of its heart below its normal rate in order to conserve oxygen. Due to the cold water that it frequents, the mink has a thick, oily coat which helps to insulate it from the cold and to keep the water away from its skin. Mink were introduced to Newfoundland in 1935 for fur farming.",
 				"image": "URL_or_path_to_american_mink_image",
 				"taxon_id": 1264432,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-mink.png"
 			},
 			{
 				"id": "M006",
@@ -53,7 +53,7 @@
 				"description": "The largest of the true foxes, red foxes are able to quickly adapt to new habitats due to their high intelligence and the large number of coat colors in the species. When the fox is hunting, it makes a characteristic pouncing action where it jumps into the air and lands on its prey. During the jump, the fox can steer using its tail. Like many other mammals, it has been known to hide the food it does not eat and return to the cache at a later time.",
 				"image": "URL_or_path_to_red_fox_image",
 				"taxon_id": 42069,
-                "map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-fox.png"
 			},
 			{
 				"id": "M007",
@@ -62,7 +62,7 @@
 				"description": "The coyote is an opportunistic omnivore, which is closely related to dogs and wolves. It is smaller in stature than the Grey Wolf but has a larger braincase and ears and carries its tail downwards while running. There is a rare population of coyotes in Newfoundland whose fur is entirely white. This is due to the population being the result of a cross between a coyote and a golden retriever, which gave them the gene for their white fur.",
 				"image": "URL_or_path_to_coyote_image",
 				"taxon_id": 42051,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-coyote.png"
 			},
 			{
 				"id": "M008",
@@ -145,7 +145,7 @@
                 "description": "With a distinctive appearance featuring a large head, long bill, short tail, and a rattling call, these birds nest in burrows they dig in the soft earth of riverbanks.",
                 "image": "URL_or_path_to_belted_kingfisher_image",
 				"taxon_id": 2548,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-kingfisher.png"
             },
 			{
 				"id": "B009",
@@ -154,7 +154,7 @@
 				"description": "Ravens, with thick necks and bills and shaggy throat feathers, have a different call than crows. They can be found in NL all year round in various forest types and nest on Manuels River every year.",
 				"image": "URL_or_path_to_common_raven_image",
 				"taxon_id": 8010,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-ravens.png"
 			},
 			{
 				"id": "B010",
@@ -219,7 +219,7 @@
                 "description": "The American Eel is a catadromous fish, migrating from freshwater to the ocean for spawning upon reaching maturity. Born sexually undifferentiated, their sex is determined during the yellow eel stage, influenced by environmental factors. High densities and poor conditions often yield more males, while larger rivers and lower densities typically produce more females.",
                 "image": "URL_or_path_to_american_eel_image",
 				"taxon_id": 49219,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-eels.png"
             },
             {
                 "id": "FI004",
@@ -228,7 +228,7 @@
                 "description": "Atlantic Salmon may spend up to 4 years in the ocean before returning to freshwater for spawning. They often spawn once or twice, but some may breed multiple times. Newly hatched salmon depend on their yolk sac nutrients and start migrating from freshwater to the ocean during the smolt stage, which can take 1-8 years. In our river, they are mainly found downstream below the falls.",
                 "image": "URL_or_path_to_atlantic_salmon_image",
 				"taxon_id": 48648,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-salmon.png"
             },
             {
                 "id": "FI005",
@@ -237,7 +237,7 @@
                 "description": "The lifespan of Thorny Skate found in Newfoundland is estimated to be between 16-20 years. They feed on a wide variety of prey, including invertebrates and small fish, and inhabit depths of 18-1200m. Females lay egg cases, known as mermaid/devil purses, on the sea floor, which are fertilized in the womb. These fish are sometimes found in the estuary.",
                 "image": "URL_or_path_to_thorny_skate_image",
 				"taxon_id": 48402,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-beach.png"
             },
             {
                 "id": "FI006",
