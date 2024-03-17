@@ -71,9 +71,11 @@
                 const title = card.querySelector('h3')?.textContent || "Title Not Found";
                 const scientificName = card.querySelector('.species-scientific-name')?.textContent || "Scientific Name Not Found";
                 const imageSrc = card.querySelector('img')?.src || "Image Not Found";
+                const map_image = card.getAttribute('data-map-image');
+
                 
                 // Open the modal with the Wikipedia URL
-                openModal(title, imageSrc, description, scientificName);
+                openModal(title, imageSrc, description, scientificName, map_image);
                 // Then fetch and update the Wikipedia link
                 try {
                     await displaySpeciesModalData(taxonId);
@@ -125,13 +127,14 @@
         });
     };
 
-    const openModal  = (name, imgSrc, description, scientificName) => {
+    const openModal  = (name, imgSrc, description, scientificName, map_image) => {
         // Set the content of the modal elements
         document.getElementById('modalTitle').textContent = name;
         document.getElementById('modalImage').src = imgSrc;
         document.getElementById('modalImage').alt = name; // Set alt attribute for accessibility
         document.getElementById('modalScientificName').textContent = scientificName;
         document.getElementById('modalDescription').textContent = description;
+        document.getElementById('fullMapImage').src = map_image; // Set the map image URL
         // Ensure the iframe and the "Show Wikipedia" button are reset to their initial state
         const wikiFrame = document.getElementById("wikiFrame");
         const modalWikiButtonContainer = document.getElementById("modalWikiButtonContainer");
@@ -204,7 +207,7 @@
                     // <p class="text-gray-700 mt-2 px-4 w-1/2">${truncatedDescription}</p>
 
                     return `
-                        <div class="card  bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" data-description="${species.description}" data-taxon-id="${species.taxon_id}" onclick="openModal('${species.common_name}', '', '${species.description}')">
+                        <div class="card  bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" data-description="${species.description}" data-taxon-id="${species.taxon_id}" data-map-image="${species.map_image}"  onclick="openModal('${species.common_name}', '', '${species.description}')">
                             <h3 class="text-xl ml-4 text-customBlue font-semibold">${species.common_name}</h3>
                             <div class="species-scientific-name text-xl ml-4 italic text-customBlue" data-taxon-id="${species.taxon_id}"></div>
                             <div class="cardImageContainer flex justify-center ">
