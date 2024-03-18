@@ -82,7 +82,7 @@
                 "description": "These tiny, active birds inhabit tree canopies, often seen upside down, and are known for their excitable call. They are frequent visitors at bird feeders.",
                 "image": "URL_or_path_to_red-breasted_nuthatch_image",
 				"taxon_id": 14823,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
             },
             {
                 "id": "B002",
@@ -127,7 +127,7 @@
                 "description": "Both males and females are bright yellow, with males having reddish streaks on their throat and belly. They forage for insects on tall shrubs and small trees.",
                 "image": "URL_or_path_to_yellow_warbler_image",
 				"taxon_id": 145238,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
             },
             {
                 "id": "B007",
@@ -163,7 +163,7 @@
 				"description": "These plump finches build bulky nests in shrubs of coniferous trees along stream edges. The males exhibit a distinct deep, rose-red color, while females have a yellowish head and rump. They live in NL year-round.",
 				"image": "URL_or_path_to_pine_grosbeak_image",
 				"taxon_id": 9771,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "B011",
@@ -181,7 +181,7 @@
 				"description": "Rusty-capped migratory songbirds living in bogs and open boreal forests, they forage on the ground for insects and habitually wag their tails, showing off a bright yellow under tail.",
 				"image": "URL_or_path_to_palm_warbler_image",
 				"taxon_id": 145242,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "B013",
@@ -190,7 +190,7 @@
 				"description": "Fairly small grouse with a short, triangular crest and a long, fan-shaped tail. Ruffed Grouse are intricately patterned with dark bars and spots on either a reddish-brown or grayish background.",
 				"image": "URL_or_path_to_ruffed_grouse_image",
 				"taxon_id": 890,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			}
 		],
 		"fish": [
@@ -201,7 +201,7 @@
                 "description": "Introduced to St. Johns, Newfoundland from Scotland in 1884, the Brown Trouts stocking continued until the late 1930s. In their habitat, adult Brown Trouts mainly live in stream pools, while the younger ones occupy both pools and riffles. They are nocturnal feeders, preying on aquatic and terrestrial insects, small rodents, and other smaller fish.",
                 "image": "URL_or_path_to_brown_trout_image",
 				"taxon_id": 47518,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-fish.png"
             },
             {
                 "id": "FI002",
@@ -210,7 +210,7 @@
                 "description": "Brook Trout, a freshwater salmonid species, are native to Newfoundland and Labrador and found throughout Canada. They prefer river banks and in-stream cover in streams, and in lakes, they seek cold, clear waters. Thriving in water with a pH between 6.5 and 8.0, they congregate for spawning from mid-September to mid-October.",
                 "image": "URL_or_path_to_brook_trout_image",
 				"taxon_id": 49596,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-fish.png"
             },
             {
                 "id": "FI003",
@@ -246,7 +246,7 @@
                 "description": "Also known as pricklies or Benny sickles in parts of Newfoundland, Three-Spined Sticklebacks are native to the province and found in nearly every water body, including our river. They are omnivorous, consuming worms, drowned insects, fish eggs, and crustaceans.",
                 "image": "URL_or_path_to_three-spined_stickleback_image",
 				"taxon_id": 48403,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-fish.png"
             }
         ],
 		"insects": [
@@ -302,7 +302,7 @@
                 "description": "Water Striders utilize the surface tension of water to glide. Their legs, covered in tiny hairs that capture air and repel water, help them seamlessly move around, capturing insects and larvae with their two shorter front legs.",
                 "image": "URL_or_path_to_water_strider_image",
 				"taxon_id": 59653,
-                "map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-fish.png"
             },
             {
                 "id": "I007",
@@ -515,7 +515,7 @@
                 "description": "Members of the genus Boletus, known as Bolete Mushrooms, range from edible to toxic. Many species turn blue when cut, aiding in identification. Unlike common mushrooms with gills, boletes have sponge-like tubes for spore release.",
                 "image": "URL_or_path_to_bolete_mushrooms_image",
 				"taxon_id": 48427,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-mushrooms.png"
             },
             {
                 "id": "F002",
@@ -533,7 +533,7 @@
                 "description": "Bracket Fungi, resembling stalkless mushrooms, are often found on rotting wood. They can be either saprotrophic, digesting dead material, or parasitic, with some species growing on trees and eventually killing them to feed on the decaying material for years.",
                 "image": "URL_or_path_to_bracket_fungus_image",
 				"taxon_id": 47379,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-mushrooms.png"
             },
             {
                 "id": "F004",
@@ -551,7 +551,7 @@
                 "description": "Agaric Mushrooms are among the most commonly seen fungi. They are notable for the gills on the underside of their cap, used for spore dispersal. The gills are key in identifying species, and like other mushrooms, they are only visible during reproduction, being otherwise underground.",
                 "image": "URL_or_path_to_agaric_mushrooms_image",
 				"taxon_id": 47167,
-                "map_image": "./images/River-Maps/manuels-river-map-edited.png"
+                "map_image": "./images/River-Maps/mr-river-map-pins-mushrooms.png"
             },
             {
                 "id": "F006",
