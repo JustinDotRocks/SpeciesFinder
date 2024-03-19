@@ -112,3 +112,8 @@
   display: inline-block; /* Ensure the element can be transformed */
   animation: expandContractLeft 2s ease-in-out infinite;
 }
+
+
+.text-yellow-500 { 
+  color: #fbbf24; /* Yellow color for favorited icon */
+}

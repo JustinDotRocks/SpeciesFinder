@@ -30,14 +30,36 @@
     }
 
     // Handle route changes for about page and main content visibility
+    // const handleRouteChange = () => {
+    //     const hash = window.location.hash;
+    //     const mainContent = document.getElementById('mainContent');
+    //     const aboutPage = document.getElementById('aboutPage');
+    //     mainContent.classList.toggle('hidden', hash === '#about');
+    //     aboutPage.classList.toggle('hidden', hash !== '#about');
+    //     window.scrollTo(0, 0);
+    // };
     const handleRouteChange = () => {
         const hash = window.location.hash;
-        const mainContent = document.getElementById('mainContent');
-        const aboutPage = document.getElementById('aboutPage');
-        mainContent.classList.toggle('hidden', hash === '#about');
-        aboutPage.classList.toggle('hidden', hash !== '#about');
-        window.scrollTo(0, 0);
+        const mainContent = document.getElementById('mainContent'); // Your main content
+        const aboutPage = document.getElementById('aboutPage'); // About page, if you have one
+        const favoritesPage = document.getElementById('favoritesPage'); // Favorites page
+    
+        // Hide all pages
+        mainContent.classList.add('hidden');
+        aboutPage.classList.add('hidden');
+        favoritesPage.classList.add('hidden');
+    
+        // Show the page based on the hash
+        if(hash === '#about') {
+            aboutPage.classList.remove('hidden');
+        } else if(hash === '#favorites') {
+            favoritesPage.classList.remove('hidden');
+            showFavorites(); // Make sure to call your function to load/display favorites
+        } else {
+            mainContent.classList.remove('hidden');
+        }
     };
+    
 
     const speciesSelectorLinkListener = () => {
         const speciesSelectorLink = document.getElementById('speciesSelectorLink');
@@ -127,7 +149,7 @@
         });
     };
 
-    const openModal  = (name, imgSrc, description, scientificName, map_image) => {
+    const openModal  = (name, imgSrc, description, scientificName, map_image, taxonId) => {
         // Set the content of the modal elements
         document.getElementById('modalTitle').textContent = name;
         document.getElementById('modalImage').src = imgSrc;
@@ -135,10 +157,20 @@
         document.getElementById('modalScientificName').textContent = scientificName;
         document.getElementById('modalDescription').textContent = description;
         document.getElementById('fullMapImage').src = map_image; // Set the map image URL
+
+        const isFavorite = checkIfFavorite(taxonId);
+        const favoriteClass = isFavorite ? 'fas fa-star text-yellow-500' : 'far fa-star';
+        document.getElementById('modalTitle').innerHTML = `${name} <i id="favoriteIcon" class="${favoriteClass}" data-taxon-id="${taxonId}"></i>`;
+
+        const favoriteIcon = document.getElementById('favoriteIcon');
+        favoriteIcon.addEventListener('click', function() {
+            const iconTaxonId = this.getAttribute('data-taxon-id'); // Ensure this is a string if necessary
+            toggleFavorite(iconTaxonId);
+            updateFavoriteIcon(iconTaxonId); // Now correctly passing taxonId
+        });        
         // Ensure the iframe and the "Show Wikipedia" button are reset to their initial state
         const wikiFrame = document.getElementById("wikiFrame");
         const modalWikiButtonContainer = document.getElementById("modalWikiButtonContainer");
-        
         wikiFrame.classList.add('hidden'); // Hide the iframe
         wikiFrame.src = ""; // Reset the src to ensure it doesn't load the previous content
         modalWikiButtonContainer.classList.add('hidden'); // Hide the "Show Wikipedia" button until it's verified that a URL exists
@@ -150,6 +182,93 @@
         // Disable scrolling
         toggleScrollLock(true);
     };
+
+    const checkIfFavorite = (taxonId) => {
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        return favorites.includes(taxonId);
+    }
+    
+    const toggleFavorite = (taxonId) => {
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        if (favorites.includes(taxonId)) {
+            favorites = favorites.filter(id => id !== taxonId);
+        } else {
+            favorites.push(taxonId);
+        }
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        updateFavoriteIcon(taxonId);
+    }
+
+    const initializeFavoriteIcons = () => {
+        document.querySelectorAll('.favorite-icon').forEach(icon => {
+            const taxonId = icon.getAttribute('data-taxon-id');
+            if (checkIfFavorite(taxonId)) {
+                icon.classList.remove('far'); // far is for regular icon in Font Awesome
+                icon.classList.add('fas', 'text-yellow-500'); // fas is for solid icon, and text-yellow-500 makes it yellow
+            } else {
+                icon.classList.add('far');
+                icon.classList.remove('fas', 'text-yellow-500');
+            }
+        });
+    };
+    
+    
+    const updateFavoriteIcon = (taxonId) => {
+        const isFavorite = checkIfFavorite(taxonId);
+        const favoriteIcon = document.getElementById('favoriteIcon');
+        if (isFavorite) {
+            favoriteIcon.classList.remove('far');
+            favoriteIcon.classList.add('fas', 'text-yellow-500');
+        } else {
+            favoriteIcon.classList.add('far');
+            favoriteIcon.classList.remove('fas', 'text-yellow-500');
+        }
+    };
+
+    // const showFavorites = () => {
+    //     const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    //     const container = document.getElementById('favoritesPage');
+    //     // Logic to fetch and display species details based on `favorites` array
+    //     // This depends on how your species data is structured and accessed
+    // };
+    const showFavorites = async () => {
+        const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+        const container = document.getElementById('favoritesPage');
+        container.innerHTML = ''; // Clear existing content
+    
+        if (favorites.length === 0) {
+            container.innerHTML = '<p>You have no favorites yet.</p>';
+            return;
+        }
+    
+        // Assuming your species data is structured as in your `data.json`
+        try {
+            const response = await fetch('./data.json');
+            const data = await response.json();
+            
+            favorites.forEach(favoriteTaxonId => {
+                Object.entries(data.species).forEach(([category, speciesList]) => {
+                    speciesList.forEach(species => {
+                        if (species.taxon_id.toString() === favoriteTaxonId) {
+                            const speciesCard = `
+                                <div class="card bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4">
+                                    <h3 class="text-xl text-customBlue font-semibold">${species.common_name}</h3>
+                                    <p class="text-gray-700 mt-2">${species.description}</p>
+                                    <!-- Add more species details here as needed -->
+                                </div>
+                            `;
+                            container.innerHTML += speciesCard;
+                        }
+                    });
+                });
+            });
+        } catch (error) {
+            console.error('Error loading or processing species data:', error);
+            container.innerHTML = '<p>Error loading favorites. Please try again later.</p>';
+        }
+    };
+    
+    
 
     const displaySpeciesModalData = async (taxonId) => {
         const { wikipedia_url, observations_count } = await fetchDataFromAPI(taxonId);
@@ -208,7 +327,10 @@
 
                     return `
                         <div class="card  bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" data-description="${species.description}" data-taxon-id="${species.taxon_id}" data-map-image="${species.map_image}"  onclick="openModal('${species.common_name}', '', '${species.description}')">
-                            <h3 class="text-xl ml-4 text-customBlue font-semibold">${species.common_name}</h3>
+                            <h3 class="text-xl ml-4 text-customBlue font-semibold">
+                                ${species.common_name}
+                                <i class="favorite-icon far fa-star" data-taxon-id="${species.taxon_id}"></i> <!-- Unfilled star -->
+                            </h3>
                             <div class="species-scientific-name text-xl ml-4 italic text-customBlue" data-taxon-id="${species.taxon_id}"></div>
                             <div class="cardImageContainer flex justify-center ">
                                     <img src="" alt="Loading, Please Wait" data-taxon-id="${species.taxon_id}" class="species-image rounded-md p-4">
@@ -349,15 +471,19 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('DOMContentLoaded', loadSpeciesData);
-        window.addEventListener('hashchange', handleRouteChange);
         handleRouteChange(); // Ensure correct section is displayed on initial load
+        window.addEventListener('hashchange', handleRouteChange);
+        // Initialize event listeners after the DOM is fully loaded
+        // document.getElementById('favoritesLink').addEventListener('click', (event) => {
+        //     event.preventDefault(); // Prevent the default link behavior
+        //     showFavorites();
+        // });
         menuInteractions();
         speciesSelectorLinkListener();
         loadSpeciesData();
-        // Setup modal close listeners
         setupCloseModalListeners();
-        // cardButtonsListener();
         setupCloseModalListeners();
         setupMapModalInteractions();
-
+        initializeFavoriteIcons();
+        updateFavoriteIcon();
     });
