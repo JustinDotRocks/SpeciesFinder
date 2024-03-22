@@ -197,6 +197,7 @@
     
     const checkIfFavorite = (taxonId) => {
         const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        console.log(favorites)
         return favorites.includes(taxonId);
     }
 
@@ -218,6 +219,26 @@
         const favoriteIcon = document.querySelector('#favoriteIcon[data-taxon-id="' + taxonId + '"]');
         if (favoriteIcon) {
             favoriteIcon.className = isFavorited ? "fas fa-star text-yellow-500" : "far fa-star";
+        }
+    };
+
+    const showFavorites = () => {
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        const container = document.getElementById('favoritesPage');
+        container.innerHTML = ''; // Clear existing content before populating
+    
+        // Check if there are any favorites to display
+        if (favorites.length === 0) {
+            container.innerHTML = '<p>You have no favorites yet.</p>';
+        } else {
+            // Create a list to display the favorites
+            const list = document.createElement('ul');
+            favorites.forEach(taxonId => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Taxon ID: ${taxonId}`;
+                list.appendChild(listItem);
+            });
+            container.appendChild(list);
         }
     };
     
