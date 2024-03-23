@@ -222,89 +222,68 @@
         }
     };
 
-    const showFavorites = () => {
-        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        const container = document.getElementById('favoritesPage');
-        container.innerHTML = ''; // Clear existing content before populating
-    
-        // Check if there are any favorites to display
-        if (favorites.length === 0) {
-            container.innerHTML = '<p>You have no favorites yet.</p>';
-        } else {
-            // Create a list to display the favorites
-            const list = document.createElement('ul');
-            favorites.forEach(taxonId => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `Taxon ID: ${taxonId}`;
-                list.appendChild(listItem);
-            });
-            container.appendChild(list);
-        }
-    };
-    
-
-    // const initializeFavoriteIcons = () => {
-    //     document.querySelectorAll('.favorite-icon').forEach(icon => {
-    //         const taxonId = icon.getAttribute('data-taxon-id');
-    //         if (checkIfFavorite(taxonId)) {
-    //             icon.classList.remove('far'); // far is for regular icon in Font Awesome
-    //             icon.classList.add('fas', 'text-yellow-500'); // fas is for solid icon, and text-yellow-500 makes it yellow
-    //         } else {
-    //             icon.classList.add('far');
-    //             icon.classList.remove('fas', 'text-yellow-500');
-    //         }
-    //     });
-    // };
-    
-    
-    // const updateFavoriteIcon = (taxonId) => {
-    //     const isFavorite = checkIfFavorite(taxonId);
-    //     const favoriteIcon = document.getElementById('favoriteIcon');
-    //     if (isFavorite) {
-    //         favoriteIcon.classList.remove('far');
-    //         favoriteIcon.classList.add('fas', 'text-yellow-500');
-    //     } else {
-    //         favoriteIcon.classList.add('far');
-    //         favoriteIcon.classList.remove('fas', 'text-yellow-500');
-    //     }
-    // };
-
-    // const showFavorites = async () => {
-    //     const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    // const showFavorites = () => {
+    //     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     //     const container = document.getElementById('favoritesPage');
-    //     container.innerHTML = ''; // Clear existing content
+    //     container.innerHTML = ''; // Clear existing content before populating
     
+    //     // Check if there are any favorites to display
     //     if (favorites.length === 0) {
     //         container.innerHTML = '<p>You have no favorites yet.</p>';
-    //         return;
-    //     }
-    
-    //     // Assuming your species data is structured as in your `data.json`
-    //     try {
-    //         const response = await fetch('./data.json');
-    //         const data = await response.json();
-            
-    //         favorites.forEach(favoriteTaxonId => {
-    //             Object.entries(data.species).forEach(([category, speciesList]) => {
-    //                 speciesList.forEach(species => {
-    //                     if (species.taxon_id.toString() === favoriteTaxonId) {
-    //                         const speciesCard = `
-    //                             <div class="card bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4">
-    //                                 <h3 class="text-xl text-customBlue font-semibold">${species.common_name}</h3>
-    //                                 <p class="text-gray-700 mt-2">${species.description}</p>
-    //                                 <!-- Add more species details here as needed -->
-    //                             </div>
-    //                         `;
-    //                         container.innerHTML += speciesCard;
-    //                     }
-    //                 });
-    //             });
+    //     } else {
+    //         // Create a list to display the favorites
+    //         const list = document.createElement('ul');
+    //         favorites.forEach(taxonId => {
+    //             const listItem = document.createElement('li');
+    //             listItem.textContent = `Taxon ID: ${taxonId}`;
+    //             list.appendChild(listItem);
     //         });
-    //     } catch (error) {
-    //         console.error('Error loading or processing species data:', error);
-    //         container.innerHTML = '<p>Error loading favorites. Please try again later.</p>';
+    //         container.appendChild(list);
     //     }
     // };
+
+    const showFavorites = async () => {
+        // Fetch the species data
+        const response = await fetch('./data.json');
+        const data = await response.json(); // Now 'data' is defined within this function
+    
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        const container = document.getElementById('favoritesPage');
+        container.innerHTML = ''; // Clear existing content
+    
+        if (favorites.length === 0) {
+            container.innerHTML = '<p>You have no favorites yet.</p>';
+            return;
+        }
+    
+        // Create a grid container for the cards
+        const grid = document.createElement('div');
+        grid.className = 'grid grid-cols-3 gap-4 mt-24 mx-4'; // Adjust CSS classes as per your framework or custom CSS
+    
+        const allSpecies = Object.values(data.species).flat(); // Flatten all species into a single array
+        for (const favoriteTaxonId of favorites) {
+            const species = allSpecies.find(species => species.taxon_id.toString() === favoriteTaxonId);
+            if (species) {
+                const  imageUrl  = await fetchImageFromAPI(species.taxon_id); // Adjust this function if necessary to return just the image URL
+                // Create a card for this species
+                const card = document.createElement('div');
+                card.className = 'favorites-card border border-customBlue'; // Add your card styling classes here
+                card.innerHTML = `
+                    <div class="card-body">
+                        <h5 class="card-title">${species.common_name}</h5>
+                        <img src="${imageUrl}" alt="Image" class="card-img-top h-12 w-28">
+                    </div>
+                `;
+                grid.appendChild(card);
+            }
+        };
+    
+        // Append the grid of cards to the container
+        container.appendChild(grid);
+    };
+    
+    
+    
     
     
 
