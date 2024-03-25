@@ -210,6 +210,7 @@
             favorites.splice(index, 1);
         }
         localStorage.setItem('favorites', JSON.stringify(favorites));
+        updateFavoriteIcon(taxonId);
         return favorites.includes(taxonId.toString()); // Return the updated favorite status
     };
     
@@ -226,16 +227,7 @@
         // Update icons in the main card list
         const favoriteIconsInList = document.querySelectorAll(`.card .favorite-icon[data-taxon-id="${taxonId}"]`);
         favoriteIconsInList.forEach(icon => {
-            icon.className = isFavorited ? "fas fa-star text-yellow-500" : "far fa-star text-customBlue";
-        });
-    };
-
-    const updateAllFavoriteIconsToUnfavorited = () => {
-        const favoriteIcons = document.querySelectorAll('.favorite-icon, #favoriteIcon');
-        favoriteIcons.forEach(icon => {
-            // Assuming 'fas' is favorited and 'far' is unfavorited. Adjust if your class names differ.
-            icon.classList.replace('fas', 'far'); 
-            icon.classList.replace('text-yellow-500', ''); // Also remove any color class if used
+            icon.className = isFavorited ? "fas fa-star text-yellow-500" : "far fa-star";
         });
     };
 
@@ -306,14 +298,16 @@
         updateAllFavoriteIconsToUnfavorited();
     };
 
+    const updateAllFavoriteIconsToUnfavorited = () => {
+        const favoriteIcons = document.querySelectorAll('.favorite-icon, #favoriteIcon');
+        favoriteIcons.forEach(icon => {
+            // Assuming 'fas' is favorited and 'far' is unfavorited. Adjust if your class names differ.
+            icon.classList.replace('fas', 'far'); 
+        });
+    };
+
     // This should be placed outside the showFavorites function, as it's a utility function
     const determineSpeciesCategory = (taxonId, data) => {
-        // for (const [category, speciesList] of Object.entries(data.species)) {
-        //     if (speciesList.some(species => species.taxon_id === taxonId)) {
-        //         return category; // Returns the category name where the species was found
-        //     }
-        // }
-        // return null; // Returns null if the species isn't found in any category
         let categoryFound = '';
 
         // Loop through each category in the species object
@@ -359,10 +353,6 @@
             expandCategoryAndScroll();
         }
     };
-    
-    
-
-    
     
     const displaySpeciesModalData = async (taxonId) => {
         const { wikipedia_url, observations_count } = await fetchDataFromAPI(taxonId);
