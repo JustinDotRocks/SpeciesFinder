@@ -11,6 +11,7 @@
         overlay.classList.toggle('hidden');
         hamburgerButton.classList.toggle('hamburger-x');
     };
+    
     // Close menu and overlay
     const closeMenu = () => {
         menuModal.classList.replace('menu-slide-in', 'menu-slide-out');
@@ -27,17 +28,8 @@
         hamburgerButton.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', closeMenu);
         menuLinks.forEach(link => link.addEventListener('click', closeMenu));
-    }
+    };
 
-    // Handle route changes for about page and main content visibility
-    // const handleRouteChange = () => {
-    //     const hash = window.location.hash;
-    //     const mainContent = document.getElementById('mainContent');
-    //     const aboutPage = document.getElementById('aboutPage');
-    //     mainContent.classList.toggle('hidden', hash === '#about');
-    //     aboutPage.classList.toggle('hidden', hash !== '#about');
-    //     window.scrollTo(0, 0);
-    // };
     const handleRouteChange = () => {
         const hash = window.location.hash;
         const mainContent = document.getElementById('mainContent'); // Your main content
@@ -60,7 +52,6 @@
         }
     };
     
-
     const speciesSelectorLinkListener = () => {
         const speciesSelectorLink = document.getElementById('speciesSelectorLink');
         const speciesHeader = document.getElementById('species-selector');
@@ -84,18 +75,21 @@
     };
     
     // // Modal interactions
-    const modalElements = (data) => {
+    const modalElements = () => {
         const cardModals = document.querySelectorAll('.card');
         cardModals.forEach(card => {
             card.addEventListener('click', async () => {
                 const taxonId = card.getAttribute('data-taxon-id');
+                if (!taxonId) {
+                    console.error("Error: taxonId is undefined for the clicked card.");
+                    return;
+                }
                 const description = card.getAttribute('data-description') || "Description Not Found";
                 const title = card.querySelector('h3')?.textContent || "Title Not Found";
                 const scientificName = card.querySelector('.species-scientific-name')?.textContent || "Scientific Name Not Found";
                 const imageSrc = card.querySelector('img')?.src || "Image Not Found";
                 const map_image = card.getAttribute('data-map-image');
 
-                
                 // Open the modal with the Wikipedia URL
                 openModal(title, imageSrc, description, scientificName, map_image, taxonId);
                 // Then fetch and update the Wikipedia link
@@ -104,34 +98,30 @@
                 } catch (error) {
                     console.error("Error updating modal with Wikipedia data:", error);
                 }
-    
-
             });
         });
     };
 
     const toggleScrollLock = (isLocked) => {
         document.body.style.overflow = isLocked ? 'hidden' : '';
-    }
-    
+    };
+
     const setupCloseModalListeners = () => {
         const closeModalButton = document.getElementById('closeModal');
-        //Close Modal when close modal button is pressed
-        closeModalButton.addEventListener('click', () => {
-            document.getElementById('modal').classList.add('hidden');
-            // Enable scrolling again
-            toggleScrollLock(false);
-        });
-        // Close modal when clicking outside of it
+        closeModalButton.addEventListener('click', closeModal);
         window.addEventListener('click', (event) => {
             if (event.target.id === 'modal') {
-                document.getElementById('modal').classList.add('hidden');
-                // Enable scrolling again
-                toggleScrollLock(false);
+                closeModal();
             }
         });
-    }
-
+    };
+    
+    const closeModal = (taxonId) => {
+        document.getElementById('modal').classList.add('hidden');
+        toggleScrollLock(false);
+        updateFavoriteIcon(taxonId);
+    };
+    
     // Function to setup interactions for the map within the modal
     const setupMapModalInteractions = () => {
         // Open the map-modal when the map image/container in the original modal is clicked
@@ -151,6 +141,8 @@
 
     const openModal = (name, imgSrc, description, scientificName, map_image, taxonId) => {
         console.log("Received taxonId in openModal:", taxonId); // Debugging statement
+        console.trace(); // This will print the call stack, helping identify where the call came from
+
 
         // Set the content of the modal elements
         document.getElementById('modalTitle').textContent = name;
@@ -175,7 +167,7 @@
         starIcon.setAttribute('data-taxon-id', taxonId);
         starIcon.className = isFavorited ? "fas fa-star text-yellow-500" : "far fa-star";
         starIcon.style.cursor = "pointer";
-        starIcon.addEventListener('click', function() {
+        starIcon.addEventListener('click', () => {
             console.log('taxonId:', taxonId); // Debugging log
             toggleFavorite(taxonId.toString()); // Ensure toggleFavorite is defined and correctly toggles the favorite state
             updateFavoriteIcon(taxonId.toString()); // This function needs to correctly update the icon's appearance
@@ -193,54 +185,59 @@
         document.getElementById('modal').classList.remove('hidden');
         document.getElementById('modal-container').scrollTop = 0;
         toggleScrollLock(true);
+
+        // updateFavoriteIcon(taxonId); // Call after appending the icon to ensure the state is reflected correctly
+
     };
     
     const checkIfFavorite = (taxonId) => {
+        // Ensure taxonId is defined before proceeding
+        if (typeof taxonId === 'undefined' || taxonId === null) {
+            console.error('taxonId is undefined or null');
+            return false; // or handle this case as you see fit
+        }
         const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         console.log(favorites)
-        return favorites.includes(taxonId);
-    }
+        return favorites.includes(taxonId.toString());
+    };
 
     const toggleFavorite = (taxonId) => {
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        const index = favorites.indexOf(taxonId);
+        const index = favorites.indexOf(taxonId.toString());
         if (index === -1) {
-            // Not in favorites, add it
-            favorites.push(taxonId);
+            favorites.push(taxonId.toString());
         } else {
-            // Already in favorites, remove it
             favorites.splice(index, 1);
         }
         localStorage.setItem('favorites', JSON.stringify(favorites));
-    }
+        return favorites.includes(taxonId.toString()); // Return the updated favorite status
+    };
+    
 
     const updateFavoriteIcon = (taxonId) => {
-        const isFavorited = checkIfFavorite(taxonId); // Re-check favorite status
-        const favoriteIcon = document.querySelector('#favoriteIcon[data-taxon-id="' + taxonId + '"]');
-        if (favoriteIcon) {
-            favoriteIcon.className = isFavorited ? "fas fa-star text-yellow-500" : "far fa-star";
+        const isFavorited = checkIfFavorite(taxonId.toString()); // Re-check favorite status
+        
+        // Update the icon in the modal if it exists
+        const favoriteIconInModal = document.querySelector(`#modal #favoriteIcon[data-taxon-id="${taxonId}"]`);
+        if (favoriteIconInModal) {
+            favoriteIconInModal.className = isFavorited ? "fas fa-star text-yellow-500" : "far fa-star";
         }
+    
+        // Update icons in the main card list
+        const favoriteIconsInList = document.querySelectorAll(`.card .favorite-icon[data-taxon-id="${taxonId}"]`);
+        favoriteIconsInList.forEach(icon => {
+            icon.className = isFavorited ? "fas fa-star text-yellow-500" : "far fa-star text-customBlue";
+        });
     };
 
-    // const showFavorites = () => {
-    //     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    //     const container = document.getElementById('favoritesPage');
-    //     container.innerHTML = ''; // Clear existing content before populating
-    
-    //     // Check if there are any favorites to display
-    //     if (favorites.length === 0) {
-    //         container.innerHTML = '<p>You have no favorites yet.</p>';
-    //     } else {
-    //         // Create a list to display the favorites
-    //         const list = document.createElement('ul');
-    //         favorites.forEach(taxonId => {
-    //             const listItem = document.createElement('li');
-    //             listItem.textContent = `Taxon ID: ${taxonId}`;
-    //             list.appendChild(listItem);
-    //         });
-    //         container.appendChild(list);
-    //     }
-    // };
+    const updateAllFavoriteIconsToUnfavorited = () => {
+        const favoriteIcons = document.querySelectorAll('.favorite-icon, #favoriteIcon');
+        favoriteIcons.forEach(icon => {
+            // Assuming 'fas' is favorited and 'far' is unfavorited. Adjust if your class names differ.
+            icon.classList.replace('fas', 'far'); 
+            icon.classList.replace('text-yellow-500', ''); // Also remove any color class if used
+        });
+    };
 
     const showFavorites = async () => {
         // Fetch the species data
@@ -248,7 +245,7 @@
         const data = await response.json(); // Now 'data' is defined within this function
     
         const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        const container = document.getElementById('favoritesPage');
+        const container = document.getElementById('favoritesContainer');
         container.innerHTML = ''; // Clear existing content
     
         if (favorites.length === 0) {
@@ -258,35 +255,115 @@
     
         // Create a grid container for the cards
         const grid = document.createElement('div');
-        grid.className = 'grid grid-cols-3 gap-4 mt-24 mx-4'; // Adjust CSS classes as per your framework or custom CSS
+        grid.className = 'grid grid-cols-2 gap-4 mt-4 mx-4';
+        container.appendChild(grid);
     
         const allSpecies = Object.values(data.species).flat(); // Flatten all species into a single array
         for (const favoriteTaxonId of favorites) {
             const species = allSpecies.find(species => species.taxon_id.toString() === favoriteTaxonId);
             if (species) {
-                const  imageUrl  = await fetchImageFromAPI(species.taxon_id); // Adjust this function if necessary to return just the image URL
+                const imageUrl = await fetchImageFromAPI(species.taxon_id); // Function to fetch image based on taxon ID
                 // Create a card for this species
                 const card = document.createElement('div');
-                card.className = 'favorites-card border border-customBlue'; // Add your card styling classes here
+                card.className = 'favorites-card border-2 border-grey rounded-md m-2 cursor-pointer';
                 card.innerHTML = `
-                    <div class="card-body">
-                        <h5 class="card-title">${species.common_name}</h5>
-                        <img src="${imageUrl}" alt="Image" class="card-img-top h-12 w-28">
+                    <div class="card-body flex flex-col items-center h-52">
+                        <h5 class="card-title text-customBlue text-md m-4 bold">${species.common_name}</h5>
+                        <img src="${imageUrl}" alt="${species.common_name}" class="card-img-top overflow-hidden h-28 w-auto m-2">
                     </div>
                 `;
+    
+                // Add click event listener to navigate to the species card
+                card.addEventListener('click', () => {
+                    // Logic to navigate to the species card in the Species Selection section
+                    // This might involve changing the page's hash, expanding the correct category,
+                    // and scrolling to the card. Specific implementation depends on your app's structure.
+                    // navigateToSpeciesCard(determineSpeciesCategory(species), favoriteTaxonId);
+                    // Assuming taxonId is defined and you have fetched 'data' from your JSON
+                    const categoryName = determineSpeciesCategory(species.taxon_id, data);
+                    navigateToSpeciesCard(categoryName, species.taxon_id);
+                });
+    
                 grid.appendChild(card);
+            }
+        }
+
+        // Setup the "Clear All Favorites" button
+        // Ensure we're not adding multiple listeners
+        const clearFavoritesBtn = document.getElementById('clearFavoritesBtn');
+        clearFavoritesBtn.removeEventListener('click', clearAllFavoritesHandler); // Remove existing listener to prevent duplicates
+        clearFavoritesBtn.addEventListener('click', clearAllFavoritesHandler); // Add new listener
+    };
+
+    const clearAllFavoritesHandler = () => {
+        localStorage.removeItem('favorites'); // Clears all favorites from localStorage
+        
+        // Update UI on the favorites page
+        const container = document.getElementById('favoritesContainer');
+        container.innerHTML = '<p class="text-center text-customBlue">You have no favorites yet.</p>';
+        
+        // Update all favorite icons to unfavorite status
+        updateAllFavoriteIconsToUnfavorited();
+    };
+
+    // This should be placed outside the showFavorites function, as it's a utility function
+    const determineSpeciesCategory = (taxonId, data) => {
+        // for (const [category, speciesList] of Object.entries(data.species)) {
+        //     if (speciesList.some(species => species.taxon_id === taxonId)) {
+        //         return category; // Returns the category name where the species was found
+        //     }
+        // }
+        // return null; // Returns null if the species isn't found in any category
+        let categoryFound = '';
+
+        // Loop through each category in the species object
+        Object.entries(data.species).forEach(([category, speciesList]) => {
+            // Check if any species in the current category matches the taxonId
+            const speciesMatch = speciesList.find(species => species.taxon_id === taxonId);
+
+            if (speciesMatch) {
+                // If a match is found, save the category and stop searching
+                categoryFound = category;
+            }
+        });
+
+        return categoryFound;
+    };
+
+    const navigateToSpeciesCard = (categoryName, taxonId) => {
+        // Make sure the Species Selection section is visible
+        window.location.hash = ''; // Remove any existing hash
+        document.getElementById('mainContent').classList.remove('hidden'); // Show main content if hidden
+    
+        // Find the correct category container
+        const categoryContainer = document.getElementById(`${categoryName}Cards`);
+    
+        const expandCategoryAndScroll = () => {
+            // Scroll to the specific card
+            const card = document.querySelector(`.card[data-taxon-id="${taxonId}"]`);
+            if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         };
     
-        // Append the grid of cards to the container
-        container.appendChild(grid);
+        if (categoryContainer.classList.contains('hidden')) {
+            // Expand the correct category if it's not already expanded
+            const categoryButton = document.querySelector(`[data-target="${categoryName}Cards"]`);
+            if (categoryButton) {
+                categoryButton.click(); // Simulate a click to expand the category
+            }
+            // Use setTimeout to allow time for category expansion and dynamic content loading
+            setTimeout(expandCategoryAndScroll, 500); // Adjust timeout as needed based on your content loading time
+        } else {
+            // If the category is already expanded, directly scroll to the card
+            expandCategoryAndScroll();
+        }
     };
     
     
-    
-    
-    
 
+    
+    
     const displaySpeciesModalData = async (taxonId) => {
         const { wikipedia_url, observations_count } = await fetchDataFromAPI(taxonId);
         const wikiFrame = document.getElementById("wikiFrame");
@@ -325,6 +402,8 @@
             const data = await response.json();
             const container = document.querySelector('#species-selection');
             container.innerHTML = ''; // Clear existing content
+
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || []; // Get current favorites
     
             Object.entries(data.species).forEach(([category, speciesList]) => {
                 const formattedCategoryName = category.replace(/\s+/g, '-'); // Replaces the whitspace with "-".
@@ -339,14 +418,15 @@
                 `;
     
                 let cardsHtml = speciesList.map(species => {
+                    const isFavorited = favorites.includes(species.taxon_id.toString()); // Check if the species is favorited
                     // const truncatedDescription = species.description.length > 75 ? `${species.description.substring(0, 75)}...` : species.description;
                     // <p class="text-gray-700 mt-2 px-4 w-1/2">${truncatedDescription}</p>
-
+                    
                     return `
-                        <div class="card  bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" data-description="${species.description}" data-taxon-id="${species.taxon_id}" data-map-image="${species.map_image}"  onclick="openModal('${species.common_name}', '', '${species.description}')">
+                        <div class="card  bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" data-description="${species.description}" data-taxon-id="${species.taxon_id}" data-map-image="${species.map_image}">
                             <h3 class="text-xl ml-4 text-customBlue font-semibold">
                                 ${species.common_name}
-                                <!--<i class="favorite-icon far fa-star" data-taxon-id="${species.taxon_id}"></i> Unfilled star -->
+                                <i class="${isFavorited ? 'fas fa-star text-yellow-500' : 'far fa-star'} favorite-icon" data-taxon-id="${species.taxon_id}"></i>
                             </h3>
                             <div class="species-scientific-name text-xl ml-4 italic text-customBlue" data-taxon-id="${species.taxon_id}"></div>
                             <div class="cardImageContainer flex justify-center ">
@@ -364,6 +444,15 @@
                 
                 // Append the category and its cards to the container
                 container.innerHTML += categoryHtml + cardsHtml + '</div>';
+            });
+
+            // Attach event listeners after cards are added to the DOM
+            document.querySelectorAll('.favorite-icon').forEach(icon => {
+                icon.addEventListener('click', (event) => {
+                    const taxonId = event.target.getAttribute('data-taxon-id');
+                    toggleFavorite(taxonId);
+                    updateFavoriteIcon(taxonId);
+                });
             });
             // After .card elements are added to the DOM:
             modalElements(); // Attach event listeners to newly added .card elements
@@ -429,7 +518,6 @@
         }
     };
     
-
     const fetchDataFromAPI = async (taxonId) => {
         const url = `https://api.inaturalist.org/v1/observations?taxon_id=${taxonId}&per_page=1`;
         try {
@@ -457,7 +545,6 @@
         }
         
     };
-    
     
     const fetchImageFromAPI = async (taxonId) => {
         const url = `https://api.inaturalist.org/v1/observations?taxon_id=${taxonId}&per_page=1`;
@@ -487,15 +574,12 @@
     
 
     document.addEventListener('DOMContentLoaded', () => {
+        loadSpeciesData();
         document.addEventListener('DOMContentLoaded', loadSpeciesData);
         handleRouteChange(); // Ensure correct section is displayed on initial load
         window.addEventListener('hashchange', handleRouteChange);
         menuInteractions();
         speciesSelectorLinkListener();
-        loadSpeciesData();
-        setupCloseModalListeners();
         setupCloseModalListeners();
         setupMapModalInteractions();
-        // initializeFavoriteIcons();
-        // updateFavoriteIcon();
     });
