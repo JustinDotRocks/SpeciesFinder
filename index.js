@@ -352,6 +352,7 @@ const clearAllFavoritesHandler = () => {
 
 	// Update all favorite icons to unfavorite status
 	updateAllFavoriteIconsToUnfavorited();
+	loadSpeciesData();
 };
 
 const updateAllFavoriteIconsToUnfavorited = () => {
