@@ -2,11 +2,26 @@ const menuModal = document.getElementById("menu-modal");
 
 // MENU
 // Toggle menu visibility and animation
+// const toggleMenu = () => {
+// 	const isMenuOpen = menuModal.classList.contains("menu-slide-in");
+// 	menuModal.classList.toggle("hidden", isMenuOpen);
+// 	menuModal.classList.toggle("menu-slide-in", !isMenuOpen);
+// 	menuModal.classList.toggle("menu-slide-out", isMenuOpen);
+// 	overlay.classList.toggle("hidden");
+// 	const hamburgerButton = document.getElementById("hamburger-button");
+// 	hamburgerButton?.classList?.toggle("hamburger-x");
+// };
 const toggleMenu = () => {
 	const isMenuOpen = menuModal.classList.contains("menu-slide-in");
-	menuModal.classList.toggle("hidden", isMenuOpen);
-	menuModal.classList.toggle("menu-slide-in", !isMenuOpen);
-	menuModal.classList.toggle("menu-slide-out", isMenuOpen);
+	if (isMenuOpen) {
+		// Menu is open, so slide it out
+		menuModal.classList.replace("menu-slide-in", "menu-slide-out");
+		setTimeout(() => menuModal.classList.add("hidden"), 250); // Ensure the menu is hidden after the animation
+	} else {
+		// Menu is closed, so slide it in
+		menuModal.classList.remove("hidden");
+		menuModal.classList.replace("menu-slide-out", "menu-slide-in");
+	}
 	overlay.classList.toggle("hidden");
 	const hamburgerButton = document.getElementById("hamburger-button");
 	hamburgerButton?.classList?.toggle("hamburger-x");
@@ -25,6 +40,7 @@ const menuInteractions = () => {
 	const hamburgerButton = document.getElementById("hamburger-button");
 	const overlay = document.getElementById("overlay");
 	const menuLinks = document.querySelectorAll("#menu-modal a");
+
 	// Menu functionality
 	hamburgerButton.addEventListener("click", toggleMenu);
 	overlay.addEventListener("click", closeMenu);
