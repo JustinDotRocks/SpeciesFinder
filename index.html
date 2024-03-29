@@ -4,12 +4,14 @@
 		<meta charset="UTF-8" />
 		<meta
 			name="viewport"
-			content="width=device-width, initial-scale=1.0" />
+			content="width=device-width, initial-scale=1.0"
+		/>
 		<link href="https://cdn.tailwindcss.com" rel="stylesheet" />
 		<link href="./dist/styles.css" rel="stylesheet" />
 		<script
 			src="https://kit.fontawesome.com/199b8e5f85.js"
-			crossorigin="anonymous"></script>
+			crossorigin="anonymous"
+		></script>
 		<title>Species Catalogue</title>
 	</head>
 	<body class="bg-gray-100">
@@ -22,18 +24,23 @@
 						<img
 							src="images/mr-logo.png"
 							alt="Manuels River Logo"
-							class="h-10" />
+							class="h-10"
+						/>
 					</a>
 					<!-- Menu on the right -->
 					<button
 						id="hamburger-button"
-						class="hamburger-menu border-white">
+						class="hamburger-menu border-white"
+					>
 						<span
-							class="hamburger-line bg-customBlue"></span>
+							class="hamburger-line bg-customBlue"
+						></span>
 						<span
-							class="hamburger-line bg-customBlue"></span>
+							class="hamburger-line bg-customBlue"
+						></span>
 						<span
-							class="hamburger-line bg-customBlue"></span>
+							class="hamburger-line bg-customBlue"
+						></span>
 					</button>
 				</div>
 			</div>
@@ -42,11 +49,13 @@
 		<!-- Hamburger Menu Modal -->
 		<div
 			id="menu-modal"
-			class="menu-slide-out fixed top-16 right-0 h-full w-full bg-customBlue shadow-md z-40">
+			class="menu-slide-out fixed top-16 right-0 h-full w-full bg-customBlue shadow-md z-40"
+		>
 			<div class="flex flex-col h-full justify-between">
 				<!-- Links Section -->
 				<div
-					class="flex flex-col items-center justify-center flex-grow text-white text-3xl">
+					class="flex flex-col items-center justify-center flex-grow text-white text-3xl"
+				>
 					<a href="#" id="homeLink" class="my-2">Home</a>
 					<a href="#" id="speciesSelectorLink" class="my-2"
 						>Species Selector</a
@@ -61,7 +70,8 @@
 				</div>
 				<!-- Footer Section -->
 				<div
-					class="bg-white h-1/3 w-full flex justify-around items-center text-customBlue">
+					class="bg-white h-1/3 w-full flex justify-around items-center text-customBlue"
+				>
 					<div class="flex flex-col items-center">
 						<h3 class="text-xl font-bold mb-6">
 							Manuels River
@@ -71,9 +81,11 @@
 							<a
 								href="https://www.facebook.com/ManuelsRiver"
 								target="_blank"
-								class="flex flex-col items-center space-y-4">
+								class="flex flex-col items-center space-y-4"
+							>
 								<i
-									class="fa-brands fa-facebook fa-2xl"></i>
+									class="fa-brands fa-facebook fa-2xl"
+								></i>
 								<span class="text-sm"
 									>Facebook</span
 								>
@@ -82,9 +94,11 @@
 							<a
 								href="https://www.manuelsriver.ca"
 								target="_blank"
-								class="flex flex-col items-center space-y-4">
+								class="flex flex-col items-center space-y-4"
+							>
 								<i
-									class="fas fa-globe fa-2xl"></i>
+									class="fas fa-globe fa-2xl"
+								></i>
 								<span class="text-sm"
 									>Website</span
 								>
@@ -99,9 +113,11 @@
 						<a
 							href="https://www.linkedin.com/in/justinfsmith0"
 							target="_blank"
-							class="flex flex-col items-center space-y-4">
+							class="flex flex-col items-center space-y-4"
+						>
 							<i
-								class="fa-brands fa-linkedin fa-2xl"></i>
+								class="fa-brands fa-linkedin fa-2xl"
+							></i>
 							<span class="text-sm">LinkedIn</span>
 						</a>
 					</div>
@@ -112,7 +128,8 @@
 		<!-- Hamburger Menu Overlay -->
 		<div
 			id="overlay"
-			class="hidden fixed inset-0 bg-black bg-opacity-50 z-30"></div>
+			class="hidden fixed inset-0 bg-black bg-opacity-50 z-30"
+		></div>
 
 		<div id="mainContent" class="page">
 			<!-- Landing Page -->
@@ -120,14 +137,17 @@
 				class="landing-page bg-cover bg-center h-screen flex flex-col justify-between overflow-hidden z-0"
 				style="
 					background-image: url('images/mr-trail-overhead-2.jpg');
-				">
+				"
+			>
 				<!-- Opacity Overlay -->
 				<div
-					class="bg-black bg-opacity-45 w-full h-full absolute top-0 left-0 overflow-hidden z-10"></div>
+					class="bg-black bg-opacity-45 w-full h-full absolute top-0 left-0 overflow-hidden z-10"
+				></div>
 
 				<!-- Text Elements Container -->
 				<div
-					class="text-container z-10 flex flex-col items-center justify-center h-3/4 space-y-4">
+					class="text-container z-10 flex flex-col items-center justify-center h-3/4 space-y-4"
+				>
 					<h1 class="text-white text-5xl">
 						Species Finder
 					</h1>
@@ -153,30 +173,36 @@
 			<div class="flex">
 				<aside
 					id="species-selection"
-					class="bg-white shadow-md w-full lg:w-1/2 absolute md:relative transform translate-x-0 mt-0">
+					class="bg-white shadow-md w-full lg:w-1/2 absolute md:relative transform translate-x-0 mt-0"
+				>
 					<!-- Content here -->
 				</aside>
 				<!-- Desktop Map Component -->
 				<div
 					id="staticMap"
-					class="hidden lg:block lg:w-1/2 sticky top-16 h-screen overflow-scroll">
+					class="hidden lg:block lg:w-1/2 sticky top-16 h-screen overflow-scroll"
+				>
 					<img
 						src="./images/River-Maps/manuels-river-map-edited.png"
 						alt="Static Map"
-						id="mapImage" />
+						id="mapImage"
+					/>
 				</div>
 			</div>
 
 			<!-- MODAL -->
 			<div
 				id="modal"
-				class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50 overflow-y-hidden">
+				class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50 overflow-y-hidden"
+			>
 				<div
 					id="modal-container"
-					class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto">
+					class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto lg:w-1/2 lg:absolute lg:inset-y-16 lg:left-0"
+				>
 					<!-- <button id="closeModal" class="fixed top-10 right-5 mx-4 my-4 text-customBlue text-4xl">&times;</button> -->
 					<div
-						class="close-modal-button fixed top-14 right-8 z-50 text-customBlue text-4xl">
+						class="close-modal-button fixed top-16 right-8 lg:absolute lg:top-8 z-50 text-customBlue text-4xl"
+					>
 						<button id="closeModal" class="pb-1">
 							&times;
 						</button>
@@ -186,62 +212,74 @@
 					<div id="modalTitleContainer" class="p-4">
 						<h2
 							id="modalTitle"
-							class="text-3xl text-customBlue font-bold my-2"></h2>
+							class="text-3xl text-customBlue font-bold my-2"
+						></h2>
 						<div
 							id="modalScientificName"
 							class="species-scientific-name text-xl font-bold italic text-customBlue"
-							data-taxon-id="${species.taxon_id}"></div>
+							data-taxon-id="${species.taxon_id}"
+						></div>
 						<!-- The favorite icon will be added next to this via JavaScript -->
 					</div>
 
 					<!-- Image Container -->
 					<div
-						class="flex justify-center mx-4 mb-4 border-customBlue border-2 w-11/12 h-auto">
+						class="flex justify-center mx-4 mb-4 border-customBlue border-2 w-11/12 h-auto"
+					>
 						<img
 							id="modalImage"
 							src=""
 							alt="${species.common_name}"
 							data-taxon-id="${species.taxon_id}"
-							class="species-image w-full h-full object-cover" />
+							class="species-image w-full h-full object-cover"
+						/>
 					</div>
 
 					<!-- Container for Map and Description -->
-					<div class="flex flex-col md:flex-row px-4 pb-4">
+					<div class="flex flex-col px-4 pb-4">
 						<h4
-							class="ml-2 text-customBlue text-xl font-bold">
+							class="ml-2 text-customBlue text-xl font-bold"
+						>
 							Description:
 						</h4>
 						<!-- Description Container -->
 						<div
-							class="flex-1 overflow-y-scroll md:overflow-visible max-h-96 my-2 mx-2">
+							class="flex-1 overflow-y-scroll lg:overflow-visible max-h-96 my-2 mx-2"
+						>
 							<p
 								id="modalDescription"
-								class="text-2xl"></p>
+								class="text-2xl"
+							></p>
 						</div>
 						<!-- Observations Count -->
 						<div
 							id="observationsCount"
 							data-taxon-id="${species.taxon_id}"
-							class="text-customBlue m-2 font-bold italic text-xl"></div>
+							class="text-customBlue m-2 font-bold italic text-xl"
+						></div>
 
 						<div class="flex">
 							<!-- Map Container -->
 							<div
 								id="mapContainer"
-								class="flex justify-center items-center w-1/3 m-2 border-customBlue border-2 bg-gray-200 md:h-auto">
+								class="flex justify-center items-center w-1/3 m-2 border-customBlue border-2 bg-gray-200 md:h-auto"
+							>
 								<img
 									id="mapImage"
 									src="images/manuels-river-map-edited.png"
-									class="max-auto w-full" />
+									class="max-auto w-full"
+								/>
 								<!-- Optional: If you want an interactive map, you can include it here instead of the image -->
 							</div>
 
 							<!-- Text "Click the Map for More" -->
 							<div
-								class="flex flex-col items-center justify-center ml-6">
+								class="flex flex-col items-center justify-center ml-6"
+							>
 								<!-- Arrow pointing down to the map -->
 								<div
-									class="modal-map-arrow text-8xl text-customBlue font-bold">
+									class="modal-map-arrow text-8xl text-customBlue font-bold"
+								>
 									&#x2190;
 								</div>
 								<!-- Adjust size and rotation as needed -->
@@ -256,7 +294,8 @@
 					<div id="modalWikiButtonContainer" class="hidden">
 						<button
 							id="showWiki"
-							class="mx-6 my-2 px-3 py-2 bg-customBlue text-white rounded">
+							class="mx-6 my-2 px-3 py-2 bg-customBlue text-white rounded"
+						>
 							Show Wikipedia
 						</button>
 					</div>
@@ -264,7 +303,8 @@
 					<iframe
 						id="wikiFrame"
 						class="w-full h-full border-none hidden"
-						frameborder="0"></iframe>
+						frameborder="0"
+					></iframe>
 					<a
 						id="species-wikipedia-url"
 						data-taxon-id="${species.taxon_id}"
@@ -279,11 +319,14 @@
 			<!-- Map MODAL -->
 			<div
 				id="map-modal"
-				class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-60 overflow-y-hidden">
+				class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-60 overflow-y-hidden"
+			>
 				<div
-					class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto">
+					class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto lg:w-1/2 lg:absolute lg:inset-y-16 lg:right-0"
+				>
 					<div
-						class="close-modal-button fixed top-14 right-8 z-70 text-customBlue text-4xl">
+						class="close-modal-button fixed top-14 right-8 z-70 text-customBlue text-4xl lg:top-20"
+					>
 						<button id="closeMapModal" class="pb-1">
 							&times;
 						</button>
@@ -292,7 +335,8 @@
 						id="fullMapImage"
 						src="images/manuels-river-map-edited.png"
 						class="max-w-full h-auto"
-						alt="Full Map View" />
+						alt="Full Map View"
+					/>
 				</div>
 			</div>
 
@@ -308,11 +352,13 @@
 		<!-- Favorites Page -->
 		<div id="favoritesPage" class="hidden h-auto">
 			<div
-				class="mt-24 ml-6 flex justify-between items-center px-4">
+				class="mt-24 ml-6 flex justify-between items-center px-4"
+			>
 				<h3 class="text-customBlue text-4xl">Favorites:</h3>
 				<button
 					id="clearFavoritesBtn"
-					class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-300">
+					class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-300"
+				>
 					Clear All Favorites
 				</button>
 			</div>
@@ -326,10 +372,12 @@
 				class="bg-cover bg-center h-screen flex flex-col overflow-hidden z-0"
 				style="
 					background-image: url('./images/mr-trail-overhead.jpg');
-				">
+				"
+			>
 				<!-- Opacity Overlay -->
 				<div
-					class="bg-black bg-opacity-65 mt-16 w-screen h-screen absolute top-0 left-0 overflow-hidden z-10"></div>
+					class="bg-black bg-opacity-65 mt-16 w-screen h-screen absolute top-0 left-0 overflow-hidden z-10"
+				></div>
 
 				<section class="mb-2 mt-6 text-white p-4 z-30">
 					<h2 class="text-3xl font-bold mb-4">
@@ -354,16 +402,19 @@
 						<a
 							href="https://www.facebook.com/ManuelsRiver"
 							target="_blank"
-							class="hover:underline flex flex-col items-center">
+							class="hover:underline flex flex-col items-center"
+						>
 							<i
-								class="fa-brands fa-facebook-square fa-2x"></i>
+								class="fa-brands fa-facebook-square fa-2x"
+							></i>
 							<span>Facebook</span>
 						</a>
 
 						<a
 							href="https://www.manuelsriver.ca"
 							target="_blank"
-							class="hover:underline flex flex-col items-center">
+							class="hover:underline flex flex-col items-center"
+						>
 							<i class="fas fa-globe fa-2x"></i>
 							<!-- Adjust the icon class as needed -->
 							<span>Website</span>
@@ -386,9 +437,11 @@
 						<a
 							href="https://www.linkedin.com/in/justinfsmith0/"
 							target="_blank"
-							class="hover:underline flex flex-col items-center">
+							class="hover:underline flex flex-col items-center"
+						>
 							<i
-								class="fa-brands fa-linkedin fa-2x"></i>
+								class="fa-brands fa-linkedin fa-2x"
+							></i>
 							<span>LinkedIn</span>
 						</a>
 						<!-- Add any other social media icon if needed -->
