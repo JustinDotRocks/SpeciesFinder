@@ -2,118 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @keyframes expandContract {
-  0%, 100% {
-    transform: rotate(45deg) scale(1);
-  }
-  50% {
-    transform: rotate(45deg) scale(1.1);
-  }
+	0%,
+	100% {
+		transform: rotate(45deg) scale(1);
+	}
+
+	50% {
+		transform: rotate(45deg) scale(1.1);
+	}
 }
 
 .arrow-down {
-  border: solid white;
-  border-width: 0 20px 20px 0;
-  display: inline-block;
-  padding: 40px;
-  transform: rotate(45deg);
-  animation: expandContract 2s ease-in-out infinite;
+	border: solid white;
+	border-width: 0 20px 20px 0;
+	display: inline-block;
+	padding: 40px;
+	transform: rotate(45deg);
+	animation: expandContract 2s ease-in-out infinite;
 }
 
-
 .triangle-button {
-    @apply relative h-0 w-0;
-  }
-  
-  .triangle-down {
-    border-left: 1rem solid transparent;
-    border-right: 1rem solid transparent;
-    border-top: 1.5rem solid #0089aa; /* Adjust the color as needed */
-  }
-  
-  .triangle-up {
-    border-left: 1rem solid transparent;
-    border-right: 1rem solid transparent;
-    border-bottom: 1.5rem solid #0089aa; /* Adjust the color as needed */
-  }
-  
+	@apply relative h-0 w-0;
+}
+
+.triangle-down {
+	border-left: 1rem solid transparent;
+	border-right: 1rem solid transparent;
+	border-top: 1.5rem solid #0089aa; /* Adjust the color as needed */
+}
+
+.triangle-up {
+	border-left: 1rem solid transparent;
+	border-right: 1rem solid transparent;
+	border-bottom: 1.5rem solid #0089aa; /* Adjust the color as needed */
+}
 
 .hamburger-menu {
-    @apply inline-flex flex-col justify-center items-center w-10 h-10 rounded-full bg-white border-2;
-    border-color: #0089aa;
+	@apply inline-flex flex-col justify-center items-center w-10 h-10 rounded-full bg-white border-2;
+	border-color: #0089aa;
 }
 
 .hamburger-line {
-    @apply w-6 h-0.5 my-1;
-    background-color: #0089aa;
-    transition: all 0.3s ease-in-out;
+	@apply w-6 h-0.5 my-1;
+	background-color: #0089aa;
+	transition: all 0.3s ease-in-out;
 }
 
 /* Transform hamburger into "X" */
+
 .hamburger-x .hamburger-line:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+	transform: translateY(8px) rotate(45deg);
 }
 
 .hamburger-x .hamburger-line:nth-child(2) {
-  opacity: 0;
+	opacity: 0;
 }
 
 .hamburger-x .hamburger-line:nth-child(3) {
-  transform: translateY(-11px) rotate(-46deg);
+	transform: translateY(-11px) rotate(-46deg);
 }
 
 .menu-slide-in {
-  transform: translateX(0%);
-  transition: transform 250ms ease-in-out;
+	transform: translateX(0%);
+	transition: transform 250ms ease-in-out;
 }
 
 .menu-slide-out {
-  transform: translateX(100%);
-  transition: transform 250ms ease-in-out;
+	transform: translateX(100%);
+	transition: transform 250ms ease-in-out;
 }
 
 .card {
-  height: 50vh;
-  width: 90vw;
+	height: 50vh;
+	width: 90vw;
+	@apply lg:w-11/12 lg:m-5;
 }
 
 .cardImageContainer {
-  height: 75%;
+	height: 75%;
 }
 
 .modal-container {
-  height: 90vh;
+	height: 90vh;
 }
 
 .close-modal-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  background-color: white;
-  border-width: 1px;
-  border-color: #0089aa;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	border-radius: 50%;
+	width: 3rem;
+	height: 3rem;
+	background-color: white;
+	border-width: 1px;
+	border-color: #0089aa;
 }
 
 @keyframes expandContractLeft {
-  0%, 100% {
-    transform: scale(1); /* No rotation needed if the arrow points left by default */
-  }
-  50% {
-    transform: scale(1.1);
-  }
+	0%,
+	100% {
+		transform: scale(
+			1
+		); /* No rotation needed if the arrow points left by default */
+	}
+
+	50% {
+		transform: scale(1.1);
+	}
 }
 
 .modal-map-arrow {
-  display: inline-block; /* Ensure the element can be transformed */
-  animation: expandContractLeft 2s ease-in-out infinite;
+	display: inline-block; /* Ensure the element can be transformed */
+
+	animation: expandContractLeft 2s ease-in-out infinite;
 }
 
-
-.text-yellow-500 { 
-  color: #fbbf24; /* Yellow color for favorited icon */
+.text-yellow-500 {
+	color: #fbbf24; /* Yellow color for favorited icon */
 }

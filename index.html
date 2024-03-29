@@ -144,11 +144,28 @@
 			</div>
 
 			<!-- Species Selection Menu -->
-			<aside
+			<!-- <aside
 				id="species-selection"
 				class="bg-white shadow-md w-full md:w-64 absolute md:relative transform translate-x-0 mt-0">
-				<!-- Content here -->
-			</aside>
+			</aside> -->
+
+			<!-- Species Selection Menu -->
+			<div class="flex">
+				<aside
+					id="species-selection"
+					class="bg-white shadow-md w-full lg:w-1/2 absolute md:relative transform translate-x-0 mt-0">
+					<!-- Content here -->
+				</aside>
+				<!-- Desktop Map Component -->
+				<div
+					id="staticMap"
+					class="hidden lg:block lg:w-1/2 sticky top-16 h-screen overflow-scroll">
+					<img
+						src="./images/River-Maps/manuels-river-map-edited.png"
+						alt="Static Map"
+						id="mapImage" />
+				</div>
+			</div>
 
 			<!-- MODAL -->
 			<div
@@ -196,7 +213,7 @@
 						</h4>
 						<!-- Description Container -->
 						<div
-							class="flex-1 overflow-y-scroll max-h-96 my-2 mx-2">
+							class="flex-1 overflow-y-scroll md:overflow-visible max-h-96 my-2 mx-2">
 							<p
 								id="modalDescription"
 								class="text-2xl"></p>
@@ -279,13 +296,13 @@
 				</div>
 			</div>
 
-			<main class="flex-grow p-4 md:block hidden">
+			<!-- <main class="flex-grow p-4 md:block hidden">
 				<h1>Welcome to the Species Map</h1>
 				<p>
 					This area will display the map and related
 					information.
 				</p>
-			</main>
+			</main> -->
 		</div>
 
 		<!-- Favorites Page -->
