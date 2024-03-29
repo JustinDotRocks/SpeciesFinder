@@ -19,8 +19,8 @@ const toggleMenu = () => {
 		setTimeout(() => menuModal.classList.add("hidden"), 250); // Ensure the menu is hidden after the animation
 	} else {
 		// Menu is closed, so slide it in
-		menuModal.classList.remove("hidden");
 		menuModal.classList.replace("menu-slide-out", "menu-slide-in");
+		menuModal.classList.remove("hidden");
 	}
 	overlay.classList.toggle("hidden");
 	const hamburgerButton = document.getElementById("hamburger-button");

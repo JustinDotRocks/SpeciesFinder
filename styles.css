@@ -22,8 +22,12 @@
 	animation: expandContract 2s ease-in-out infinite;
 }
 
-.triangle-button {
-	@apply relative h-0 w-0;
+.toggle-category {
+	transition: transform 0.2s ease-in-out;
+}
+
+.toggle-category:active {
+	transform: scale(0.9); /* Adjust scale as needed */
 }
 
 .triangle-down {
