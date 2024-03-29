@@ -296,7 +296,7 @@ const showFavorites = async () => {
 
 	// Create a grid container for the cards
 	const grid = document.createElement("div");
-	grid.className = "grid grid-cols-2 gap-4 mt-4 mx-4";
+	grid.className = "grid grid-cols-2 gap-4 mt-4 mx-4 lg:grid-cols-4";
 	container.appendChild(grid);
 
 	const allSpecies = Object.values(data.species).flat(); // Flatten all species into a single array
