@@ -205,14 +205,14 @@
 			<div class="flex">
 				<aside
 					id="species-selection"
-					class="bg-white shadow-md w-full lg:w-1/2 absolute md:relative transform translate-x-0 mt-0"
+					class="bg-white shadow-md w-full md:w-1/2 absolute md:relative transform translate-x-0 mt-0 xl:w-3/5"
 				>
 					<!-- Content here -->
 				</aside>
 				<!-- Desktop Map Component -->
 				<div
 					id="staticMap"
-					class="hidden lg:block lg:w-1/2 sticky top-16 h-screen overflow-scroll"
+					class="hidden md:block md:w-1/2 xl:w-2/5 sticky top-16 h-screen overflow-scroll"
 				>
 					<img
 						src="./images/River-Maps/manuels-river-map-edited.png"
@@ -229,31 +229,33 @@
 			>
 				<div
 					id="modal-container"
-					class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto lg:w-1/2 lg:absolute lg:inset-y-16 lg:left-0"
+					class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto md:w-1/2 md:absolute md:inset-y-16 md:left-0"
 				>
 					<!-- <button id="closeModal" class="fixed top-10 right-5 mx-4 my-4 text-customBlue text-4xl">&times;</button> -->
 					<div
-						class="close-modal-button fixed top-16 right-8 lg:absolute lg:top-8 z-50 text-customBlue text-4xl"
+						class="modal-title-button-container flex justify-between items-center"
 					>
-						<button id="closeModal" class="pb-1">
-							&times;
-						</button>
-					</div>
-
-					<!-- Modal Title -->
-					<div id="modalTitleContainer" class="p-4">
-						<h2
-							id="modalTitle"
-							class="text-3xl text-customBlue font-bold my-2"
-						></h2>
+						<!-- Modal Title -->
+						<div id="modalTitleContainer" class="p-4">
+							<h2
+								id="modalTitle"
+								class="text-2xl text-customBlue font-bold my-2 mr-8 xl:text-3xl"
+							></h2>
+							<div
+								id="modalScientificName"
+								class="species-scientific-name text-xl font-bold italic text-customBlue"
+								data-taxon-id="${species.taxon_id}"
+							></div>
+							<!-- The favorite icon will be added next to this via JavaScript -->
+						</div>
 						<div
-							id="modalScientificName"
-							class="species-scientific-name text-xl font-bold italic text-customBlue"
-							data-taxon-id="${species.taxon_id}"
-						></div>
-						<!-- The favorite icon will be added next to this via JavaScript -->
+							class="close-modal-button top-8 right-8 sticky md:top-8 z-50 text-customBlue text-4xl"
+						>
+							<button id="closeModal" class="pb-1">
+								&times;
+							</button>
+						</div>
 					</div>
-
 					<!-- Image Container -->
 					<div
 						class="flex justify-center mx-4 mb-4 border-customBlue border-2 w-11/12 h-auto"
@@ -354,10 +356,10 @@
 				class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-60 overflow-y-hidden"
 			>
 				<div
-					class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto lg:w-1/2 lg:absolute lg:inset-y-16 lg:right-0"
+					class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto md:w-1/2 md:absolute md:inset-y-16 md:right-0"
 				>
 					<div
-						class="close-modal-button fixed top-14 right-8 z-70 text-customBlue text-4xl lg:top-20"
+						class="close-modal-button fixed top-14 right-8 z-70 text-customBlue text-4xl md:top-20"
 					>
 						<button id="closeMapModal" class="pb-1">
 							&times;

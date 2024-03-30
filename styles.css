@@ -80,7 +80,7 @@
 .card {
 	height: 50vh;
 	width: 90vw;
-	@apply lg:w-11/12 lg:m-5;
+	@apply md:w-11/12 md:m-5;
 }
 
 .cardImageContainer {
