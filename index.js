@@ -167,7 +167,9 @@ const closeModal = (taxonId) => {
 	setTimeout(() => {
 		document.getElementById("modal").classList.add("hidden");
 		toggleScrollLock(false);
-		updateFavoriteIcon(taxonId);
+		if (taxonId !== undefined) {
+			updateFavoriteIcon(taxonId);
+		}
 	}, 300);
 };
 
