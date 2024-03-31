@@ -491,7 +491,7 @@ const displaySpecies = async () => {
 		Object.entries(data.species).forEach(([category, speciesList]) => {
 			const formattedCategoryName = category.replace(/\s+/g, "-"); // Replaces the whitspace with "-".
 			let categoryHtml = `
-                    <div class="flex justify-between items-center bg-white text-customBlue p-4 lg:my-7 xl:my-16">
+                    <div class="flex justify-between items-center bg-white text-customBlue p-4 lg:my-12 xl:my-20">
                         <h2 class="text-xl font-bold">${
 					category.charAt(0).toUpperCase() +
 					category.slice(1)
