@@ -123,23 +123,28 @@ const modalElements = () => {
 			const map_image = card.getAttribute("data-map-image");
 
 			// Open the modal with the Wikipedia URL
-			openModal(
-				title,
-				imageSrc,
-				description,
-				scientificName,
-				map_image,
-				taxonId
-			);
-			// Then fetch and update the Wikipedia link
-			try {
-				await displaySpeciesModalData(taxonId);
-			} catch (error) {
-				console.error(
-					"Error updating modal with Wikipedia data:",
-					error
+			// Delay the modal opening to allow any card click animations to be seen
+			setTimeout(async () => {
+				// Open the modal with the provided information
+				openModal(
+					title,
+					imageSrc,
+					description,
+					scientificName,
+					map_image,
+					taxonId
 				);
-			}
+
+				// Then fetch and update the Wikipedia link and other data
+				try {
+					await displaySpeciesModalData(taxonId);
+				} catch (error) {
+					console.error(
+						"Error updating modal with Wikipedia data:",
+						error
+					);
+				}
+			}, 250);
 		});
 	});
 };
@@ -159,31 +164,69 @@ const setupCloseModalListeners = () => {
 };
 
 const closeModal = (taxonId) => {
-	document.getElementById("modal").classList.add("hidden");
-	toggleScrollLock(false);
-	updateFavoriteIcon(taxonId);
+	setTimeout(() => {
+		document.getElementById("modal").classList.add("hidden");
+		toggleScrollLock(false);
+		updateFavoriteIcon(taxonId);
+	}, 300);
 };
 
 // Function to setup interactions for the map within the modal
+// const setupMapModalInteractions = () => {
+// 	// Open the map-modal when the map image/container in the original modal is clicked
+// 	document
+// 		.getElementById("mapContainer")
+// 		.addEventListener("click", function () {
+// 			document
+// 				.getElementById("map-modal")
+// 				.classList.remove("hidden");
+// 			// Optional: Disable scrolling on the body if not already handled
+// 			toggleScrollLock(true);
+// 		});
+
+// 	// Close the map-modal
+// 	document
+// 		.getElementById("closeMapModal")
+// 		.addEventListener("click", function () {
+// 			setTimeout(
+// 				() =>
+// 					document
+// 						.getElementById("map-modal")
+// 						.classList.add("hidden"),
+// 				250
+// 			);
+
+// 			// document.getElementById("map-modal").classList.add("hidden");
+// 			// Re-enable scrolling on the body if it was previously disabled
+// 			toggleScrollLock(false);
+// 		});
+// };
 const setupMapModalInteractions = () => {
 	// Open the map-modal when the map image/container in the original modal is clicked
 	document
 		.getElementById("mapContainer")
 		.addEventListener("click", function () {
-			document
-				.getElementById("map-modal")
-				.classList.remove("hidden");
-			// Optional: Disable scrolling on the body if not already handled
-			toggleScrollLock(true);
+			// Delay opening the map-modal to allow animation to be seen
+			setTimeout(() => {
+				document
+					.getElementById("map-modal")
+					.classList.remove("hidden");
+				// Optional: Disable scrolling on the body if not already handled
+				toggleScrollLock(true);
+			}, 250); // 250 milliseconds delay
 		});
 
 	// Close the map-modal
 	document
 		.getElementById("closeMapModal")
 		.addEventListener("click", function () {
-			document.getElementById("map-modal").classList.add("hidden");
-			// Re-enable scrolling on the body if it was previously disabled
-			toggleScrollLock(false);
+			setTimeout(() => {
+				document
+					.getElementById("map-modal")
+					.classList.add("hidden");
+				// Re-enable scrolling on the body if it was previously disabled
+				toggleScrollLock(false);
+			}, 250);
 		});
 };
 
@@ -491,8 +534,8 @@ const displaySpecies = async () => {
 		Object.entries(data.species).forEach(([category, speciesList]) => {
 			const formattedCategoryName = category.replace(/\s+/g, "-"); // Replaces the whitspace with "-".
 			let categoryHtml = `
-                    <div class="flex justify-between items-center bg-white text-customBlue p-4 lg:my-12 xl:my-20">
-                        <h2 class="text-xl font-bold">${
+                    <div class="flex justify-between items-center bg-white text-customBlue p-4 md:my-16 lg:my-12 xl:my-20">
+                        <h2 class="text-xl md:text-2xl font-bold">${
 					category.charAt(0).toUpperCase() +
 					category.slice(1)
 				}</h2>
@@ -512,7 +555,7 @@ const displaySpecies = async () => {
 					// <p class="text-gray-700 mt-2 px-4 w-1/2">${truncatedDescription}</p>
 
 					return `
-                        <div class="card  bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" data-description="${
+                        <div class="card toggle-modal bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" data-description="${
 					species.description
 				}" data-taxon-id="${
 						species.taxon_id

@@ -23,11 +23,34 @@
 }
 
 .toggle-category {
-	transition: transform 0.2s ease-in-out;
+	transition: transform 0.3s ease-in-out;
 }
 
 .toggle-category:active {
-	transform: scale(0.9); /* Adjust scale as needed */
+	transform: scale(0.6);
+}
+
+.toggle-modal {
+	transition: transform 0.2s ease-in-out;
+}
+
+.toggle-modal:active {
+	transform: scale(0.9);
+}
+
+#modal {
+	transition: 1s ease-in-out 1s;
+}
+
+#modal.active {
+}
+
+#mapContainer {
+	transition: transform 0.3s ease-in-out;
+}
+
+#mapContainer:active {
+	transform: scale(0.8);
 }
 
 .triangle-down {
@@ -78,7 +101,7 @@
 }
 
 .card {
-	height: 50vh;
+	height: 55vh;
 	width: 90vw;
 	@apply md:w-11/12 md:m-5;
 }
@@ -102,6 +125,27 @@
 	background-color: white;
 	border-width: 1px;
 	border-color: #0089aa;
+	transition: transform 0.3s ease-in-out;
+}
+
+.close-modal-button:active {
+	transform: scale(0.8);
+}
+
+.closeMapModal {
+	transition: transform 0.3s ease-in-out;
+}
+
+.closeMapModal:active {
+	transform: scale(0.8);
+}
+
+#modalWikiButtonContainer {
+	transition: transform 0.1s ease-in-out;
+}
+
+#modalWikiButtonContainer:active {
+	transform: scale(0.95);
 }
 
 @keyframes expandContractLeft {
