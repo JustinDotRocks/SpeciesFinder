@@ -358,7 +358,7 @@ const displaySpeciesModalData = async (taxonId) => {
 		"modalWikiButtonContainer"
 	);
 	const wikipediaLinkElement = document.getElementById(
-		"species-wikipedia-url"
+		"modalWikiButtonContainer"
 	);
 
 	if (secureWikipediaUrl) {
@@ -366,7 +366,7 @@ const displaySpeciesModalData = async (taxonId) => {
 		wikipediaLinkElement.href = secureWikipediaUrl;
 		wikipediaLinkElement.classList.remove("hidden"); // Show direct link when iframe is not used
 
-		modalWikiButtonContainer.classList.remove("hidden"); // Show "Show Wikipedia" button
+		// modalWikiButtonContainer.classList.remove("hidden"); // Show "Show Wikipedia" button
 		showWikiButton.onclick = () => {
 			wikiFrame.classList.toggle("hidden");
 			if (!wikiFrame.classList.contains("hidden")) {
