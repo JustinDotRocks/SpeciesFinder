@@ -1,0 +1,21 @@
+{
+	"name": "Species",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "https://github.com/JustinDotRocks/Species.git",
+	"author": "JustinDotRocks",
+	"license": "MIT",
+	"devDependencies": {
+		"autoprefixer": "^10.4.17",
+		"gh-pages": "^6.1.1",
+		"postcss": "^8.4.33",
+		"tailwindcss": "^3.4.3"
+	},
+	"scripts": {
+		"build-css": "tailwindcss build src/styles.css -o ./styles.css",
+		"deploy": "gh-pages -d ."
+	},
+	"dependencies": {
+		"dotenv": "^16.4.5"
+	}
+}
