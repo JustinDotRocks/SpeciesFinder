@@ -13,7 +13,7 @@
 	},
 	"scripts": {
 		"build-css": "tailwindcss build src/workingCSSFile/styles.css -o src/styles.css",
-		"predeploy": "npm run build-css",
+		"predeploy": "yarn build-css",
 		"deploy": "gh-pages -d src"
 	},
 	"dependencies": {
