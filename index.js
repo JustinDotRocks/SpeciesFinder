@@ -1,16 +1,6 @@
 const menuModal = document.getElementById("menu-modal");
 
 // MENU
-// Toggle menu visibility and animation
-// const toggleMenu = () => {
-// 	const isMenuOpen = menuModal.classList.contains("menu-slide-in");
-// 	menuModal.classList.toggle("hidden", isMenuOpen);
-// 	menuModal.classList.toggle("menu-slide-in", !isMenuOpen);
-// 	menuModal.classList.toggle("menu-slide-out", isMenuOpen);
-// 	overlay.classList.toggle("hidden");
-// 	const hamburgerButton = document.getElementById("hamburger-button");
-// 	hamburgerButton?.classList?.toggle("hamburger-x");
-// };
 const toggleMenu = () => {
 	const isMenuOpen = menuModal.classList.contains("menu-slide-in");
 	if (isMenuOpen) {
@@ -97,7 +87,7 @@ const speciesSelectorLinkListener = () => {
 	});
 };
 
-// // Modal interactions
+// Modal interactions
 const modalElements = () => {
 	const cardModals = document.querySelectorAll(".card");
 	cardModals.forEach((card) => {
@@ -168,41 +158,11 @@ const closeModal = (taxonId) => {
 		document.getElementById("modal").classList.add("hidden");
 		toggleScrollLock(false);
 		if (taxonId !== undefined) {
-			updateFavoriteIcon(taxonId);
+			updateFavoriteIcons(taxonId);
 		}
 	}, 300);
 };
 
-// Function to setup interactions for the map within the modal
-// const setupMapModalInteractions = () => {
-// 	// Open the map-modal when the map image/container in the original modal is clicked
-// 	document
-// 		.getElementById("mapContainer")
-// 		.addEventListener("click", function () {
-// 			document
-// 				.getElementById("map-modal")
-// 				.classList.remove("hidden");
-// 			// Optional: Disable scrolling on the body if not already handled
-// 			toggleScrollLock(true);
-// 		});
-
-// 	// Close the map-modal
-// 	document
-// 		.getElementById("closeMapModal")
-// 		.addEventListener("click", function () {
-// 			setTimeout(
-// 				() =>
-// 					document
-// 						.getElementById("map-modal")
-// 						.classList.add("hidden"),
-// 				250
-// 			);
-
-// 			// document.getElementById("map-modal").classList.add("hidden");
-// 			// Re-enable scrolling on the body if it was previously disabled
-// 			toggleScrollLock(false);
-// 		});
-// };
 const setupMapModalInteractions = () => {
 	// Open the map-modal when the map image/container in the original modal is clicked
 	document
@@ -272,7 +232,7 @@ const openModal = (
 	starIcon.addEventListener("click", () => {
 		console.log("taxonId:", taxonId); // Debugging log
 		toggleFavorite(taxonId.toString()); // Ensure toggleFavorite is defined and correctly toggles the favorite state
-		updateFavoriteIcon(taxonId.toString()); // This function needs to correctly update the icon's appearance
+		updateFavoriteIcons(taxonId.toString()); // This function needs to correctly update the icon's appearance
 	});
 	modalTitle.appendChild(starIcon);
 
@@ -291,140 +251,6 @@ const openModal = (
 	toggleScrollLock(true);
 
 	// updateFavoriteIcon(taxonId); // Call after appending the icon to ensure the state is reflected correctly
-};
-
-const checkIfFavorite = (taxonId) => {
-	// Ensure taxonId is defined before proceeding
-	if (typeof taxonId === "undefined" || taxonId === null) {
-		console.error("taxonId is undefined or null");
-		return false; // or handle this case as you see fit
-	}
-	const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-	console.log(favorites);
-	return favorites.includes(taxonId.toString());
-};
-
-const toggleFavorite = (taxonId) => {
-	let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-	const index = favorites.indexOf(taxonId.toString());
-	if (index === -1) {
-		favorites.push(taxonId.toString());
-	} else {
-		favorites.splice(index, 1);
-	}
-	localStorage.setItem("favorites", JSON.stringify(favorites));
-	updateFavoriteIcon(taxonId);
-	return favorites.includes(taxonId.toString()); // Return the updated favorite status
-};
-
-const updateFavoriteIcon = (taxonId) => {
-	const isFavorited = checkIfFavorite(taxonId.toString()); // Re-check favorite status
-
-	// Update the icon in the modal if it exists
-	const favoriteIconInModal = document.querySelector(
-		`#modal #favoriteIcon[data-taxon-id="${taxonId}"]`
-	);
-	if (favoriteIconInModal) {
-		favoriteIconInModal.className = isFavorited
-			? "fas fa-star text-yellow-500"
-			: "far fa-star";
-	}
-
-	// Update icons in the main card list
-	const favoriteIconsInList = document.querySelectorAll(
-		`.card .favorite-icon[data-taxon-id="${taxonId}"]`
-	);
-	favoriteIconsInList.forEach((icon) => {
-		icon.className = isFavorited
-			? "fas fa-star text-yellow-500"
-			: "far fa-star";
-	});
-};
-
-const showFavorites = async () => {
-	// Fetch the species data
-	const response = await fetch("./data.json");
-	const data = await response.json(); // Now 'data' is defined within this function
-
-	const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-	const container = document.getElementById("favoritesContainer");
-	container.innerHTML = ""; // Clear existing content
-
-	if (favorites.length === 0) {
-		container.innerHTML = "<p>You have no favorites yet.</p>";
-		return;
-	}
-
-	// Create a grid container for the cards
-	const grid = document.createElement("div");
-	grid.className =
-		"grid grid-cols-2 gap-4 mt-4 mx-4 lg:grid-cols-4 xl:grid-cols-5";
-	container.appendChild(grid);
-
-	const allSpecies = Object.values(data.species).flat(); // Flatten all species into a single array
-	for (const favoriteTaxonId of favorites) {
-		const species = allSpecies.find(
-			(species) => species.taxon_id.toString() === favoriteTaxonId
-		);
-		if (species) {
-			const imageUrl = await fetchImageFromAPI(species.taxon_id); // Function to fetch image based on taxon ID
-			// Create a card for this species
-			const card = document.createElement("div");
-			card.className =
-				"favorites-card border-2 border-grey rounded-md m-2 cursor-pointer";
-			card.innerHTML = `
-                    <div class="card-body flex flex-col items-center h-52">
-                        <h5 class="card-title text-customBlue text-md m-4 bold">${species.common_name}</h5>
-                        <img src="${imageUrl}" alt="${species.common_name}" class="card-img-top overflow-hidden h-28 w-auto m-2">
-                    </div>
-                `;
-
-			// Add click event listener to navigate to the species card
-			card.addEventListener("click", () => {
-				// Logic to navigate to the species card in the Species Selection section
-				// This might involve changing the page's hash, expanding the correct category,
-				// and scrolling to the card. Specific implementation depends on your app's structure.
-				// navigateToSpeciesCard(determineSpeciesCategory(species), favoriteTaxonId);
-				// Assuming taxonId is defined and you have fetched 'data' from your JSON
-				const categoryName = determineSpeciesCategory(
-					species.taxon_id,
-					data
-				);
-				navigateToSpeciesCard(categoryName, species.taxon_id);
-			});
-
-			grid.appendChild(card);
-		}
-	}
-
-	// Setup the "Clear All Favorites" button
-	// Ensure we're not adding multiple listeners
-	const clearFavoritesBtn = document.getElementById("clearFavoritesBtn");
-	clearFavoritesBtn.removeEventListener("click", clearAllFavoritesHandler); // Remove existing listener to prevent duplicates
-	clearFavoritesBtn.addEventListener("click", clearAllFavoritesHandler); // Add new listener
-};
-
-const clearAllFavoritesHandler = () => {
-	localStorage.removeItem("favorites"); // Clears all favorites from localStorage
-
-	// Update UI on the favorites page
-	const container = document.getElementById("favoritesContainer");
-	container.innerHTML =
-		'<p class="text-center text-customBlue">You have no favorites yet.</p>';
-
-	// Update all favorite icons to unfavorite status
-	updateAllFavoriteIconsToUnfavorited();
-	loadSpeciesData();
-};
-
-const updateAllFavoriteIconsToUnfavorited = () => {
-	const favoriteIcons = document.querySelectorAll(
-		".favorite-icon, #favoriteIcon"
-	);
-	favoriteIcons.forEach((icon) => {
-		// Assuming 'fas' is favorited and 'far' is unfavorited. Adjust if your class names differ.
-		icon.classList.replace("fas", "far");
-	});
 };
 
 // This should be placed outside the showFavorites function, as it's a utility function
@@ -557,7 +383,7 @@ const displaySpecies = async () => {
 					// <p class="text-gray-700 mt-2 px-4 w-1/2">${truncatedDescription}</p>
 
 					return `
-                        <div class="card toggle-modal bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" data-description="${
+                        <div id="species-selection" class="card toggle-modal bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" data-description="${
 					species.description
 				}" data-taxon-id="${
 						species.taxon_id
@@ -598,14 +424,14 @@ const displaySpecies = async () => {
 		});
 
 		// Attach event listeners after cards are added to the DOM
-		document.querySelectorAll(".favorite-icon").forEach((icon) => {
-			icon.addEventListener("click", (event) => {
-				const taxonId =
-					event.target.getAttribute("data-taxon-id");
-				toggleFavorite(taxonId);
-				updateFavoriteIcon(taxonId);
-			});
-		});
+		// document.querySelectorAll(".favorite-icon").forEach((icon) => {
+		// 	icon.addEventListener("click", (event) => {
+		// 		const taxonId =
+		// 			event.target.getAttribute("data-taxon-id");
+		// 		toggleFavorite(taxonId);
+		// 		updateFavoriteIcon(taxonId);
+		// 	});
+		// });
 		// After .card elements are added to the DOM:
 		modalElements(); // Attach event listeners to newly added .card elements
 
@@ -673,6 +499,178 @@ const updateSpeciesCardData = async (container, taxonId) => {
 			}
 		}
 	}
+};
+
+// ///////////
+// FAVORITES:
+// ///////////
+const checkIfFavorite = (taxonId) => {
+	// Ensure taxonId is defined before proceeding
+	if (typeof taxonId === "undefined" || taxonId === null) {
+		console.error("taxonId is undefined or null");
+		return false; // or handle this case as you see fit
+	}
+	const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+	console.log(favorites);
+	return favorites.includes(taxonId.toString());
+};
+
+//
+// PROBLEM FUNCTION FOR FAV ICON UPDATE
+//
+const toggleFavorite = (taxonId) => {
+	let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+	const index = favorites.indexOf(taxonId.toString());
+	if (index === -1) {
+		favorites.push(taxonId.toString());
+	} else {
+		favorites.splice(index, 1);
+	}
+	localStorage.setItem("favorites", JSON.stringify(favorites));
+	updateFavoriteIcons(taxonId);
+
+	return favorites.includes(taxonId.toString()); // Return the updated favorite status
+};
+
+const updateFavoriteIcon = (taxonId) => {
+	const isFavorited = checkIfFavorite(taxonId.toString()); // Re-check favorite status
+
+	// Update the icon in the modal if it exists
+	const favoriteIconInModal = document.querySelector(
+		`#modal #favoriteIcon[data-taxon-id="${taxonId}"]`
+	);
+	if (favoriteIconInModal) {
+		favoriteIconInModal.className = isFavorited
+			? "fas fa-star text-yellow-500"
+			: "far fa-star";
+	}
+
+	// Update icons in the main card list
+	const favoriteIconsInList = document.querySelectorAll(
+		`.card .favorite-icon[data-taxon-id="${taxonId}"]`
+	);
+	favoriteIconsInList.forEach((icon) => {
+		icon.className = isFavorited
+			? "fas fa-star text-yellow-500"
+			: "far fa-star";
+	});
+};
+
+const updateFavoriteIcons = (taxonId) => {
+	const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+	const isFavorited = checkIfFavorite(taxonId.toString()); // Re-check favorite status
+
+	// Update the icon in the modal if it exists
+	const favoriteIconInModal = document.querySelector(
+		`#modal #favoriteIcon[data-taxon-id="${taxonId}"]`
+	);
+	if (favoriteIconInModal) {
+		favoriteIconInModal.className = isFavorited
+			? "fas fa-star text-yellow-500"
+			: "far fa-star";
+	}
+
+	document.querySelectorAll(".favorite-icon").forEach((icon) => {
+		const taxonId = icon.getAttribute("data-taxon-id");
+		if (favorites.includes(taxonId)) {
+			// Update to favorited state
+			icon.classList.remove("far");
+			icon.classList.add("fas", "fa-star", "text-yellow-500");
+		} else {
+			// Update to non-favorited state
+			icon.classList.add("far");
+			icon.classList.remove("fas", "text-yellow-500");
+		}
+	});
+};
+
+// Favorites Page
+const showFavorites = async () => {
+	// Fetch the species data
+	const response = await fetch("./data.json");
+	const data = await response.json(); // Now 'data' is defined within this function
+
+	const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+	const container = document.getElementById("favoritesContainer");
+	container.innerHTML = ""; // Clear existing content
+
+	if (favorites.length === 0) {
+		container.innerHTML = "<p>You have no favorites yet.</p>";
+		return;
+	}
+
+	// Create a grid container for the cards
+	const grid = document.createElement("div");
+	grid.className =
+		"grid grid-cols-2 gap-4 mt-4 mx-4 lg:grid-cols-4 xl:grid-cols-5";
+	container.appendChild(grid);
+
+	const allSpecies = Object.values(data.species).flat(); // Flatten all species into a single array
+	for (const favoriteTaxonId of favorites) {
+		const species = allSpecies.find(
+			(species) => species.taxon_id.toString() === favoriteTaxonId
+		);
+		if (species) {
+			const imageUrl = await fetchImageFromAPI(species.taxon_id); // Function to fetch image based on taxon ID
+			// Create a card for this species
+			const card = document.createElement("div");
+			card.className =
+				"favorites-card border-2 border-grey rounded-md m-2 cursor-pointer";
+			card.innerHTML = `
+                    <div class="card-body flex flex-col items-center h-52">
+                        <h5 class="card-title text-customBlue text-md m-4 bold">${species.common_name}</h5>
+                        <img src="${imageUrl}" alt="${species.common_name}" class="card-img-top overflow-hidden h-28 w-auto m-2">
+                    </div>
+                `;
+
+			// Add click event listener to navigate to the species card
+			card.addEventListener("click", () => {
+				// Logic to navigate to the species card in the Species Selection section
+				// This might involve changing the page's hash, expanding the correct category,
+				// and scrolling to the card. Specific implementation depends on your app's structure.
+				// navigateToSpeciesCard(determineSpeciesCategory(species), favoriteTaxonId);
+				// Assuming taxonId is defined and you have fetched 'data' from your JSON
+				const categoryName = determineSpeciesCategory(
+					species.taxon_id,
+					data
+				);
+				navigateToSpeciesCard(categoryName, species.taxon_id);
+			});
+
+			grid.appendChild(card);
+		}
+	}
+
+	// Setup the "Clear All Favorites" button
+	// Ensure we're not adding multiple listeners
+	const clearFavoritesBtn = document.getElementById("clearFavoritesBtn");
+	clearFavoritesBtn.removeEventListener("click", clearAllFavoritesHandler); // Remove existing listener to prevent duplicates
+	clearFavoritesBtn.addEventListener("click", clearAllFavoritesHandler); // Add new listener
+};
+
+// Favorites Page
+const clearAllFavoritesHandler = () => {
+	localStorage.removeItem("favorites"); // Clears all favorites from localStorage
+
+	// Update UI on the favorites page
+	const container = document.getElementById("favoritesContainer");
+	container.innerHTML =
+		'<p class="text-center text-customBlue">You have no favorites yet.</p>';
+
+	// Update all favorite icons to unfavorite status
+	updateAllFavoriteIconsToUnfavorited();
+	loadSpeciesData();
+};
+
+// Favorites Page
+const updateAllFavoriteIconsToUnfavorited = () => {
+	const favoriteIcons = document.querySelectorAll(
+		".favorite-icon, #favoriteIcon"
+	);
+	favoriteIcons.forEach((icon) => {
+		// Assuming 'fas' is favorited and 'far' is unfavorited. Adjust if your class names differ.
+		icon.classList.replace("fas", "far");
+	});
 };
 
 const fetchDataFromAPI = async (taxonId) => {
@@ -748,4 +746,29 @@ document.addEventListener("DOMContentLoaded", () => {
 	speciesSelectorLinkListener();
 	setupCloseModalListeners();
 	setupMapModalInteractions();
+
+	document
+		.getElementById("species-selection")
+		.addEventListener("click", function (event) {
+			// Check if the clicked element or one of its parents has the 'favorite-icon' class
+			let target = event.target;
+			while (
+				target != null &&
+				!target.classList.contains("favorite-icon")
+			) {
+				target = target.parentElement;
+			}
+
+			// If a favorite icon was clicked
+			if (
+				target != null &&
+				target.classList.contains("favorite-icon")
+			) {
+				const taxonId = target.getAttribute("data-taxon-id");
+				if (taxonId) {
+					toggleFavorite(taxonId);
+					updateFavoriteIcons(); // Assuming this updates all favorite icons based on the latest state
+				}
+			}
+		});
 });
