@@ -8,7 +8,7 @@
 				"description": "Although the chipmunk is able to climb trees quite well, it makes its home underground in extensive burrows. When digging these burrows, the chipmunk will carry dirt in its cheek pouches to remote locations in order to hide the location of its burrow construction.",
 				"image": "URL_or_path_to_chipmunk_image",
 				"taxon_id": 46217,
-				"map_image": "Species/src/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "M002",
