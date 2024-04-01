@@ -12,8 +12,8 @@
 		"tailwindcss": "^3.4.3"
 	},
 	"scripts": {
-		"build-css": "tailwindcss build src/styles.css -o ./styles.css",
-		"deploy": "gh-pages -d dist"
+		"build-css": "tailwindcss build src/workingCSSFile/styles.css -o src/styles.css",
+		"deploy": "gh-pages -d src"
 	},
 	"dependencies": {
 		"dotenv": "^16.4.5"
