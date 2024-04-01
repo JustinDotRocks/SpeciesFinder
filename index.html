@@ -321,7 +321,11 @@
 					</div>
 
 					<!-- Wikipedia Button -->
-					<div id="modalWikiButtonContainer" class="hidden">
+					<div
+						id="modalWikiButtonContainer"
+						class="species-wikipedia-url-class bg-customBlue text-white mx-6 my-2 px-3 py-2 rounded hover:bg-customBlue-600 transition duration-300 hidden"
+						data-taxon-id="${species.taxon_id}"
+					>
 						<button
 							id="showWiki"
 							class="mx-6 my-2 px-3 py-2 bg-customBlue text-white rounded"
@@ -334,6 +338,14 @@
 						class="w-full h-full border-none hidden"
 						frameborder="0"
 					></iframe>
+					<!-- <a
+						id="species-wikipedia-url"
+						data-taxon-id="${species.taxon_id}"
+						class="species-wikipedia-url-class bg-customBlue text-white mx-6 my-2 px-3 py-2 rounded hover:bg-customBlue-600 transition duration-300 hidden"
+						href="#"
+						target="_blank"
+						>Wikipedia Link</a
+					> -->
 				</div>
 			</div>
 
