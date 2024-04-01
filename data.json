@@ -17,7 +17,7 @@
 				"description": "One of the noisier animals that are commonly found on the island, the American Red Squirrel frequently makes aggressive chirping sounds at any other creature that happens by its territory. These squirrels hide secret stores of food called caches, which they feed on during the winter months. The caches may consist of pine cones, nuts, seeds, fruit, fungi, and even things such as bird eggs or the meat of other animals. This mammal was introduced to the island in 1963.",
 				"image": "URL_or_path_to_red_squirrel_image",
 				"taxon_id": 46260,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "Species/src/images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "M003",
