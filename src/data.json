@@ -17,7 +17,7 @@
 				"description": "One of the noisier animals that are commonly found on the island, the American Red Squirrel frequently makes aggressive chirping sounds at any other creature that happens by its territory. These squirrels hide secret stores of food called caches, which they feed on during the winter months. The caches may consist of pine cones, nuts, seeds, fruit, fungi, and even things such as bird eggs or the meat of other animals. This mammal was introduced to the island in 1963.",
 				"image": "URL_or_path_to_red_squirrel_image",
 				"taxon_id": 46260,
-				"map_image": "Species/src/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "M003",
@@ -26,7 +26,7 @@
 				"description": "Perhaps shockingly, the muskrat is not a true rat and neither is it closely related to the beaver despite sharing several characteristics with it. The incisors of the muskrat protrude beyond its cheeks, and its lips are able to close behind the incisors. These adaptations allow the muskrat to close its mouth behind its front teeth so that it can chew on things while still holding its breath underwater.",
 				"image": "URL_or_path_to_common_muskrat_image",
 				"taxon_id": 45762,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-muskrat.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-muskrat.png"
 			},
 			{
 				"id": "M004",
@@ -35,7 +35,7 @@
 				"description": "In the winter, the hares coat turns white to blend in with the snow, while in the summer its coat becomes a dark brown to match the dirt and plants. The hare population is linked with that of its main predator, the Canadian Lynx. When the population of lynx is high, the hare population decreases. Because of the decrease in their main prey, the lynx population begins to shrink, at which point the hare population can grow again.",
 				"image": "URL_or_path_to_snowshoe_hare_image",
 				"taxon_id": 43132,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "M005",
@@ -44,7 +44,7 @@
 				"description": "This mammal makes its home along shorelines where it hunts for mammals, fish, crustaceans, and insects. The mink can dive up to 3 m in search of prey. During these dives, it slows the pulse of its heart below its normal rate in order to conserve oxygen. Due to the cold water that it frequents, the mink has a thick, oily coat which helps to insulate it from the cold and to keep the water away from its skin. Mink were introduced to Newfoundland in 1935 for fur farming.",
 				"image": "URL_or_path_to_american_mink_image",
 				"taxon_id": 1264432,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-mink.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-mink.png"
 			},
 			{
 				"id": "M006",
@@ -53,7 +53,7 @@
 				"description": "The largest of the true foxes, red foxes are able to quickly adapt to new habitats due to their high intelligence and the large number of coat colors in the species. When the fox is hunting, it makes a characteristic pouncing action where it jumps into the air and lands on its prey. During the jump, the fox can steer using its tail. Like many other mammals, it has been known to hide the food it does not eat and return to the cache at a later time.",
 				"image": "URL_or_path_to_red_fox_image",
 				"taxon_id": 42069,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-fox.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-fox.png"
 			},
 			{
 				"id": "M007",
@@ -62,7 +62,7 @@
 				"description": "The coyote is an opportunistic omnivore, which is closely related to dogs and wolves. It is smaller in stature than the Grey Wolf but has a larger braincase and ears and carries its tail downwards while running. There is a rare population of coyotes in Newfoundland whose fur is entirely white. This is due to the population being the result of a cross between a coyote and a golden retriever, which gave them the gene for their white fur.",
 				"image": "URL_or_path_to_coyote_image",
 				"taxon_id": 42051,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-coyote.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-coyote.png"
 			},
 			{
 				"id": "M008",
@@ -71,7 +71,7 @@
 				"description": "The Moose is the largest living species of deer in the world, measuring up to 2.1 m tall and weighing up to 600 kg. These animals make their homes near lakes, bogs, and other wet areas. Because of their association with water, moose are strong swimmers and have been known to dive up to 4 m to find aquatic plants. Moose are generally slow-moving animals but when running can reach speeds of up to 56 km/h and can swim as fast as a two-person canoe.",
 				"image": "URL_or_path_to_moose_image",
 				"taxon_id": 522193,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			}
 		],
 		"birds": [
@@ -82,7 +82,7 @@
 				"description": "These tiny, active birds inhabit tree canopies, often seen upside down, and are known for their excitable call. They are frequent visitors at bird feeders.",
 				"image": "URL_or_path_to_red-breasted_nuthatch_image",
 				"taxon_id": 14823,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "B002",
@@ -91,7 +91,7 @@
 				"description": "Migratory birds that spend their winters in southern areas. They are often spotted on lawns in early spring as they search for insects and worms.",
 				"image": "URL_or_path_to_american_robin_image",
 				"taxon_id": 12727,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "B003",
@@ -100,7 +100,7 @@
 				"description": "Commonly found in tree-covered areas, especially Spruce forests, these birds live in nest-holes in soft, rotting trees and are often seen at bird feeders.",
 				"image": "URL_or_path_to_black-capped_chickadee_image",
 				"taxon_id": 144815,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "B004",
@@ -109,7 +109,7 @@
 				"description": "Similar to Black-capped Chickadees, they have rust-colored sides and a brown cap.",
 				"image": "URL_or_path_to_boreal_chickadee_image",
 				"taxon_id": 144821,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "B005",
@@ -118,7 +118,7 @@
 				"description": "These birds live in deciduous trees and store food in bark crevices and soil. They are smart enough to mimic the call of a hawk to warn others of these predators.",
 				"image": "URL_or_path_to_blue_jay_image",
 				"taxon_id": 8229,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "B006",
@@ -127,7 +127,7 @@
 				"description": "Both males and females are bright yellow, with males having reddish streaks on their throat and belly. They forage for insects on tall shrubs and small trees.",
 				"image": "URL_or_path_to_yellow_warbler_image",
 				"taxon_id": 145238,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "B007",
@@ -136,7 +136,7 @@
 				"description": "These eagles build their nests in tall, sturdy conifers and take up to five years to reach adult plumage. Juveniles are speckled brown all over with no white head yet.",
 				"image": "URL_or_path_to_bald_eagle_image",
 				"taxon_id": 5305,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "B008",
@@ -145,7 +145,7 @@
 				"description": "With a distinctive appearance featuring a large head, long bill, short tail, and a rattling call, these birds nest in burrows they dig in the soft earth of riverbanks.",
 				"image": "URL_or_path_to_belted_kingfisher_image",
 				"taxon_id": 2548,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-kingfisher.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-kingfisher.png"
 			},
 			{
 				"id": "B009",
@@ -154,7 +154,7 @@
 				"description": "Ravens, with thick necks and bills and shaggy throat feathers, have a different call than crows. They can be found in NL all year round in various forest types and nest on Manuels River every year.",
 				"image": "URL_or_path_to_common_raven_image",
 				"taxon_id": 8010,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-ravens.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-ravens.png"
 			},
 			{
 				"id": "B010",
@@ -163,7 +163,7 @@
 				"description": "These plump finches build bulky nests in shrubs of coniferous trees along stream edges. The males exhibit a distinct deep, rose-red color, while females have a yellowish head and rump. They live in NL year-round.",
 				"image": "URL_or_path_to_pine_grosbeak_image",
 				"taxon_id": 9771,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "B011",
@@ -172,7 +172,7 @@
 				"description": "Sparrow-like ground birds, Juncos hop around the bases of trees and shrubs foraging for fallen seeds or visit backyard feeders. They can be quickly identified by the white feathers at the outside of their tails as they fly by.",
 				"image": "URL_or_path_to_dark-eyed_junco_image",
 				"taxon_id": 10094,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "B012",
@@ -181,7 +181,7 @@
 				"description": "Rusty-capped migratory songbirds living in bogs and open boreal forests, they forage on the ground for insects and habitually wag their tails, showing off a bright yellow under tail.",
 				"image": "URL_or_path_to_palm_warbler_image",
 				"taxon_id": 145242,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "B013",
@@ -190,7 +190,7 @@
 				"description": "Fairly small grouse with a short, triangular crest and a long, fan-shaped tail. Ruffed Grouse are intricately patterned with dark bars and spots on either a reddish-brown or grayish background.",
 				"image": "URL_or_path_to_ruffed_grouse_image",
 				"taxon_id": 890,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			}
 		],
 		"fish": [
@@ -201,7 +201,7 @@
 				"description": "Introduced to St. Johns, Newfoundland from Scotland in 1884, the Brown Trouts stocking continued until the late 1930s. In their habitat, adult Brown Trouts mainly live in stream pools, while the younger ones occupy both pools and riffles. They are nocturnal feeders, preying on aquatic and terrestrial insects, small rodents, and other smaller fish.",
 				"image": "URL_or_path_to_brown_trout_image",
 				"taxon_id": 47518,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-fish.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-fish.png"
 			},
 			{
 				"id": "FI002",
@@ -210,7 +210,7 @@
 				"description": "Brook Trout, a freshwater salmonid species, are native to Newfoundland and Labrador and found throughout Canada. They prefer river banks and in-stream cover in streams, and in lakes, they seek cold, clear waters. Thriving in water with a pH between 6.5 and 8.0, they congregate for spawning from mid-September to mid-October.",
 				"image": "URL_or_path_to_brook_trout_image",
 				"taxon_id": 49596,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-fish.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-fish.png"
 			},
 			{
 				"id": "FI003",
@@ -219,7 +219,7 @@
 				"description": "The American Eel is a catadromous fish, migrating from freshwater to the ocean for spawning upon reaching maturity. Born sexually undifferentiated, their sex is determined during the yellow eel stage, influenced by environmental factors. High densities and poor conditions often yield more males, while larger rivers and lower densities typically produce more females.",
 				"image": "URL_or_path_to_american_eel_image",
 				"taxon_id": 49219,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-eels.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-eels.png"
 			},
 			{
 				"id": "FI004",
@@ -228,7 +228,7 @@
 				"description": "Atlantic Salmon may spend up to 4 years in the ocean before returning to freshwater for spawning. They often spawn once or twice, but some may breed multiple times. Newly hatched salmon depend on their yolk sac nutrients and start migrating from freshwater to the ocean during the smolt stage, which can take 1-8 years. In our river, they are mainly found downstream below the falls.",
 				"image": "URL_or_path_to_atlantic_salmon_image",
 				"taxon_id": 48648,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-salmon.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-salmon.png"
 			},
 			{
 				"id": "FI005",
@@ -237,7 +237,7 @@
 				"description": "The lifespan of Thorny Skate found in Newfoundland is estimated to be between 16-20 years. They feed on a wide variety of prey, including invertebrates and small fish, and inhabit depths of 18-1200m. Females lay egg cases, known as mermaid/devil purses, on the sea floor, which are fertilized in the womb. These fish are sometimes found in the estuary.",
 				"image": "URL_or_path_to_thorny_skate_image",
 				"taxon_id": 48402,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-beach.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-beach.png"
 			},
 			{
 				"id": "FI006",
@@ -246,7 +246,7 @@
 				"description": "Also known as pricklies or Benny sickles in parts of Newfoundland, Three-Spined Sticklebacks are native to the province and found in nearly every water body, including our river. They are omnivorous, consuming worms, drowned insects, fish eggs, and crustaceans.",
 				"image": "URL_or_path_to_three-spined_stickleback_image",
 				"taxon_id": 48403,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-fish.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-fish.png"
 			}
 		],
 		"insects": [
@@ -257,7 +257,7 @@
 				"description": "Found across Canada and the United States, Bumblebees need to maintain an internal temperature of about 30 degrees Celsius for flight. In colder months, they shiver to raise their body temperature back to the proper level for flight.",
 				"image": "URL_or_path_to_bumblebee_image",
 				"taxon_id": 52775,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "I002",
@@ -266,7 +266,7 @@
 				"description": "Damselflies, including the Fragile Forktail, differ from dragonflies in a few ways: they have rounder eyes, a relatively small thorax, and rest with wings folded onto their back, unlike dragonflies which keep theirs spread out.",
 				"image": "URL_or_path_to_fragile_forktail_image",
 				"taxon_id": 103498,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "I003",
@@ -275,7 +275,7 @@
 				"description": "Found across Canada, south of the tundra, young caterpillars of the Milberts Tortoiseshell feed together in a web but become solitary feeders as they mature. During winter, the adults hibernate together in small groups.",
 				"image": "URL_or_path_to_milberts_tortoiseshell_image",
 				"taxon_id": 68269,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "I004",
@@ -284,7 +284,7 @@
 				"description": "The Canadian Tiger Swallowtail butterfly is found across Canada, even in parts of Alaska north of the Arctic Circle. Adults feed on nectar from open or deep blooms and also drink from mud puddles to obtain minerals. Their caterpillars feed on leaves of willow, cherry, birch, and other trees.",
 				"image": "URL_or_path_to_canadian_tiger_swallowtail_image",
 				"taxon_id": 57463,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "I005",
@@ -293,7 +293,7 @@
 				"description": "Often mistaken for bees or wasps, Hoverflies are harmless and lack a stinger. Adult Hoverflies are important pollinators, feeding on the nectar of various plant species, while their larvae are predators of aphids.",
 				"image": "URL_or_path_to_hoverfly_image",
 				"taxon_id": 49995,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "I006",
@@ -302,7 +302,7 @@
 				"description": "Water Striders utilize the surface tension of water to glide. Their legs, covered in tiny hairs that capture air and repel water, help them seamlessly move around, capturing insects and larvae with their two shorter front legs.",
 				"image": "URL_or_path_to_water_strider_image",
 				"taxon_id": 59653,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-fish.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-fish.png"
 			},
 			{
 				"id": "I007",
@@ -311,7 +311,7 @@
 				"description": "The most northern of all club-tailed dragonflies, the Boreal Snaketail Dragonfly inhabits boreal forests and is found near clear rivers and lakes. Its larvae burrow in gravel and sand at river bottoms, and the adults perch on the ground or vegetation along the river.",
 				"image": "URL_or_path_to_boreal_snaketail_dragonfly_image",
 				"taxon_id": 107655,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "I008",
@@ -320,7 +320,7 @@
 				"description": "Caddisflies spend one to several years as larvae, spinning portable cases from plant fragments or mineral particles bound with silk. They feed on decaying organic matter, using silk to create a net that captures food drifting down the river.",
 				"image": "URL_or_path_to_caddisfly_image",
 				"taxon_id": 62164,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			}
 		],
 		"trees": [
@@ -331,7 +331,7 @@
 				"description": "Characterized by its flat needle with two white stripes on the back, Balsam fir is a favorite of moose in Newfoundland and is one of the more popular Christmas tree species.",
 				"image": "URL_or_path_to_balsam_fir_image",
 				"taxon_id": 54261,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "T002",
@@ -340,7 +340,7 @@
 				"description": "Known for its gold-colored papery bark and spearmint smelling twigs, Yellow birch was once one of the dominant hardwood species on the Avalon peninsula. It can be used for making birch syrup, beer, and wine.",
 				"image": "URL_or_path_to_yellow_birch_image",
 				"taxon_id": 49882,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			},
 			{
 				"id": "T003",
@@ -349,7 +349,7 @@
 				"description": "Also known as Canadian Spruce, it is more common along the coast than inland and also occurs in soils of glacial origin. White Spruce is especially plentiful in the coastal tuckamore forests of the Avalon. Their flowering season is from late May to June.",
 				"image": "URL_or_path_to_white_spruce_image",
 				"taxon_id": 117326,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "T004",
@@ -358,7 +358,7 @@
 				"description": "Mountain Maple is also known as moose maple because in its northern habitat it provides a valuable food source for moose. Mountain Maple is easily recognizable by its small size and the color of the keys; from pale to bright pink. This tall shrub is extremely important in riparian systems, where the dense layering that occurs from roots helps to prevent erosion on banks.",
 				"image": "URL_or_path_to_mountain_maple_image",
 				"taxon_id": 116361,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			},
 			{
 				"id": "T005",
@@ -367,7 +367,7 @@
 				"description": "Also known as quaking aspens, its name originates from the lightweight shiny leaves that quake and tremble when moved by even the slightest breeze. Trembling Aspen grows best on moist, well-drained soils, especially soils rich in calcium, such as limestone-derived soils.",
 				"image": "URL_or_path_to_trembling_aspen_image",
 				"taxon_id": 54840,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			},
 			{
 				"id": "T006",
@@ -376,7 +376,7 @@
 				"description": "A coniferous species with a round needle. Black spruce found in Newfoundland has the strongest fibre strength for black spruce in all of North America due to our slow-growing seasons.",
 				"image": "URL_or_path_to_black_spruce_image",
 				"taxon_id": 84296,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "T007",
@@ -385,7 +385,7 @@
 				"description": "One of the more popular hardwood species in Newfoundland for its beautiful white paper-like bark. In April, birch trees can be tapped to make birch syrup, similar to maple syrup. It takes up to 130 liters of sap to make 1 liter of syrup!",
 				"image": "URL_or_path_to_white_birch_image",
 				"taxon_id": 49883,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "T008",
@@ -394,7 +394,7 @@
 				"description": "A species of Larch native to Newfoundland. The wood is tough and durable, but also flexible in thin strips, and was used by the Algonquian people for making snowshoes and other products where toughness was required.",
 				"image": "URL_or_path_to_eastern_larch_image",
 				"taxon_id": 58721,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			},
 			{
 				"id": "T009",
@@ -403,7 +403,7 @@
 				"description": "Alders are continuously giving back to the environment through the process of nitrogen fixation. They can add up to 60 kilograms of nitrogen per hectare to enrich our soils.",
 				"image": "URL_or_path_to_mountain_alder_image",
 				"taxon_id": 939028,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			},
 			{
 				"id": "T010",
@@ -412,7 +412,7 @@
 				"description": "Did you know there are more than 75,000 different cultivars of apples? During the 19th and early 20th centuries, apples were a major cash crop for farmers and settlers. The apple trees found upstream are from the Hiscock familys farm in the 1900s.",
 				"image": "URL_or_path_to_common_apple_image",
 				"taxon_id": 469472,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			}
 		],
 		"plants": [
@@ -423,7 +423,7 @@
 				"description": "Tansy Ragwort flowers from late July to early August. Originally from Eurasia, it was likely introduced to the region accidentally. Animals generally avoid it due to its potential fatality, as it is known to cause liver damage in animals like cows and horses.",
 				"image": "URL_or_path_to_tansy_ragwort_image",
 				"taxon_id": 62498,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			},
 			{
 				"id": "P002",
@@ -432,7 +432,7 @@
 				"description": "Flowering in August, Black Knapweed, originally from Europe, is believed to have been introduced by accident. What appears to be a single purple flower is actually individual flowers bunched together. It is also part of the daisy family (Asteraceae).",
 				"image": "URL_or_path_to_black_knapweed_image",
 				"taxon_id": 126575,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			},
 			{
 				"id": "P003",
@@ -441,7 +441,7 @@
 				"description": "Visible near Morganss Field along the trail, Pin Cherry is an early successional species and often the first to appear after a disturbance. It is frequently affected by black knot fungus, which causes black, rotten-like appearances on its branches.",
 				"image": "URL_or_path_to_pin_cherry_image",
 				"taxon_id": 54833,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			},
 			{
 				"id": "P004",
@@ -450,7 +450,7 @@
 				"description": "This species thrives in cool, moist soils, predominantly in boreal coniferous forests. It is found growing along the margins of moist woods, on old tree stumps, in mossy areas, and amongst other open and moist habitats.",
 				"image": "URL_or_path_to_crackerberry_image",
 				"taxon_id": 47192,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			},
 			{
 				"id": "P005",
@@ -459,7 +459,7 @@
 				"description": "Native to North America and known as the Purple Iris in Ireland and Britain, the Blue Flag Iris grows in wetland habitats near rushes and sedges. The term flag in its name derives from the Middle English word flagge, meaning rush or reed. Consumption of its rhizomes is poisonous to humans.",
 				"image": "URL_or_path_to_blue_flag_iris_image",
 				"taxon_id": 48726,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			},
 			{
 				"id": "P006",
@@ -468,7 +468,7 @@
 				"description": "A flowering plant native to Northern and Western Europe and parts of North America. To adapt to nutrient-poor conditions along the river, its roots host nitrogen-fixing bacteria, enabling the plant to thrive.",
 				"image": "URL_or_path_to_sweet_gale_image",
 				"taxon_id": 49033,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			},
 			{
 				"id": "P007",
@@ -477,7 +477,7 @@
 				"description": "A perennial herb native to Europe and Asia, now naturalized in North America, Meadowsweet grows in damp meadows. Part of the rose family (Rosaceae), it is a popular food source for butterflies.",
 				"image": "URL_or_path_to_meadowsweet_image",
 				"taxon_id": 48681,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			},
 			{
 				"id": "P008",
@@ -486,7 +486,7 @@
 				"description": "Found in high elevation habitats or cooler microclimates, ongoing and prospective climate change is a significant conservation concern for this species in such areas.",
 				"image": "URL_or_path_to_twin_flower_image",
 				"taxon_id": 77780,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			},
 			{
 				"id": "P009",
@@ -495,7 +495,7 @@
 				"description": "Native to eastern North America, this common wild rose is easily identified by its five pink petals, which are replaced by fruit (rose hips) after complete pollination. The red hips, resembling berries, remain on the plant throughout winter, serving as a food source for various animals.",
 				"image": "URL_or_path_to_virginia_rose_image",
 				"taxon_id": 129195,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			},
 			{
 				"id": "P010",
@@ -504,7 +504,7 @@
 				"description": "A vine species identifiable by its star shape, five purple petals, and a yellow stamen. It also bears small red fruits that are edible for birds but poisonous to humans.",
 				"image": "URL_or_path_to_climbing_nightshade_image",
 				"taxon_id": 242946,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			}
 		],
 		"fungi": [
@@ -515,7 +515,7 @@
 				"description": "Members of the genus Boletus, known as Bolete Mushrooms, range from edible to toxic. Many species turn blue when cut, aiding in identification. Unlike common mushrooms with gills, boletes have sponge-like tubes for spore release.",
 				"image": "URL_or_path_to_bolete_mushrooms_image",
 				"taxon_id": 48427,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-mushrooms.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-mushrooms.png"
 			},
 			{
 				"id": "F002",
@@ -524,7 +524,7 @@
 				"description": "Chanterelles have a symbiotic relationship with plants, relying on them for carbohydrates. They have adapted their Mycorrhizae to retrieve carbohydrates from associated plants and, in turn, help the plant absorb salt and other minerals.",
 				"image": "URL_or_path_to_chanterelle_mushrooms_image",
 				"taxon_id": 47348,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			},
 			{
 				"id": "F003",
@@ -533,7 +533,7 @@
 				"description": "Bracket Fungi, resembling stalkless mushrooms, are often found on rotting wood. They can be either saprotrophic, digesting dead material, or parasitic, with some species growing on trees and eventually killing them to feed on the decaying material for years.",
 				"image": "URL_or_path_to_bracket_fungus_image",
 				"taxon_id": 47379,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-mushrooms.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-mushrooms.png"
 			},
 			{
 				"id": "F004",
@@ -542,7 +542,7 @@
 				"description": "Rusts are highly parasitic fungi that attack the leaves, stems, and shoots of healthy plants. Infections can result in slow growth, gall formation, or swelling of the affected area. Rust forms a powder on leaves resembling metallic rust, although the two are unrelated.",
 				"image": "URL_or_path_to_rusts_image",
 				"taxon_id": 69968,
-				"map_image": "Species/images/River-Maps/manuels-river-map-edited.png"
+				"map_image": "./images/River-Maps/manuels-river-map-edited.png"
 			},
 			{
 				"id": "F005",
@@ -551,7 +551,7 @@
 				"description": "Agaric Mushrooms are among the most commonly seen fungi. They are notable for the gills on the underside of their cap, used for spore dispersal. The gills are key in identifying species, and like other mushrooms, they are only visible during reproduction, being otherwise underground.",
 				"image": "URL_or_path_to_agaric_mushrooms_image",
 				"taxon_id": 47167,
-				"map_image": "Species/images/River-Maps/mr-river-map-pins-mushrooms.png"
+				"map_image": "./images/River-Maps/mr-river-map-pins-mushrooms.png"
 			},
 			{
 				"id": "F006",
@@ -560,7 +560,7 @@
 				"description": "Lichens are composites of fungi and algae growing together. The fungi create a network in which the algal cells are embedded. While the fungus cannot survive without the algae, the algae can live independently. There are three types of lichens: Crustose, Foliose, and Fruticose.",
 				"image": "URL_or_path_to_lichens_image",
 				"taxon_id": 54743,
-				"map_image": "Species/images/River-Maps/manuels-river-map-pins-full-map.png"
+				"map_image": "./images/River-Maps/manuels-river-map-pins-full-map.png"
 			}
 		]
 	}
