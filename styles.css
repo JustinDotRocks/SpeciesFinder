@@ -31,11 +31,11 @@
 }
 
 .toggle-modal {
-	transition: transform 0.2s ease-in-out;
+	transition: transform 0.1s ease-in-out;
 }
 
 .toggle-modal:active {
-	transform: scale(0.9);
+	transform: scale(0.95);
 }
 
 #modal {

@@ -167,10 +167,8 @@
 					<div
 						class="mt-32 text-container z-10 flex flex-col items-center justify-center"
 					>
-						<h1 class="text-white text-5xl">
-							Species Finder
-						</h1>
-						<p class="text-white text-3xl">
+						<h1 class="text-white text-5xl">Species</h1>
+						<p class="text-white text-3xl mt-4">
 							at Manuels River
 						</p>
 					</div>
@@ -181,7 +179,7 @@
 							Scroll down to discover more!
 						</p>
 						<p class="text-white text-2xl">
-							Open a category for species cards.
+							Open a category for more info.
 						</p>
 						<p class="text-white text-2xl">
 							Star your favorites!
@@ -194,12 +192,6 @@
 					<div class="arrow-down mb-20"></div>
 				</div>
 			</div>
-
-			<!-- Species Selection Menu -->
-			<!-- <aside
-				id="species-selection"
-				class="bg-white shadow-md w-full md:w-64 absolute md:relative transform translate-x-0 mt-0">
-			</aside> -->
 
 			<!-- Species Selection Menu -->
 			<div class="flex">
@@ -218,6 +210,7 @@
 						src="./images/River-Maps/manuels-river-map-edited.png"
 						alt="Static Map"
 						id="mapImage"
+						class="w-full"
 					/>
 				</div>
 			</div>
@@ -231,7 +224,6 @@
 					id="modal-container"
 					class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto md:w-1/2 md:max-h-[100vh] md:absolute md:inset-y-16 md:left-0"
 				>
-					<!-- <button id="closeModal" class="fixed top-10 right-5 mx-4 my-4 text-customBlue text-4xl">&times;</button> -->
 					<div
 						class="modal-title-button-container flex justify-between items-center"
 					>
@@ -335,7 +327,6 @@
 							Show Wikipedia
 						</button>
 					</div>
-					<!-- <iframe id="wikiFrame species-wikipedia-url" data-taxon-id="${species.taxon_id}" src="#" class="species-wikipedia-url-class w-full h-full border-none" frameborder="0" ></iframe> -->
 					<iframe
 						id="wikiFrame"
 						class="w-full h-full border-none hidden"
@@ -355,7 +346,7 @@
 			<!-- Map MODAL -->
 			<div
 				id="map-modal"
-				class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-60 overflow-y-hidden"
+				class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-60 overflow-y-scroll"
 			>
 				<div
 					class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto md:w-1/2 md:absolute md:inset-y-16 md:right-0"
@@ -370,19 +361,11 @@
 					<img
 						id="fullMapImage"
 						src="images/manuels-river-map-edited.png"
-						class="max-w-full h-auto"
+						class="max-w-full w-full h-auto"
 						alt="Full Map View"
 					/>
 				</div>
 			</div>
-
-			<!-- <main class="flex-grow p-4 md:block hidden">
-				<h1>Welcome to the Species Map</h1>
-				<p>
-					This area will display the map and related
-					information.
-				</p>
-			</main> -->
 		</div>
 
 		<!-- Favorites Page -->
@@ -452,7 +435,6 @@
 							class="hover:underline flex flex-col items-center"
 						>
 							<i class="fas fa-globe fa-2x"></i>
-							<!-- Adjust the icon class as needed -->
 							<span>Website</span>
 						</a>
 					</div>
@@ -488,10 +470,8 @@
 							<i
 								class="fa-brands fa-github fa-2x"
 							></i>
-							<!-- Adjust the icon class as needed -->
 							<span>GitHub</span>
 						</a>
-						<!-- Add any other social media icon if needed -->
 					</div>
 				</section>
 

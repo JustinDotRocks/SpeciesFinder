@@ -53,7 +53,7 @@ const handleRouteChange = () => {
 		aboutPage.classList.remove("hidden");
 	} else if (hash === "#favorites") {
 		favoritesPage.classList.remove("hidden");
-		showFavorites(); // Make sure to call your function to load/display favorites
+		showFavorites();
 	} else {
 		mainContent.classList.remove("hidden");
 	}
@@ -77,7 +77,6 @@ const speciesSelectorLinkListener = () => {
 		if (!aboutPage.classList.contains("hidden")) {
 			aboutPage.classList.add("hidden");
 		}
-		// Close the menu
 		closeMenu();
 		// Scroll to the speciesHeader or the specific section
 		speciesHeader.scrollIntoView({
@@ -173,9 +172,9 @@ const setupMapModalInteractions = () => {
 				document
 					.getElementById("map-modal")
 					.classList.remove("hidden");
-				// Optional: Disable scrolling on the body if not already handled
+				// Disable scrolling on the body.
 				toggleScrollLock(true);
-			}, 250); // 250 milliseconds delay
+			}, 250);
 		});
 
 	// Close the map-modal
@@ -249,8 +248,6 @@ const openModal = (
 	document.getElementById("modal").classList.remove("hidden");
 	document.getElementById("modal-container").scrollTop = 0;
 	toggleScrollLock(true);
-
-	// updateFavoriteIcon(taxonId); // Call after appending the icon to ensure the state is reflected correctly
 };
 
 // This should be placed outside the showFavorites function, as it's a utility function
@@ -325,7 +322,7 @@ const displaySpeciesModalData = async (taxonId) => {
 
 	if (wikipedia_url) {
 		// Wikipedia URL is available
-		wikipediaLinkElement.href = wikipedia_url; // Set the href for direct link (if needed)
+		wikipediaLinkElement.href = wikipedia_url; // Set the href for direct link
 		wikipediaLinkElement.classList.add("hidden"); // Ensure direct link is hidden when iframe is to be used
 
 		modalWikiButtonContainer.classList.remove("hidden"); // Show "Show Wikipedia" button
@@ -379,8 +376,6 @@ const displaySpecies = async () => {
 					const isFavorited = favorites.includes(
 						species.taxon_id.toString()
 					); // Check if the species is favorited
-					// const truncatedDescription = species.description.length > 75 ? `${species.description.substring(0, 75)}...` : species.description;
-					// <p class="text-gray-700 mt-2 px-4 w-1/2">${truncatedDescription}</p>
 
 					return `
                         <div id="species-selection" class="card toggle-modal bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" data-description="${
@@ -422,16 +417,6 @@ const displaySpecies = async () => {
 			// Append the category and its cards to the container
 			container.innerHTML += categoryHtml + cardsHtml + "</div>";
 		});
-
-		// Attach event listeners after cards are added to the DOM
-		// document.querySelectorAll(".favorite-icon").forEach((icon) => {
-		// 	icon.addEventListener("click", (event) => {
-		// 		const taxonId =
-		// 			event.target.getAttribute("data-taxon-id");
-		// 		toggleFavorite(taxonId);
-		// 		updateFavoriteIcon(taxonId);
-		// 	});
-		// });
 		// After .card elements are added to the DOM:
 		modalElements(); // Attach event listeners to newly added .card elements
 
@@ -507,7 +492,6 @@ const updateSpeciesCardData = async (container, taxonId) => {
 const checkIfFavorite = (taxonId) => {
 	// Ensure taxonId is defined before proceeding
 	if (typeof taxonId === "undefined" || taxonId === null) {
-		console.error("taxonId is undefined or null");
 		return false; // or handle this case as you see fit
 	}
 	const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -515,9 +499,6 @@ const checkIfFavorite = (taxonId) => {
 	return favorites.includes(taxonId.toString());
 };
 
-//
-// PROBLEM FUNCTION FOR FAV ICON UPDATE
-//
 const toggleFavorite = (taxonId) => {
 	let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 	const index = favorites.indexOf(taxonId.toString());
@@ -558,7 +539,7 @@ const updateFavoriteIcon = (taxonId) => {
 
 const updateFavoriteIcons = (taxonId) => {
 	const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-	const isFavorited = checkIfFavorite(taxonId.toString()); // Re-check favorite status
+	const isFavorited = checkIfFavorite(taxonId); // Re-check favorite status
 
 	// Update the icon in the modal if it exists
 	const favoriteIconInModal = document.querySelector(
@@ -586,16 +567,16 @@ const updateFavoriteIcons = (taxonId) => {
 
 // Favorites Page
 const showFavorites = async () => {
-	// Fetch the species data
 	const response = await fetch("./data.json");
-	const data = await response.json(); // Now 'data' is defined within this function
+	const data = await response.json();
 
 	const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 	const container = document.getElementById("favoritesContainer");
 	container.innerHTML = ""; // Clear existing content
 
 	if (favorites.length === 0) {
-		container.innerHTML = "<p>You have no favorites yet.</p>";
+		container.innerHTML =
+			"<p class='text-customBlue flex justify-center'>You have no favorites yet.</p>";
 		return;
 	}
 
@@ -611,7 +592,7 @@ const showFavorites = async () => {
 			(species) => species.taxon_id.toString() === favoriteTaxonId
 		);
 		if (species) {
-			const imageUrl = await fetchImageFromAPI(species.taxon_id); // Function to fetch image based on taxon ID
+			const imageUrl = await fetchImageFromAPI(species.taxon_id);
 			// Create a card for this species
 			const card = document.createElement("div");
 			card.className =
@@ -626,10 +607,6 @@ const showFavorites = async () => {
 			// Add click event listener to navigate to the species card
 			card.addEventListener("click", () => {
 				// Logic to navigate to the species card in the Species Selection section
-				// This might involve changing the page's hash, expanding the correct category,
-				// and scrolling to the card. Specific implementation depends on your app's structure.
-				// navigateToSpeciesCard(determineSpeciesCategory(species), favoriteTaxonId);
-				// Assuming taxonId is defined and you have fetched 'data' from your JSON
 				const categoryName = determineSpeciesCategory(
 					species.taxon_id,
 					data
