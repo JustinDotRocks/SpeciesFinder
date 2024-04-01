@@ -387,9 +387,9 @@ const displaySpeciesModalData = async (taxonId) => {
 	observationsCountElement.textContent = `Observations Counted World Wide on INaturalist: ${observations_count}`;
 };
 
-function secureUrl(url) {
+const secureUrl = (url) => {
 	return url ? url.replace(/^http:/, "https:") : url;
-}
+};
 
 // Function to dynamically display species and setup interactions
 const displaySpecies = async () => {
