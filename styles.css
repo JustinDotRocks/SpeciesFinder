@@ -3207,8 +3207,8 @@ video {
     margin-bottom: 3rem;
   }
 
-  .lg\:w-2\/3 {
-    width: 66.666667%;
+  .lg\:w-1\/2 {
+    width: 50%;
   }
 
   .lg\:grid-cols-4 {
