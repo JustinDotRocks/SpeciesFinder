@@ -42,11 +42,13 @@ const handleRouteChange = () => {
 	const mainContent = document.getElementById("mainContent"); // Your main content
 	const aboutPage = document.getElementById("aboutPage"); // About page, if you have one
 	const favoritesPage = document.getElementById("favoritesPage"); // Favorites page
+	const mapPage = document.getElementById("mapPage"); // Map page
 
 	// Hide all pages
 	mainContent.classList.add("hidden");
 	aboutPage.classList.add("hidden");
 	favoritesPage.classList.add("hidden");
+	mapPage.classList.add("hidden");
 
 	// Show the page based on the hash
 	if (hash === "#about") {
@@ -54,6 +56,8 @@ const handleRouteChange = () => {
 	} else if (hash === "#favorites") {
 		favoritesPage.classList.remove("hidden");
 		showFavorites();
+	} else if (hash === "#map") {
+		mapPage.classList.remove("hidden");
 	} else {
 		mainContent.classList.remove("hidden");
 	}
