@@ -424,7 +424,7 @@ const displaySpecies = async () => {
 					); // Check if the species is favorited
 
 					return `
-                        <div id="species-selection" class="card bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" data-description="${
+                        <div id="species-selection" class="card bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer xl:text-3xl" role="button" data-description="${
 					species.description
 				}" data-taxon-id="${
 						species.taxon_id
