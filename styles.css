@@ -2971,7 +2971,7 @@ video {
 }
 
 .card {
-  height: 65vh;
+  /* height: 65vh; */
   width: 90vw;
 }
 
