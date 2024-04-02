@@ -429,7 +429,7 @@ const displaySpecies = async () => {
 				}" data-taxon-id="${
 						species.taxon_id
 					}" data-map-image="${species.map_image}">
-                            <h3 class="text-xl ml-4 text-customBlue font-semibold">
+                            <h3 class="text-xl xl:text-3xl ml-4 text-customBlue font-semibold">
                                 ${species.common_name}
                                 <i class="${
 							isFavorited
@@ -439,7 +439,7 @@ const displaySpecies = async () => {
 						species.taxon_id
 					}"></i>
                             </h3>
-                            <div class="species-scientific-name text-xl ml-4 italic text-customBlue" data-taxon-id="${
+                            <div class="species-scientific-name text-xl xl:text-2xl ml-4 italic text-customBlue" data-taxon-id="${
 						species.taxon_id
 					}"></div>
                             <div class="cardImageContainer flex justify-center ">
@@ -448,10 +448,10 @@ const displaySpecies = async () => {
 						}" class="species-image rounded-md p-4">
                             </div>
                             <div class="flex justify-between items-center p-2 m-2">
-                                <div class="species-threatened-status italic text-lg" data-taxon-id="${
+                                <div class="species-threatened-status italic text-lg xl:text-3xl" data-taxon-id="${
 							species.taxon_id
 						}"></div>
-                                <div class="text-customBlue text-md font-semibold">Click card to read more!</div>
+                                <div class="text-customBlue text-md xl:text-3xl font-semibold">Click card to read more!</div>
 
                             </div>
 
