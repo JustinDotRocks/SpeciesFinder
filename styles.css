@@ -3235,6 +3235,10 @@ video {
     width: 50%;
   }
 
+  .xl\:w-3\/4 {
+    width: 75%;
+  }
+
   .xl\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
