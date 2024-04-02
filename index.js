@@ -424,7 +424,7 @@ const displaySpecies = async () => {
 					); // Check if the species is favorited
 
 					return `
-                        <div id="species-selection" class="card bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer xl:text-3xl" role="button" data-description="${
+                        <div id="species-selection" class="card bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer md:w-3/4 xl:text-3xl" role="button" data-description="${
 					species.description
 				}" data-taxon-id="${
 						species.taxon_id
@@ -447,7 +447,7 @@ const displaySpecies = async () => {
 							species.taxon_id
 						}" class="species-image rounded-md p-4">
                             </div>
-                            <div class="flex justify-between items-center p-2 m-2">
+                            <div class="flex justify-between items-center p-2 m-2 xl:text-3xl ">
                                 <div class="species-threatened-status italic text-lg xl:text-3xl" data-taxon-id="${
 							species.taxon_id
 						}"></div>

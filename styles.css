@@ -3191,6 +3191,10 @@ video {
     width: 50%;
   }
 
+  .md\:w-3\/4 {
+    width: 75%;
+  }
+
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
