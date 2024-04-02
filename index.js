@@ -448,10 +448,10 @@ const displaySpecies = async () => {
 						}" class="species-image rounded-md p-4">
                             </div>
                             <div class="flex justify-between items-center p-2 m-2 xl:text-3xl ">
-                                <div class="species-threatened-status italic text-lg xl:text-3xl" data-taxon-id="${
+                                <div class="species-threatened-status italic text-lg xl:text-2xl" data-taxon-id="${
 							species.taxon_id
 						}"></div>
-                                <div class="text-customBlue text-md xl:text-3xl font-semibold">Click card to read more!</div>
+                                <div class="text-customBlue text-md xl:text-2xl font-semibold">Click card to read more!</div>
 
                             </div>
 
