@@ -3257,13 +3257,13 @@ video {
     line-height: 2.25rem;
   }
 
-  .xl\:text-7xl {
-    font-size: 4.5rem;
+  .xl\:text-5xl {
+    font-size: 3rem;
     line-height: 1;
   }
 
-  .xl\:text-9xl {
-    font-size: 8rem;
+  .xl\:text-7xl {
+    font-size: 4.5rem;
     line-height: 1;
   }
 }
