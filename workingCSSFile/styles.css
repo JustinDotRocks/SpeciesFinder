@@ -79,7 +79,7 @@
 /* Transform hamburger into "X" */
 
 .hamburger-x .hamburger-line:nth-child(1) {
-	transform: translateY(8px) rotate(50deg);
+	transform: translateY(8px) rotate(45deg);
 }
 
 .hamburger-x .hamburger-line:nth-child(2) {
@@ -87,7 +87,7 @@
 }
 
 .hamburger-x .hamburger-line:nth-child(3) {
-	transform: translateY(-11px) rotate(-46deg);
+	transform: translateY(-11px) rotate(-48deg);
 }
 
 .menu-slide-in {
