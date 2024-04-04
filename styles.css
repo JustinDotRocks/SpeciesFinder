@@ -2949,7 +2949,7 @@ video {
 /* Transform hamburger into "X" */
 
 .hamburger-x .hamburger-line:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(8px) rotate(46deg);
 }
 
 .hamburger-x .hamburger-line:nth-child(2) {
