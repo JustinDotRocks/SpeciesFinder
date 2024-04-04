@@ -42,11 +42,13 @@ const handleRouteChange = () => {
 	const mainContent = document.getElementById("mainContent"); // Your main content
 	const aboutPage = document.getElementById("aboutPage"); // About page, if you have one
 	const favoritesPage = document.getElementById("favoritesPage"); // Favorites page
+	const mapPage = document.getElementById("mapPage"); // Map page
 
 	// Hide all pages
 	mainContent.classList.add("hidden");
 	aboutPage.classList.add("hidden");
 	favoritesPage.classList.add("hidden");
+	mapPage.classList.add("hidden");
 
 	// Show the page based on the hash
 	if (hash === "#about") {
@@ -54,6 +56,8 @@ const handleRouteChange = () => {
 	} else if (hash === "#favorites") {
 		favoritesPage.classList.remove("hidden");
 		showFavorites();
+	} else if (hash === "#map") {
+		mapPage.classList.remove("hidden");
 	} else {
 		mainContent.classList.remove("hidden");
 	}
@@ -424,12 +428,12 @@ const displaySpecies = async () => {
 					); // Check if the species is favorited
 
 					return `
-                        <div id="species-selection" class="card bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer" role="button" data-description="${
+                        <div id="species-selection" class="card bg-white rounded-lg border border-gray-200 shadow-md m-8 p-4 cursor-pointer xl:text-3xl" role="button" data-description="${
 					species.description
 				}" data-taxon-id="${
 						species.taxon_id
 					}" data-map-image="${species.map_image}">
-                            <h3 class="text-xl ml-4 text-customBlue font-semibold">
+                            <h3 class="text-xl xl:text-3xl ml-4 text-customBlue font-semibold">
                                 ${species.common_name}
                                 <i class="${
 							isFavorited
@@ -439,7 +443,7 @@ const displaySpecies = async () => {
 						species.taxon_id
 					}"></i>
                             </h3>
-                            <div class="species-scientific-name text-xl ml-4 italic text-customBlue" data-taxon-id="${
+                            <div class="species-scientific-name text-xl xl:text-2xl ml-4 italic text-customBlue" data-taxon-id="${
 						species.taxon_id
 					}"></div>
                             <div class="cardImageContainer flex justify-center ">
@@ -447,11 +451,11 @@ const displaySpecies = async () => {
 							species.taxon_id
 						}" class="species-image rounded-md p-4">
                             </div>
-                            <div class="flex justify-between items-center p-2 m-2">
-                                <div class="species-threatened-status italic text-lg" data-taxon-id="${
+                            <div class="flex justify-between items-center p-2 m-2 xl:text-3xl ">
+                                <div class="species-threatened-status italic text-lg xl:text-2xl" data-taxon-id="${
 							species.taxon_id
 						}"></div>
-                                <div class="text-customBlue text-md font-semibold">Click card to read more!</div>
+                                <div class="text-customBlue text-md xl:text-2xl font-semibold">Click card to read more!</div>
 
                             </div>
 

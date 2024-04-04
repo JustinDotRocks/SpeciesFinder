@@ -2957,7 +2957,7 @@ video {
 }
 
 .hamburger-x .hamburger-line:nth-child(3) {
-  transform: translateY(-11px) rotate(-46deg);
+  transform: translateY(-11px) rotate(-45deg);
 }
 
 .menu-slide-in {
@@ -2971,7 +2971,7 @@ video {
 }
 
 .card {
-  height: 55vh;
+  /* height: 65vh; */
   width: 90vw;
 }
 
@@ -3191,6 +3191,14 @@ video {
     width: 50%;
   }
 
+  .md\:w-2\/3 {
+    width: 66.666667%;
+  }
+
+  .md\:w-3\/4 {
+    width: 75%;
+  }
+
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -3201,6 +3209,14 @@ video {
   .lg\:my-12 {
     margin-top: 3rem;
     margin-bottom: 3rem;
+  }
+
+  .lg\:w-1\/2 {
+    width: 50%;
+  }
+
+  .lg\:w-2\/3 {
+    width: 66.666667%;
   }
 
   .lg\:grid-cols-4 {
@@ -3227,13 +3243,32 @@ video {
     width: 50%;
   }
 
+  .xl\:w-1\/3 {
+    width: 33.333333%;
+  }
+
   .xl\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .xl\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .xl\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .xl\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .xl\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
   }
 }
 
