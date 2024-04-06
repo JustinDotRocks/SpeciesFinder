@@ -44,8 +44,8 @@ const menuInteractions = () => {
 
 	// Menu functionality
 	hamburgerButton.addEventListener("click", toggleMenu);
-	overlay.addEventListener("click", closeMenu);
-	menuLinks.forEach((link) => link.addEventListener("click", closeMenu));
+	overlay.addEventListener("click", toggleMenu);
+	menuLinks.forEach((link) => link.addEventListener("click", toggleMenu));
 };
 
 const handleRouteChange = () => {
@@ -92,7 +92,7 @@ const speciesSelectorLinkListener = () => {
 		if (!aboutPage.classList.contains("hidden")) {
 			aboutPage.classList.add("hidden");
 		}
-		closeMenu();
+		toggleMenu();
 		// Scroll to the speciesHeader or the specific section
 		speciesHeader.scrollIntoView({
 			behavior: "smooth",
