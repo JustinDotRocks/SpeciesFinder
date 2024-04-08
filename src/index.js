@@ -2,6 +2,7 @@ const menuModal = document.getElementById("menu-modal");
 
 // MENU
 const toggleMenu = () => {
+	const menuModal = document.getElementById("menu-modal");
 	const isMenuOpen = menuModal.classList.contains("menu-slide-in");
 	if (isMenuOpen) {
 		// Menu is open, so slide it out
@@ -9,18 +10,28 @@ const toggleMenu = () => {
 		setTimeout(() => menuModal.classList.add("hidden"), 250); // Ensure the menu is hidden after the animation
 	} else {
 		// Menu is closed, so slide it in
-		menuModal.classList.replace("menu-slide-out", "menu-slide-in");
 		menuModal.classList.remove("hidden");
+		// menuModal.classList.replace("menu-slide-out", "menu-slide-in");
+		setTimeout(
+			() =>
+				menuModal.classList.replace(
+					"menu-slide-out",
+					"menu-slide-in"
+				),
+			0
+		); // Immediately start sliding in but allow for the class removal to take effect first
 	}
+	const overlay = document.getElementById("overlay");
 	overlay.classList.toggle("hidden");
 	const hamburgerButton = document.getElementById("hamburger-button");
-	hamburgerButton?.classList?.toggle("hamburger-x");
+	hamburgerButton.classList.toggle("hamburger-x");
 };
 
 // Close menu and overlay
 const closeMenu = () => {
 	menuModal.classList.replace("menu-slide-in", "menu-slide-out");
 	setTimeout(() => menuModal.classList.add("hidden"), 250);
+	const overlay = document.getElementById("overlay");
 	overlay.classList.add("hidden");
 	const hamburgerButton = document.getElementById("hamburger-button");
 	hamburgerButton?.classList?.remove("hamburger-x");
@@ -33,8 +44,8 @@ const menuInteractions = () => {
 
 	// Menu functionality
 	hamburgerButton.addEventListener("click", toggleMenu);
-	overlay.addEventListener("click", closeMenu);
-	menuLinks.forEach((link) => link.addEventListener("click", closeMenu));
+	overlay.addEventListener("click", toggleMenu);
+	menuLinks.forEach((link) => link.addEventListener("click", toggleMenu));
 };
 
 const handleRouteChange = () => {
@@ -81,7 +92,7 @@ const speciesSelectorLinkListener = () => {
 		if (!aboutPage.classList.contains("hidden")) {
 			aboutPage.classList.add("hidden");
 		}
-		closeMenu();
+		toggleMenu();
 		// Scroll to the speciesHeader or the specific section
 		speciesHeader.scrollIntoView({
 			behavior: "smooth",
