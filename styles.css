@@ -3171,8 +3171,8 @@ video {
     margin-bottom: 4rem;
   }
 
-  .md\:mr-2 {
-    margin-right: 0.5rem;
+  .md\:ml-16 {
+    margin-left: 4rem;
   }
 
   .md\:mt-0 {
