@@ -322,43 +322,6 @@ const navigateToSpeciesCard = (categoryName, taxonId) => {
 	}
 };
 
-// const displaySpeciesModalData = async (taxonId) => {
-// 	const {wikipedia_url, observations_count} = await fetchDataFromAPI(
-// 		taxonId
-// 	);
-// 	const wikiFrame = document.getElementById("wikiFrame");
-// 	const showWikiButton = document.getElementById("showWiki");
-// 	const modalWikiButtonContainer = document.getElementById(
-// 		"modalWikiButtonContainer"
-// 	);
-// 	const wikipediaLinkElement = document.getElementById(
-// 		"species-wikipedia-url"
-// 	);
-
-// 	if (wikipedia_url) {
-// 		// Wikipedia URL is available
-// 		wikipediaLinkElement.href = wikipedia_url; // Set the href for direct link
-// 		wikipediaLinkElement.classList.add("hidden"); // Ensure direct link is hidden when iframe is to be used
-
-// 		modalWikiButtonContainer.classList.remove("hidden"); // Show "Show Wikipedia" button
-// 		showWikiButton.onclick = () => {
-// 			wikiFrame.classList.toggle("hidden");
-// 			if (!wikiFrame.classList.contains("hidden")) {
-// 				wikiFrame.src = wikipedia_url; // Load iframe source only when showing it
-// 			}
-// 		};
-// 	} else {
-// 		// No Wikipedia URL available
-// 		modalWikiButtonContainer.classList.add("hidden"); // Hide "Show Wikipedia" button
-// 		wikipediaLinkElement.classList.add("hidden"); // Also hide direct link
-// 		wikiFrame.classList.add("hidden"); // Ensure iframe is hidden
-// 	}
-
-// 	// Display observation_count in the modal...
-// 	const observationsCountElement =
-// 		document.getElementById("observationsCount");
-// 	observationsCountElement.textContent = `Observations Counted World Wide on INaturalist: ${observations_count}`;
-// };
 const displaySpeciesModalData = async (taxonId) => {
 	const {wikipedia_url, observations_count} = await fetchDataFromAPI(
 		taxonId

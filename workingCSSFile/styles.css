@@ -42,9 +42,6 @@
 	transition: 1s ease-in-out 1s;
 }
 
-#modal.active {
-}
-
 #mapContainer {
 	transition: transform 0.3s ease-in-out;
 }
