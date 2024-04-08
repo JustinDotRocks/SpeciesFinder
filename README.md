@@ -15,12 +15,7 @@ more interactive and personalized experiences.
 
 ## Motivation
 
-As frequent visitors and enthusiasts of Manuels River's natural beauty and
-biodiversity, we recognized the need for an engaging tool to help both locals
-and tourists appreciate the river's ecological richness. We wanted to move
-beyond traditional guidebooks to offer an interactive, informative, and
-accessible resource for learning about the species that inhabit this unique
-environment.
+Having worked at Manuels River for almost a decade, currently in a leadership role responsible for education, I've developed a profound appreciation for its natural beauty and biodiversity. Recognizing the need to share this treasure with both locals and tourists in an engaging way, we aimed to go beyond traditional guidebooks. Our goal was to create an interactive, informative, and accessible tool that enhances the learning experience about the diverse species inhabiting this unique environment.
 
 ## Features
 
