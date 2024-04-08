@@ -3146,12 +3146,12 @@ video {
     left: 0px;
   }
 
-  .md\:right-0 {
-    right: 0px;
+  .md\:left-3\/4 {
+    left: 75%;
   }
 
-  .md\:right-3\/4 {
-    right: 75%;
+  .md\:right-0 {
+    right: 0px;
   }
 
   .md\:top-16 {
