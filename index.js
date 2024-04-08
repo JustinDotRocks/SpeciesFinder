@@ -189,6 +189,7 @@ const setupMapModalInteractions = () => {
 					.classList.remove("hidden");
 				// Disable scrolling on the body.
 				toggleScrollLock(true);
+				adjustModalPositionForMap(); // Adjust position for map view
 			}, 250);
 		});
 
@@ -202,8 +203,25 @@ const setupMapModalInteractions = () => {
 					.classList.add("hidden");
 				// Re-enable scrolling on the body if it was previously disabled
 				toggleScrollLock(false);
+				resetModalPosition(); // Reset position to center
 			}, 250);
 		});
+};
+
+// Adjust modal position for map view
+const adjustModalPositionForMap = () => {
+	const modalContainer = document.getElementById("modal-container");
+	modalContainer.classList.add("md:absolute", "md:inset-y-16", "md:left-0");
+};
+
+// Reset modal position to center
+const resetModalPosition = () => {
+	const modalContainer = document.getElementById("modal-container");
+	modalContainer.classList.remove(
+		"md:absolute",
+		"md:inset-y-16",
+		"md:left-0"
+	);
 };
 
 const openModal = (
