@@ -3154,6 +3154,10 @@ video {
     right: 50%;
   }
 
+  .md\:top-16 {
+    top: 4rem;
+  }
+
   .md\:top-24 {
     top: 6rem;
   }
