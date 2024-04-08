@@ -3174,10 +3174,6 @@ video {
     margin-top: 0px;
   }
 
-  .md\:block {
-    display: block;
-  }
-
   .md\:h-auto {
     height: auto;
   }
@@ -3236,10 +3232,6 @@ video {
   .xl\:my-20 {
     margin-top: 5rem;
     margin-bottom: 5rem;
-  }
-
-  .xl\:w-1\/2 {
-    width: 50%;
   }
 
   .xl\:w-2\/5 {
