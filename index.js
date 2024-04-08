@@ -142,7 +142,6 @@ const modalElements = () => {
 				// Then fetch and update the Wikipedia link and other data
 				try {
 					await displaySpeciesModalData(taxonId);
-					adjustModalPositionForMap();
 				} catch (error) {
 					console.error(
 						"Error updating modal with Wikipedia data:",
