@@ -189,6 +189,7 @@ const setupMapModalInteractions = () => {
 					.classList.remove("hidden");
 				// Disable scrolling on the body.
 				toggleScrollLock(true);
+				adjustModalPositionForMap();
 			}, 250);
 		});
 
@@ -202,7 +203,7 @@ const setupMapModalInteractions = () => {
 					.classList.add("hidden");
 				// Re-enable scrolling on the body if it was previously disabled
 				toggleScrollLock(false);
-				adjustModalPositionForMap(); // Reset modal position to center
+				resetModalPosition(); // Reset modal position to center
 			}, 250);
 		});
 };
