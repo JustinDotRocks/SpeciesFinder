@@ -211,12 +211,14 @@ const setupMapModalInteractions = () => {
 // Adjust modal position for map view
 const adjustModalPositionForMap = () => {
 	const modalContainer = document.getElementById("modal-container");
+	console.log("repositioned modal!!!!!!!!!!!!!!");
 	modalContainer.classList.add("md:absolute", "md:inset-y-16", "md:left-0");
 };
 
 // Reset modal position to center
 const resetModalPosition = () => {
 	const modalContainer = document.getElementById("modal-container");
+
 	modalContainer.classList.remove(
 		"md:absolute",
 		"md:inset-y-16",
