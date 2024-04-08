@@ -142,6 +142,7 @@ const modalElements = () => {
 				// Then fetch and update the Wikipedia link and other data
 				try {
 					await displaySpeciesModalData(taxonId);
+					adjustModalPositionForMap();
 				} catch (error) {
 					console.error(
 						"Error updating modal with Wikipedia data:",
@@ -189,7 +190,6 @@ const setupMapModalInteractions = () => {
 					.classList.remove("hidden");
 				// Disable scrolling on the body.
 				toggleScrollLock(true);
-				adjustModalPositionForMap(); // Adjust position for map view
 			}, 250);
 		});
 
@@ -203,7 +203,7 @@ const setupMapModalInteractions = () => {
 					.classList.add("hidden");
 				// Re-enable scrolling on the body if it was previously disabled
 				toggleScrollLock(false);
-				resetModalPosition(); // Reset position to center
+				resetModalPosition(); // Reset modal position to center
 			}, 250);
 		});
 };
