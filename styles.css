@@ -3158,6 +3158,10 @@ video {
     top: 4rem;
   }
 
+  .md\:top-2 {
+    top: 0.5rem;
+  }
+
   .md\:top-24 {
     top: 6rem;
   }
@@ -3167,8 +3171,8 @@ video {
     margin-bottom: 4rem;
   }
 
-  .md\:mr-8 {
-    margin-right: 2rem;
+  .md\:mr-2 {
+    margin-right: 0.5rem;
   }
 
   .md\:mt-0 {
