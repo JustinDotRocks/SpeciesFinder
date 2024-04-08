@@ -3243,6 +3243,10 @@ video {
     margin-bottom: 5rem;
   }
 
+  .xl\:ml-20 {
+    margin-left: 5rem;
+  }
+
   .xl\:w-2\/5 {
     width: 40%;
   }
