@@ -56,6 +56,7 @@ For additional species-specific details and to offer a more tailored experience,
 - **Common Name:** The widely used name for each species, making it easily recognizable.
 - **Description:** A brief overview of the species, including key characteristics and interesting facts.
 - **Map Image:** Visual representation of where along the Manuels River valley you can find each species, enhancing the exploration experience.
+
 Together, these data sources provide a rich and interactive way to learn about the biodiversity of Manuels River, encouraging users to explore and appreciate the natural world around them.
 
 ## Getting Started
