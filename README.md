@@ -44,18 +44,18 @@ This project utilizes data from two main sources to enrich the user experience a
 **INaturalist API**
 Leveraging the INaturalist API to fetch real-time data about various species. The information obtained includes:
 
-**Images:** High-quality images of the species, fetched dynamically from the API, offering a visual representation to enhance user engagement and learning.
-**Scientific Name:** The official scientific designation of each species.
-**Threatened Status:** Indicates whether a species is considered threatened, providing insight into its conservation status.
-**Wikipedia URL:** A direct link to the Wikipedia page for more detailed information about the species.
-**Observations Count:** The total number of recorded observations of the species worldwide, showcasing its prevalence or rarity.
+- **Images:** High-quality images of the species, fetched dynamically from the API, offering a visual representation to enhance user engagement and learning.
+- **Scientific Name:** The official scientific designation of each species.
+- **Threatened Status:** Indicates whether a species is considered threatened, providing insight into its conservation status.
+- **Wikipedia URL:** A direct link to the Wikipedia page for more detailed information about the species.
+- **Observations Count:** The total number of recorded observations of the species worldwide, showcasing its prevalence or rarity.
 
 **Local data.json File**
 For additional species-specific details and to offer a more tailored experience, the web app utilizes a local data.json file. This file contains:
 
-**Common Name:** The widely used name for each species, making it easily recognizable.
-**Description:** A brief overview of the species, including key characteristics and interesting facts.
-**Map Image:** Visual representation of where along the Manuels River valley you can find each species, enhancing the exploration experience.
+- **Common Name:** The widely used name for each species, making it easily recognizable.
+- **Description:** A brief overview of the species, including key characteristics and interesting facts.
+- **Map Image:** Visual representation of where along the Manuels River valley you can find each species, enhancing the exploration experience.
 Together, these data sources provide a rich and interactive way to learn about the biodiversity of Manuels River, encouraging users to explore and appreciate the natural world around them.
 
 ## Getting Started
