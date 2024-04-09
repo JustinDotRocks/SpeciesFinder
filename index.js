@@ -101,8 +101,8 @@ const speciesSelectorLinkListener = () => {
 		if (!aboutPage.classList.contains("hidden")) {
 			aboutPage.classList.add("hidden");
 		}
-		// toggleMenu();
-		closeMenu();
+		toggleMenu();
+		// closeMenu();
 		// Scroll to the speciesHeader or the specific section
 		speciesHeader.scrollIntoView({
 			behavior: "smooth",
