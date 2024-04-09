@@ -48,12 +48,38 @@ const menuInteractions = () => {
 	menuLinks.forEach((link) => link.addEventListener("click", toggleMenu));
 };
 
+// const handleRouteChange = () => {
+// 	const hash = window.location.hash;
+// 	const mainContent = document.getElementById("mainContent"); // Your main content
+// 	const aboutPage = document.getElementById("aboutPage"); // About page, if you have one
+// 	const favoritesPage = document.getElementById("favoritesPage"); // Favorites page
+// 	const mapPage = document.getElementById("mapPage"); // Map page
+
+// 	// Hide all pages
+// 	mainContent.classList.add("hidden");
+// 	aboutPage.classList.add("hidden");
+// 	favoritesPage.classList.add("hidden");
+// 	mapPage.classList.add("hidden");
+
+// 	// Show the page based on the hash
+// 	if (hash === "#about") {
+// 		aboutPage.classList.remove("hidden");
+// 	} else if (hash === "#favorites") {
+// 		favoritesPage.classList.remove("hidden");
+// 		showFavorites();
+// 	} else if (hash === "#map") {
+// 		mapPage.classList.remove("hidden");
+// 	} else {
+// 		mainContent.classList.remove("hidden");
+// 	}
+// };
+
 const handleRouteChange = () => {
 	const hash = window.location.hash;
-	const mainContent = document.getElementById("mainContent"); // Your main content
-	const aboutPage = document.getElementById("aboutPage"); // About page, if you have one
-	const favoritesPage = document.getElementById("favoritesPage"); // Favorites page
-	const mapPage = document.getElementById("mapPage"); // Map page
+	const mainContent = document.getElementById("mainContent");
+	const aboutPage = document.getElementById("aboutPage");
+	const favoritesPage = document.getElementById("favoritesPage");
+	const mapPage = document.getElementById("mapPage");
 
 	// Hide all pages
 	mainContent.classList.add("hidden");
@@ -61,7 +87,6 @@ const handleRouteChange = () => {
 	favoritesPage.classList.add("hidden");
 	mapPage.classList.add("hidden");
 
-	// Show the page based on the hash
 	if (hash === "#about") {
 		aboutPage.classList.remove("hidden");
 	} else if (hash === "#favorites") {
@@ -70,9 +95,35 @@ const handleRouteChange = () => {
 	} else if (hash === "#map") {
 		mapPage.classList.remove("hidden");
 	} else {
+		// This else block now handles not just showing the main content,
+		// but also navigating to specific sections within it
 		mainContent.classList.remove("hidden");
+		// Call a function to handle internal navigation within the Home page
+		handleInternalNavigation(hash);
 	}
 };
+
+// Handles navigation to specific sections within the Home page based on the hash
+function handleInternalNavigation(hash) {
+	// Ensure the page scrolls to the top or to a specific section as needed
+	if (hash === "#species-selector") {
+		scrollToSpeciesSelector();
+	} else {
+		// Scroll to the top of the page or handle other hashes/sections
+		window.scrollTo(0, 0);
+	}
+}
+
+// Scrolls to the Species Selector section within the Home page
+function scrollToSpeciesSelector() {
+	const speciesSelector = document.getElementById("species-selector");
+	if (speciesSelector) {
+		speciesSelector.scrollIntoView({
+			behavior: "smooth",
+			block: "start",
+		});
+	}
+}
 
 const speciesSelectorLinkListener = () => {
 	const speciesSelectorLink = document.getElementById(
