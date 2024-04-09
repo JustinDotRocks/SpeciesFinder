@@ -106,9 +106,9 @@ const handleRouteChange = () => {
 		mainContent.classList.remove("hidden");
 	}
 	// If navigating to the species selector from another page, ensure the species selection is scrolled into view
-	if (hash === "" || hash === "#species-selector") {
-		scrollToSpeciesSelector();
-	}
+	// if (hash === "" || hash === "#species-selector") {
+	// 	scrollToSpeciesSelector();
+	// }
 };
 
 // Handles clicks on internal navigation links
