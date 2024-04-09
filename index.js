@@ -1,3 +1,4 @@
+let previousPage = null;
 const menuModal = document.getElementById("menu-modal");
 
 // MENU
@@ -87,6 +88,11 @@ const handleRouteChange = () => {
 	favoritesPage.classList.add("hidden");
 	mapPage.classList.add("hidden");
 
+	// Check if we're navigating away from the species selector, and store the hash if so
+	if (hash !== "#species-selector") {
+		previousPage = hash;
+	}
+
 	if (hash === "#about") {
 		aboutPage.classList.remove("hidden");
 	} else if (hash === "#favorites") {
@@ -98,32 +104,40 @@ const handleRouteChange = () => {
 		// This else block now handles not just showing the main content,
 		// but also navigating to specific sections within it
 		mainContent.classList.remove("hidden");
-		// Call a function to handle internal navigation within the Home page
-		handleInternalNavigation(hash);
+	}
+	// If navigating to the species selector from another page, ensure the species selection is scrolled into view
+	if (hash === "" || hash === "#species-selector") {
+		scrollToSpeciesSelector();
 	}
 };
 
-// Handles navigation to specific sections within the Home page based on the hash
-function handleInternalNavigation(hash) {
-	// Ensure the page scrolls to the top or to a specific section as needed
-	if (hash === "#species-selector") {
-		scrollToSpeciesSelector();
-	} else {
-		// Scroll to the top of the page or handle other hashes/sections
-		window.scrollTo(0, 0);
-	}
-}
+// Handles clicks on internal navigation links
+const handleInternalNavigation = () => {
+	document.querySelectorAll("[data-internal-link]").forEach((link) => {
+		link.addEventListener("click", function (e) {
+			const targetId = this.getAttribute("data-internal-link");
+			const targetElement = document.getElementById(targetId);
 
-// Scrolls to the Species Selector section within the Home page
-function scrollToSpeciesSelector() {
-	const speciesSelector = document.getElementById("species-selector");
+			if (targetElement) {
+				e.preventDefault(); // Prevent default anchor behavior
+				window.location.hash = ""; // Reset hash to ensure handleRouteChange logic runs correctly
+				targetElement.classList.remove("hidden"); // Show the target content
+				scrollToSpeciesSelector(); // Additional behavior, if needed
+			}
+		});
+	});
+};
+
+// Scrolls to the species selector section
+const scrollToSpeciesSelector = () => {
+	const speciesSelector = document.getElementById("species-selection");
 	if (speciesSelector) {
 		speciesSelector.scrollIntoView({
 			behavior: "smooth",
 			block: "start",
 		});
 	}
-}
+};
 
 const speciesSelectorLinkListener = () => {
 	const speciesSelectorLink = document.getElementById(
@@ -815,11 +829,11 @@ const loadSpeciesData = async () => {
 	}
 };
 
+window.addEventListener("hashchange", handleRouteChange);
 document.addEventListener("DOMContentLoaded", () => {
 	loadSpeciesData();
 	document.addEventListener("DOMContentLoaded", loadSpeciesData);
 	handleRouteChange(); // Ensure correct section is displayed on initial load
-	window.addEventListener("hashchange", handleRouteChange);
 	menuInteractions();
 	speciesSelectorLinkListener();
 	setupCloseModalListeners();
