@@ -81,7 +81,7 @@ the natural world around them.
 To explore the SpeciesFinder:
 
 1. Visit the live site:
-   [SpeciesFinder](https://justindotrocks.github.io/Species/)
+   [SpeciesFinder](https://justindotrocks.github.io/SpeciesFinder/)
 
 ## Deployment and Local Development
 
