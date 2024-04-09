@@ -1,8 +1,8 @@
-# Species Catalogue
+# SpeciesFinder
 
 ## Description
 
-Species Catalogue is a web-based interactive application that allows visitors of
+SpeciesFinder is a web-based interactive application that allows visitors of
 Manuels River to explore and learn about various species found along its banks.
 Users can discover detailed information about each species, including images,
 descriptions, and habitat maps, enhancing their educational and visiting
@@ -15,7 +15,13 @@ more interactive and personalized experiences.
 
 ## Motivation
 
-Having worked at Manuels River for almost a decade, currently in a leadership role responsible for education, I've developed a profound appreciation for its natural beauty and biodiversity. Recognizing the need to share this treasure with both locals and tourists in an engaging way, we aimed to go beyond traditional guidebooks. Our goal was to create an interactive, informative, and accessible tool that enhances the learning experience about the diverse species inhabiting this unique environment.
+Having worked at Manuels River for almost a decade, currently in a leadership
+role responsible for education, I've developed a profound appreciation for its
+natural beauty and biodiversity. Recognizing the need to share this treasure
+with both locals and tourists in an engaging way, we aimed to go beyond
+traditional guidebooks. Our goal was to create an interactive, informative, and
+accessible tool that enhances the learning experience about the diverse species
+inhabiting this unique environment.
 
 ## Features
 
@@ -38,10 +44,10 @@ Having worked at Manuels River for almost a decade, currently in a leadership ro
 
 ## Getting Started
 
-To explore the Species Catalogue:
+To explore the SpeciesFinder:
 
 1. Visit the live site:
-   [Species Catalogue](https://justindotrocks.github.io/Species/)
+   [SpeciesFinder](https://justindotrocks.github.io/Species/)
 
 ## Deployment and Local Development
 
@@ -61,8 +67,8 @@ package. To redeploy or make changes to the deployment, follow these steps:
       ```
       yarn build
       ```
-2. Deploy the project to GitHub Pages: ` yarn deploy ` This `deploy` command is
-   a script defined in your `package.json` that executes the necessary steps to
+2. Deploy the project to GitHub Pages: `yarn deploy` This `deploy` command is a
+   script defined in your `package.json` that executes the necessary steps to
    update your GitHub Pages site. It typically involves pushing the contents of
    your build directory to the `gh-pages` branch of your repository.
 
@@ -93,11 +99,11 @@ After cloning the project and navigating to the directory:
       ```
       yarn install
       ```
-2. Start the project locally: ` yarn start ` This will run a local server,
-   usually accessible at `http://localhost:3000`, where you can see your
-   application running. Note that due to the deployment-specific configurations
-   for GitHub Pages, some paths or resources might not load as expected when
-   running the project locally.
+2. Start the project locally: `yarn start` This will run a local server, usually
+   accessible at `http://localhost:3000`, where you can see your application
+   running. Note that due to the deployment-specific configurations for GitHub
+   Pages, some paths or resources might not load as expected when running the
+   project locally.
 
 ### Note on Local Development and Deployment
 
@@ -111,8 +117,8 @@ continuously being added.
 
 ## About
 
-The Species Catalogue project aims to bridge the gap between technology and
-nature conservation, providing a platform for education and engagement with the
+SpeciesFinder project aims to bridge the gap between technology and nature
+conservation, providing a platform for education and engagement with the
 biodiversity of Manuels River.
 
 ## Contributors

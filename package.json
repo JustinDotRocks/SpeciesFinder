@@ -1,8 +1,8 @@
 {
-	"name": "Species",
+	"name": "SpeciesFinder",
 	"version": "1.0.0",
 	"main": "index.js",
-	"repository": "https://github.com/JustinDotRocks/Species.git",
+	"repository": "https://github.com/JustinDotRocks/SpeciesFinder.git",
 	"author": "JustinDotRocks",
 	"license": "MIT",
 	"devDependencies": {

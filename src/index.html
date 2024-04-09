@@ -8,13 +8,13 @@
 		/>
 		<link href="https://cdn.tailwindcss.com" rel="stylesheet" />
 		<link href="./styles.css" rel="stylesheet" />
-		<base href="/Species/" />
+		<base href="/SpeciesFinder/" />
 
 		<script
 			src="https://kit.fontawesome.com/199b8e5f85.js"
 			crossorigin="anonymous"
 		></script>
-		<title>Species</title>
+		<title>SpeciesFinder</title>
 	</head>
 	<body class="bg-gray-100">
 		<!-- Navbar Container -->
@@ -173,7 +173,7 @@
 						class="mt-32 text-container z-10 flex flex-col items-center justify-center"
 					>
 						<h1 class="text-white text-5xl xl:text-7xl">
-							Species
+							SpeciesFinder
 						</h1>
 						<p
 							class="text-white text-3xl xl:text-5xl mt-4"
@@ -210,18 +210,6 @@
 				>
 					<!-- Content here -->
 				</aside>
-				<!-- Desktop Map Component -->
-				<!-- <div
-					id="staticMap"
-					class="hidden md:block md:w-1/2 xl:w-1/2 sticky top-16 h-screen overflow-scroll"
-				>
-					<img
-						src="./images/River-Maps/manuels-river-map-edited.png"
-						alt="Static Map"
-						id="mapImage"
-						class="w-full"
-					/>
-				</div> -->
 			</div>
 
 			<!-- MODAL -->
@@ -231,7 +219,7 @@
 			>
 				<div
 					id="modal-container"
-					class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto md:w-1/2 md:max-h-[100vh] md:absolute md:inset-y-16 md:left-0"
+					class="modal-container bg-white rounded-lg w-11/12 relative max-h-[90vh] overflow-y-auto md:w-1/2 md:max-h-[100vh]"
 				>
 					<div
 						class="modal-title-button-container flex justify-between items-center"
@@ -252,7 +240,7 @@
 							<!--  -->
 						</div>
 						<div
-							class="close-modal-button top-16 right-10 fixed md:top-24 md:right-1/2 md:mr-8 z-50 text-customBlue text-4xl"
+							class="close-modal-button mb-8 right-10 fixed md:absolute md:top-2 md:left-3/4 md:ml-8 md:mt-4 xl:ml-20 z-50 text-customBlue text-4xl"
 						>
 							<button id="closeModal" class="pb-1">
 								&times;
@@ -398,11 +386,11 @@
 		<div id="mapPage" class="mt-16 hidden h-full flex justify-center">
 			<div
 				id="mapContainer"
-				class="mt-4 md:w-2/3 lg:w-2/3 overflow-scroll"
+				class="flex justify-center mt-4 md:w-2/3 lg:w-2/3 overflow-scroll"
 			>
 				<img
 					src="./images/manuels-river-map-edited.png"
-					class="h-screen z-10 md:w-2/3 lg:w-2/3"
+					class="h-full z-10 md:w-2/3 lg:w-2/3"
 				/>
 			</div>
 		</div>
@@ -425,10 +413,9 @@
 						About the Project
 					</h2>
 					<p class="text-xl mb-4">
-						Species; a Species Catalogue, is a dynamic
-						web application designed to enhance the
-						exploration and learning experience at
-						Manuels River.
+						SpeciesFinder is a dynamic web application
+						designed to enhance the exploration and
+						learning experience at Manuels River.
 					</p>
 					<p class="text-xl mb-4">
 						It offers an interactive platform where
@@ -436,7 +423,7 @@
 						species found along the river through
 						detailed descriptions, images, and maps.
 						Built with a focus on user engagement and
-						education, the Species Catalogue serves as a
+						education, the SpeciesFinder serves as a
 						bridge between nature enthusiasts and the
 						rich biodiversity of Manuels River,
 						promoting conservation and awareness through

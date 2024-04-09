@@ -832,6 +832,10 @@ video {
   margin-bottom: 1.5rem;
 }
 
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -2898,9 +2902,6 @@ video {
   transition: 1s ease-in-out 1s;
 }
 
-#modal.active {
-}
-
 #mapContainer {
   transition: transform 0.3s ease-in-out;
 }
@@ -3149,12 +3150,20 @@ video {
     left: 0px;
   }
 
+  .md\:left-3\/4 {
+    left: 75%;
+  }
+
   .md\:right-0 {
     right: 0px;
   }
 
-  .md\:right-1\/2 {
-    right: 50%;
+  .md\:top-16 {
+    top: 4rem;
+  }
+
+  .md\:top-2 {
+    top: 0.5rem;
   }
 
   .md\:top-24 {
@@ -3166,16 +3175,16 @@ video {
     margin-bottom: 4rem;
   }
 
-  .md\:mr-8 {
-    margin-right: 2rem;
+  .md\:ml-8 {
+    margin-left: 2rem;
   }
 
   .md\:mt-0 {
     margin-top: 0px;
   }
 
-  .md\:block {
-    display: block;
+  .md\:mt-4 {
+    margin-top: 1rem;
   }
 
   .md\:h-auto {
@@ -3238,8 +3247,8 @@ video {
     margin-bottom: 5rem;
   }
 
-  .xl\:w-1\/2 {
-    width: 50%;
+  .xl\:ml-20 {
+    margin-left: 5rem;
   }
 
   .xl\:w-2\/5 {
