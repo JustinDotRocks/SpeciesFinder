@@ -80,11 +80,15 @@ const speciesSelectorLinkListener = () => {
 	);
 	const speciesHeader = document.getElementById("species-selection");
 	const favoritesPage = document.getElementById("favoritesPage");
+	const mapPage = document.getElementById("mapPage");
+
 	console.log(speciesHeader);
 	speciesSelectorLink.addEventListener("click", (e) => {
 		e.preventDefault();
 
 		favoritesPage.classList.add("hidden");
+		mapPage.classList.add("hidden");
+
 		// Add any other sections that need to be hidden here
 
 		// Explicitly show mainContent if hidden
