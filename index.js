@@ -79,9 +79,14 @@ const speciesSelectorLinkListener = () => {
 		"speciesSelectorLink"
 	);
 	const speciesHeader = document.getElementById("species-selection");
+	const favoritesPage = document.getElementById("favoritesPage");
 	console.log(speciesHeader);
 	speciesSelectorLink.addEventListener("click", (e) => {
 		e.preventDefault();
+
+		favoritesPage.classList.add("hidden");
+		// Add any other sections that need to be hidden here
+
 		// Explicitly show mainContent if hidden
 		const mainContent = document.getElementById("mainContent");
 		if (mainContent.classList.contains("hidden")) {
