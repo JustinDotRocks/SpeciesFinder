@@ -49,32 +49,6 @@ const menuInteractions = () => {
 	menuLinks.forEach((link) => link.addEventListener("click", toggleMenu));
 };
 
-// const handleRouteChange = () => {
-// 	const hash = window.location.hash;
-// 	const mainContent = document.getElementById("mainContent"); // Your main content
-// 	const aboutPage = document.getElementById("aboutPage"); // About page, if you have one
-// 	const favoritesPage = document.getElementById("favoritesPage"); // Favorites page
-// 	const mapPage = document.getElementById("mapPage"); // Map page
-
-// 	// Hide all pages
-// 	mainContent.classList.add("hidden");
-// 	aboutPage.classList.add("hidden");
-// 	favoritesPage.classList.add("hidden");
-// 	mapPage.classList.add("hidden");
-
-// 	// Show the page based on the hash
-// 	if (hash === "#about") {
-// 		aboutPage.classList.remove("hidden");
-// 	} else if (hash === "#favorites") {
-// 		favoritesPage.classList.remove("hidden");
-// 		showFavorites();
-// 	} else if (hash === "#map") {
-// 		mapPage.classList.remove("hidden");
-// 	} else {
-// 		mainContent.classList.remove("hidden");
-// 	}
-// };
-
 const handleRouteChange = () => {
 	const hash = window.location.hash;
 	const mainContent = document.getElementById("mainContent");
@@ -147,7 +121,6 @@ const speciesSelectorLinkListener = () => {
 	const favoritesPage = document.getElementById("favoritesPage");
 	const mapPage = document.getElementById("mapPage");
 
-	console.log(speciesHeader);
 	speciesSelectorLink.addEventListener("click", (e) => {
 		e.preventDefault();
 
@@ -286,7 +259,6 @@ const setupMapModalInteractions = () => {
 // Adjust modal position for map view
 const adjustModalPositionForMap = () => {
 	const modalContainer = document.getElementById("modal-container");
-	console.log("repositioned modal!!!!!!!!!!!!!!");
 	modalContainer.classList.add("md:absolute", "md:top-16", "md:left-0");
 };
 
@@ -305,9 +277,6 @@ const openModal = (
 	map_image,
 	taxonId
 ) => {
-	console.log("Received taxonId in openModal:", taxonId); // Debugging statement
-	console.trace(); // This will print the call stack, helping identify where the call came from
-
 	// Set the content of the modal elements
 	document.getElementById("modalTitle").textContent = name;
 	document.getElementById("modalImage").src = imgSrc;
@@ -335,7 +304,6 @@ const openModal = (
 		: "far fa-star";
 	starIcon.style.cursor = "pointer";
 	starIcon.addEventListener("click", () => {
-		console.log("taxonId:", taxonId); // Debugging log
 		toggleFavorite(taxonId.toString()); // Ensure toggleFavorite is defined and correctly toggles the favorite state
 		updateFavoriteIcons(taxonId.toString()); // This function needs to correctly update the icon's appearance
 	});
@@ -610,7 +578,6 @@ const checkIfFavorite = (taxonId) => {
 		return false; // or handle this case as you see fit
 	}
 	const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-	console.log(favorites);
 	return favorites.includes(taxonId.toString());
 };
 
@@ -770,12 +737,10 @@ const fetchDataFromAPI = async (taxonId) => {
 	try {
 		const response = await fetch(url);
 		const data = await response.json();
-		console.log(data?.results);
 		const scientificName = data?.results?.[0]?.taxon?.name || "";
 		const threatened = data?.results?.[0]?.taxon?.threatened || false;
 		const wikipedia_url =
 			data?.results?.[0]?.taxon?.wikipedia_url || false;
-		console.log("Wikipedia URL:", wikipedia_url);
 		const observations_count =
 			data?.results?.[0]?.taxon?.observations_count || "";
 		return {
@@ -803,7 +768,6 @@ const fetchImageFromAPI = async (taxonId) => {
 	try {
 		const response = await fetch(url);
 		const data = await response.json();
-		console.log(data?.results);
 		return (
 			data?.results?.[0]?.taxon?.default_photo?.medium_url ||
 			data?.results[0]?.photos[0]?.url ||
