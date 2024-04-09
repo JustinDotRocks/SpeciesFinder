@@ -1,3 +1,4 @@
+let previousPage = null;
 const menuModal = document.getElementById("menu-modal");
 
 // MENU
@@ -50,10 +51,10 @@ const menuInteractions = () => {
 
 const handleRouteChange = () => {
 	const hash = window.location.hash;
-	const mainContent = document.getElementById("mainContent"); // Your main content
-	const aboutPage = document.getElementById("aboutPage"); // About page, if you have one
-	const favoritesPage = document.getElementById("favoritesPage"); // Favorites page
-	const mapPage = document.getElementById("mapPage"); // Map page
+	const mainContent = document.getElementById("mainContent");
+	const aboutPage = document.getElementById("aboutPage");
+	const favoritesPage = document.getElementById("favoritesPage");
+	const mapPage = document.getElementById("mapPage");
 
 	// Hide all pages
 	mainContent.classList.add("hidden");
@@ -61,7 +62,11 @@ const handleRouteChange = () => {
 	favoritesPage.classList.add("hidden");
 	mapPage.classList.add("hidden");
 
-	// Show the page based on the hash
+	// Check if we're navigating away from the species selector, and store the hash if so
+	if (hash !== "#species-selector") {
+		previousPage = hash;
+	}
+
 	if (hash === "#about") {
 		aboutPage.classList.remove("hidden");
 	} else if (hash === "#favorites") {
@@ -70,7 +75,41 @@ const handleRouteChange = () => {
 	} else if (hash === "#map") {
 		mapPage.classList.remove("hidden");
 	} else {
+		// This else block now handles not just showing the main content,
+		// but also navigating to specific sections within it
 		mainContent.classList.remove("hidden");
+	}
+	// If navigating to the species selector from another page, ensure the species selection is scrolled into view
+	// if (hash === "" || hash === "#species-selector") {
+	// 	scrollToSpeciesSelector();
+	// }
+};
+
+// Handles clicks on internal navigation links
+const handleInternalNavigation = () => {
+	document.querySelectorAll("[data-internal-link]").forEach((link) => {
+		link.addEventListener("click", function (e) {
+			const targetId = this.getAttribute("data-internal-link");
+			const targetElement = document.getElementById(targetId);
+
+			if (targetElement) {
+				e.preventDefault(); // Prevent default anchor behavior
+				window.location.hash = ""; // Reset hash to ensure handleRouteChange logic runs correctly
+				targetElement.classList.remove("hidden"); // Show the target content
+				scrollToSpeciesSelector(); // Additional behavior, if needed
+			}
+		});
+	});
+};
+
+// Scrolls to the species selector section
+const scrollToSpeciesSelector = () => {
+	const speciesSelector = document.getElementById("species-selection");
+	if (speciesSelector) {
+		speciesSelector.scrollIntoView({
+			behavior: "smooth",
+			block: "start",
+		});
 	}
 };
 
@@ -79,9 +118,17 @@ const speciesSelectorLinkListener = () => {
 		"speciesSelectorLink"
 	);
 	const speciesHeader = document.getElementById("species-selection");
-	console.log(speciesHeader);
+	const favoritesPage = document.getElementById("favoritesPage");
+	const mapPage = document.getElementById("mapPage");
+
 	speciesSelectorLink.addEventListener("click", (e) => {
 		e.preventDefault();
+
+		favoritesPage.classList.add("hidden");
+		mapPage.classList.add("hidden");
+
+		// Add any other sections that need to be hidden here
+
 		// Explicitly show mainContent if hidden
 		const mainContent = document.getElementById("mainContent");
 		if (mainContent.classList.contains("hidden")) {
@@ -212,7 +259,6 @@ const setupMapModalInteractions = () => {
 // Adjust modal position for map view
 const adjustModalPositionForMap = () => {
 	const modalContainer = document.getElementById("modal-container");
-	console.log("repositioned modal!!!!!!!!!!!!!!");
 	modalContainer.classList.add("md:absolute", "md:top-16", "md:left-0");
 };
 
@@ -231,9 +277,6 @@ const openModal = (
 	map_image,
 	taxonId
 ) => {
-	console.log("Received taxonId in openModal:", taxonId); // Debugging statement
-	console.trace(); // This will print the call stack, helping identify where the call came from
-
 	// Set the content of the modal elements
 	document.getElementById("modalTitle").textContent = name;
 	document.getElementById("modalImage").src = imgSrc;
@@ -261,7 +304,6 @@ const openModal = (
 		: "far fa-star";
 	starIcon.style.cursor = "pointer";
 	starIcon.addEventListener("click", () => {
-		console.log("taxonId:", taxonId); // Debugging log
 		toggleFavorite(taxonId.toString()); // Ensure toggleFavorite is defined and correctly toggles the favorite state
 		updateFavoriteIcons(taxonId.toString()); // This function needs to correctly update the icon's appearance
 	});
@@ -536,7 +578,6 @@ const checkIfFavorite = (taxonId) => {
 		return false; // or handle this case as you see fit
 	}
 	const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-	console.log(favorites);
 	return favorites.includes(taxonId.toString());
 };
 
@@ -696,12 +737,10 @@ const fetchDataFromAPI = async (taxonId) => {
 	try {
 		const response = await fetch(url);
 		const data = await response.json();
-		console.log(data?.results);
 		const scientificName = data?.results?.[0]?.taxon?.name || "";
 		const threatened = data?.results?.[0]?.taxon?.threatened || false;
 		const wikipedia_url =
 			data?.results?.[0]?.taxon?.wikipedia_url || false;
-		console.log("Wikipedia URL:", wikipedia_url);
 		const observations_count =
 			data?.results?.[0]?.taxon?.observations_count || "";
 		return {
@@ -729,7 +768,6 @@ const fetchImageFromAPI = async (taxonId) => {
 	try {
 		const response = await fetch(url);
 		const data = await response.json();
-		console.log(data?.results);
 		return (
 			data?.results?.[0]?.taxon?.default_photo?.medium_url ||
 			data?.results[0]?.photos[0]?.url ||
@@ -755,11 +793,12 @@ const loadSpeciesData = async () => {
 	}
 };
 
+handleInternalNavigation();
+window.addEventListener("hashchange", handleRouteChange);
 document.addEventListener("DOMContentLoaded", () => {
 	loadSpeciesData();
 	document.addEventListener("DOMContentLoaded", loadSpeciesData);
 	handleRouteChange(); // Ensure correct section is displayed on initial load
-	window.addEventListener("hashchange", handleRouteChange);
 	menuInteractions();
 	speciesSelectorLinkListener();
 	setupCloseModalListeners();
