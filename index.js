@@ -829,6 +829,7 @@ const loadSpeciesData = async () => {
 	}
 };
 
+handleInternalNavigation();
 window.addEventListener("hashchange", handleRouteChange);
 document.addEventListener("DOMContentLoaded", () => {
 	loadSpeciesData();
