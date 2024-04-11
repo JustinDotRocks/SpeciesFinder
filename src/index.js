@@ -409,8 +409,10 @@ const displaySpeciesModalData = async (taxonId) => {
 		taxonId
 	);
 
-	// Secure the Wikipedia URL
-	const secureWikipediaUrl = secureUrl(wikipedia_url);
+	// Secure the Wikipedia URL if it exists
+	const secureWikipediaUrl = wikipedia_url
+		? secureUrl(wikipedia_url)
+		: null;
 
 	const wikiFrame = document.getElementById("wikiFrame");
 	const showWikiButton = document.getElementById("showWiki");
