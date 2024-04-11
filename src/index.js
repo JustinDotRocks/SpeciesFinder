@@ -237,7 +237,7 @@ const setupMapModalInteractions = () => {
 					.classList.remove("hidden");
 				// Disable scrolling on the body.
 				toggleScrollLock(true);
-				adjustModalPositionForMap();
+				// adjustModalPositionForMap();
 			}, 250);
 		});
 
@@ -251,23 +251,23 @@ const setupMapModalInteractions = () => {
 					.classList.add("hidden");
 				// Re-enable scrolling on the body if it was previously disabled
 				toggleScrollLock(false);
-				resetModalPosition(); // Reset modal position to center
+				// resetModalPosition(); // Reset modal position to center
 			}, 250);
 		});
 };
 
 // Adjust modal position for map view
-const adjustModalPositionForMap = () => {
-	const modalContainer = document.getElementById("modal-container");
-	modalContainer.classList.add("md:absolute", "md:top-16", "md:left-0");
-};
+// const adjustModalPositionForMap = () => {
+// 	const modalContainer = document.getElementById("modal-container");
+// 	modalContainer.classList.add("md:absolute", "md:top-16", "md:left-0");
+// };
 
-// Reset modal position to center
-const resetModalPosition = () => {
-	const modalContainer = document.getElementById("modal-container");
+// // Reset modal position to center
+// const resetModalPosition = () => {
+// 	const modalContainer = document.getElementById("modal-container");
 
-	modalContainer.classList.remove("md:absolute", "md:top-16", "md:left-0");
-};
+// 	modalContainer.classList.remove("md:absolute", "md:top-16", "md:left-0");
+// };
 
 const openModal = (
 	name,
