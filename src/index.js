@@ -242,18 +242,41 @@ const setupMapModalInteractions = () => {
 		});
 
 	// Close the map-modal
+	// document
+	// 	.getElementById("closeMapModal")
+	// 	.addEventListener("click", function () {
+	// 		setTimeout(() => {
+	// 			document
+	// 				.getElementById("map-modal")
+	// 				.classList.add("hidden");
+	// 			// Re-enable scrolling on the body if it was previously disabled
+	// 			toggleScrollLock(false);
+	// 			// resetModalPosition(); // Reset modal position to center
+	// 		}, 250);
+	// 	});
+	// Close the map-modal with the close button
 	document
 		.getElementById("closeMapModal")
 		.addEventListener("click", function () {
-			setTimeout(() => {
-				document
-					.getElementById("map-modal")
-					.classList.add("hidden");
-				// Re-enable scrolling on the body if it was previously disabled
-				toggleScrollLock(false);
-				// resetModalPosition(); // Reset modal position to center
-			}, 250);
+			closeMapModal();
 		});
+
+	// Close the map-modal when clicking outside of it
+	window.addEventListener("click", function (event) {
+		const mapModal = document.getElementById("map-modal");
+		if (event.target === mapModal) {
+			closeMapModal();
+		}
+	});
+};
+
+const closeMapModal = () => {
+	setTimeout(() => {
+		document.getElementById("map-modal").classList.add("hidden");
+		// Re-enable scrolling on the body if it was previously disabled
+		toggleScrollLock(false);
+		// resetModalPosition(); // Reset modal position to center
+	}, 250);
 };
 
 // Adjust modal position for map view
