@@ -3191,8 +3191,8 @@ video {
     height: auto;
   }
 
-  .md\:max-h-\[90vh\] {
-    max-height: 90vh;
+  .md\:max-h-\[100vh\] {
+    max-height: 100vh;
   }
 
   .md\:w-1\/2 {
