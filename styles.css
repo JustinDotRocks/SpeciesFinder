@@ -3223,6 +3223,10 @@ video {
     margin-bottom: 3rem;
   }
 
+  .lg\:mr-4 {
+    margin-right: 1rem;
+  }
+
   .lg\:block {
     display: block;
   }
