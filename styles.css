@@ -3243,6 +3243,10 @@ video {
     flex-direction: row;
   }
 
+  .lg\:justify-center {
+    justify-content: center;
+  }
+
   .lg\:overflow-visible {
     overflow: visible;
   }
