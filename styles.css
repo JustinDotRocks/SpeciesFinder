@@ -1075,6 +1075,10 @@ video {
   flex-shrink: 1;
 }
 
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
 .shrink {
   flex-shrink: 1;
 }
@@ -3241,10 +3245,6 @@ video {
 
   .lg\:flex-row {
     flex-direction: row;
-  }
-
-  .lg\:justify-center {
-    justify-content: center;
   }
 
   .lg\:overflow-visible {

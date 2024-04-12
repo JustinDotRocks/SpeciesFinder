@@ -20,17 +20,18 @@
 		<!-- Navbar Container -->
 		<nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div
-					class="flex justify-between items-center h-16 lg:justify-center"
-				>
+				<div class="flex justify-between items-center h-16">
 					<!-- Logo on the left -->
-					<a href="#" class="block">
+					<a href="#" class="block flex-shrink-0">
 						<img
 							src="./images/mr-logo.png"
 							alt="Manuels River Logo"
 							class="h-10"
 						/>
 					</a>
+					<!-- Spacer to push navigation to center on large screens -->
+					<div class="flex-grow lg:hidden"></div>
+					<!-- Invisible spacer for small to medium screens -->
 
 					<!-- Desktop Menu for large screens -->
 					<div class="hidden lg:flex lg:flex-row space-x-4">
@@ -58,6 +59,11 @@
 							>About</a
 						>
 					</div>
+					<!-- Spacer to balance the layout and ensure the menu centers correctly -->
+					<div class="flex-grow lg:hidden"></div>
+					<!-- Invisible spacer for small to medium screens -->
+
+					<!-- Hamburger button for smaller screens -->
 					<!-- Menu on the right -->
 					<button
 						id="hamburger-button"
