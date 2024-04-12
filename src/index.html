@@ -21,18 +21,53 @@
 		<nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="flex justify-between items-center h-16">
-					<!-- Logo on the left -->
-					<a href="#" class="block">
+					<!-- Logo on the left always visible -->
+					<a href="#" class="flex-shrink-0">
 						<img
 							src="./images/mr-logo.png"
 							alt="Manuels River Logo"
 							class="h-10"
 						/>
 					</a>
+
+					<!-- Centered navigation links visible only on lg screens and above -->
+					<div
+						class="hidden lg:flex lg:flex-grow lg:justify-center items-center space-x-4 lg:mr-16"
+					>
+						<a href="#" class="text-customBlue text-xl"
+							>Home</a
+						>
+						<a
+							href="#speciesSelector"
+							class="text-customBlue text-lg hidden"
+							>Species Selector</a
+						>
+						<a
+							href="#favorites"
+							class="text-customBlue text-xl"
+							>Favorites</a
+						>
+						<a
+							href="#map"
+							class="text-customBlue text-xl"
+							>Map</a
+						>
+					</div>
+
+					<!-- About link on the right, visible only on lg screens -->
+					<div class="hidden lg:block">
+						<a
+							href="#about"
+							class="text-customBlue text-xl"
+							>About</a
+						>
+					</div>
+
+					<!-- Hamburger button for smaller screens -->
 					<!-- Menu on the right -->
 					<button
 						id="hamburger-button"
-						class="hamburger-menu border-white"
+						class="hamburger-menu border-white lg:hidden"
 					>
 						<span
 							class="hamburger-line bg-customBlue"
