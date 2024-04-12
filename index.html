@@ -21,26 +21,25 @@
 		<nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="flex justify-between items-center h-16">
-					<!-- Logo on the left -->
-					<a href="#" class="block flex-shrink-0">
+					<!-- Logo on the left always visible -->
+					<a href="#" class="flex-shrink-0">
 						<img
 							src="./images/mr-logo.png"
 							alt="Manuels River Logo"
 							class="h-10"
 						/>
 					</a>
-					<!-- Spacer to push navigation to center on large screens -->
-					<div class="flex-grow lg:hidden"></div>
-					<!-- Invisible spacer for small to medium screens -->
 
-					<!-- Desktop Menu for large screens -->
-					<div class="hidden lg:flex lg:flex-row space-x-4">
+					<!-- Centered navigation links visible only on lg screens and above -->
+					<div
+						class="hidden lg:flex lg:flex-grow lg:justify-center items-center space-x-4"
+					>
 						<a href="#" class="text-customBlue text-lg"
 							>Home</a
 						>
 						<a
 							href="#speciesSelector"
-							class="hidden text-customBlue text-lg"
+							class="text-customBlue text-lg"
 							>Species Selector</a
 						>
 						<a
@@ -48,20 +47,16 @@
 							class="text-customBlue text-lg"
 							>Favorites</a
 						>
-						<a
-							href="#map"
-							class="text-customBlue text-lg"
-							>Map</a
-						>
+					</div>
+
+					<!-- About link on the right, visible only on lg screens -->
+					<div class="hidden lg:block">
 						<a
 							href="#about"
 							class="text-customBlue text-lg"
 							>About</a
 						>
 					</div>
-					<!-- Spacer to balance the layout and ensure the menu centers correctly -->
-					<div class="flex-grow lg:hidden"></div>
-					<!-- Invisible spacer for small to medium screens -->
 
 					<!-- Hamburger button for smaller screens -->
 					<!-- Menu on the right -->
